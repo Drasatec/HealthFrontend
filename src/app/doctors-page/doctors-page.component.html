@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row ms-4">
+    <app-search></app-search>
+  </div>
+  <div class="row d-flex justify-content-center  text-center my-5 mainBorder  ">
+    <div class="col-12 w-50">
+      <app-appointment-booking></app-appointment-booking>
+    </div>
+       
+  </div>
+  <div class="row my-5 ">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">الرئيسية > </a></li>
+          <li class="breadcrumb-item active"><a href="#">الأطباء</a></li>
+        </ol>
+      </nav>
+    <div class="col-md-3">
+        <app-doctor-filter></app-doctor-filter>
+    </div>
+
+    <div class="col-md-9">
+      <!-- <a [routerLink]="['/doctor-details']" class="btn  px-5 mb-4"> -->
+        <app-doctor-cards></app-doctor-cards>
+      <!-- </a> -->
+        
+      <div class="my-3  px-4 d-flex justify-content-center">
+          <app-pagination></app-pagination>
+      </div> 
+
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+

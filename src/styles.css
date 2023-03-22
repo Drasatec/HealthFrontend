@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=Cairo&family=Raleway:wght@400;500&display=swap');
+
+:root{
+    --heading-font:24px bold;
+    --main-color: #0070CD;
+    --search-color:#1671bc;
+    --subtitle-font: 16px medium;
+    --paragraph-font: 14px ;
+    --main-border:15px;
+    --main-bg:#ebeef3;
+    --span-color:#0d74b4;
+  
+}
+
+* {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    box-sizing: border-box;
+  
+
+}
+
+body{
+  background-color: var( --main-bg);
+}
+
+.ratingColor{
+  color:#fbc634 !important;
+}
+
+.spanColor{
+  color: var( --span-color);
+}
+
+h4{
+  font-weight: bolder;
+  font-size: 30px;
+}
+.btnShadow{
+  box-shadow: 3px 3px 8px #88888874;
+}
+
+
+.mainBorder{
+  border-radius: var(--main-border);
+ 
+}
+.generalBGColor{
+  background-color:var(--main-color)
+}
+.generalColor{
+  color:var(--main-color)
+}

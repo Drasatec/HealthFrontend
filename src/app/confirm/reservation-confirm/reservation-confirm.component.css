@@ -1,0 +1,7 @@
+.fSize{
+    font-size: 14px;
+}
+.reserveColor{
+    background: #099dff21;
+    border-radius: var(    --main-border);
+}
