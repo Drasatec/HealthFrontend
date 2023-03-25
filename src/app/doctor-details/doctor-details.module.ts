@@ -8,6 +8,8 @@ import { DoctorDetailsComponent } from './doctor-details.component';
 import { SpecialCardDoctorComponent } from './special-card-doctor/special-card-doctor.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 
@@ -17,7 +19,9 @@ import { ReservationDetailsComponent } from './reservation-details/reservation-d
   imports: [
       CommonModule
     , DoctorsPageModule
-    ,   FontAwesomeModule,
+    , FontAwesomeModule,
+    BrowserAnimationsModule,
+    CarouselModule ,
       
   ],
   exports: [

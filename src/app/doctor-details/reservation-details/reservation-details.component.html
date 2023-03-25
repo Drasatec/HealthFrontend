@@ -1,16 +1,16 @@
 <div class="card  my-3"  style="width: 100%;">
-    <div class="contanier">
+    <div class="contanier p-5">
         <div class="row">
          <div class="col-md-3">
             <h3 class="p-3 me-2">المستشفى:</h3>
          </div>
-          <div class="col-md-9 p-3 ">
+          <div class="col-md-9 p-3  ">
 
 
-            <button class="btn btn-primary btn-primary text-white generalBGColor p-3 mx-4">مستشفى الرحمة </button>
-            <button class="btn btn-primary  mx-4">مستشفى الرحمة </button>
-            <button class="btn btn-primary  mx-4">مستشفى الرحمة </button>
-            <button class="btn btn-primary  mx-4">مستشفى الرحمة </button>
+            <button class="btn btn-primary text-white generalBGColor p-3 mx-4">مستشفى الرحمة </button>
+            <button class="btn btn-primary p-3 mx-4">مستشفى الرحمة </button>
+            <button class="btn btn-primary p-3  mx-4">مستشفى الرحمة </button>
+            <button class="btn   p-3 mx-4">مستشفى الرحمة </button>
     
 
           </div>
@@ -18,7 +18,20 @@
             </div>
 
             <div class="row">
-                    
+              <owl-carousel-o [options]="customOptions">
+                <div class="col-md-3 col-lg-3 col-sm-12">
+                  <div
+                    class="card cardStyle overflow-hidden"
+                    style="width: 18rem; height: 20rem"
+                  >
+                  <ng-template carouselSlide>Slide 1</ng-template>  
+                </div>
+
+                </div>
+                
+                <ng-template carouselSlide>Slide 2</ng-template>  
+                <ng-template carouselSlide>Slide 3</ng-template>  
+              </owl-carousel-o>     
             </div>
             <div class="row"> 
                 <div class="col-12 d-flex justify-content-center">
