@@ -15,6 +15,8 @@ import { ReservationAgreebyclientComponent } from './confirm/reservation-agree-b
 import { ListOfPatientComponent } from './booking/list-of-patient/list-of-patient.component';
 import { BookingByPatientComponent } from './booking/booking-by-patient/booking-by-patient.component';
 import { BookingByClientComponent } from './booking/booking-by-client/booking-by-client.component';
+import { MyBookingClientPageComponent } from './my-booking-client-page/my-booking-client-page.component';
+import { FutureBookingClientComponent } from './my-booking-client-page/future-booking-client/future-booking-client.component';
 
  
 const routes: Routes = [
@@ -64,6 +66,16 @@ const routes: Routes = [
     path: 'list-of-patient',
     component: ListOfPatientComponent,
   },
+  {
+    path: 'my-booking-client',
+    component: MyBookingClientPageComponent,
+  },
+  {
+    path: 'future-booking-client',
+    component: FutureBookingClientComponent,
+  },
+
+
   {
     path: '**',
     redirectTo: '',

@@ -54,3 +54,7 @@ h4{
 .generalColor{
   color:var(--main-color)
 }
+.reserveColor{
+  background: #099dff21;
+  border-radius: var(    --main-border);
+}

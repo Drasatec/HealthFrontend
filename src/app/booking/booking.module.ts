@@ -14,7 +14,8 @@ import { ListOfPatientComponent } from './list-of-patient/list-of-patient.compon
   declarations: [
     BookingByClientComponent,
     BookingByPatientComponent,
-    ListOfPatientComponent
+    ListOfPatientComponent,
+
   ],
   imports: [
     CommonModule, FontAwesomeModule,RouterModule,

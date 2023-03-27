@@ -1,3 +1,5 @@
+import { MyBookingPatientPageModule } from './my-booking-patient-page/my-booking-patient-page.module';
+import { MyBookingClientPageModule } from './my-booking-client-page/my-booking-client-page.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { NgModule } from '@angular/core';
@@ -14,11 +16,15 @@ import { ConfirmModule } from './confirm/confirm.module';
 import { DoctorDetailsModule } from './doctor-details/doctor-details.module';
 import { DoctorsPageModule } from './doctors-page/doctors-page.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MyBookingPatientPageComponent } from './my-booking-patient-page/my-booking-patient-page.component';
+import { MyBookingClientPageComponent } from './my-booking-client-page/my-booking-client-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    MyBookingPatientPageComponent,
+    MyBookingClientPageComponent,
    
     
 
@@ -36,7 +42,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BookingModule,
     NgxPaginationModule,
     HttpClientModule,
-  CarouselModule
+    CarouselModule,
+    MyBookingClientPageModule,
+  MyBookingPatientPageModule
 
   ],
   providers: [],
