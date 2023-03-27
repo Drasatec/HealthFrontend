@@ -70,10 +70,10 @@ const routes: Routes = [
     path: 'my-booking-client',
     component: MyBookingClientPageComponent,
   },
-  {
-    path: 'future-booking-client',
-    component: FutureBookingClientComponent,
-  },
+  // {
+  //   path: 'future-booking-client',
+  //   component: FutureBookingClientComponent,
+  // },
 
 
   {

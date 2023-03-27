@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faCalendarDays } from '@fortawesome/free-regular-svg-icons';
+import { faCalendarDays, faClock } from '@fortawesome/free-regular-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -10,4 +10,5 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 export class FutureBookingClientComponent {
   faLocationDot = faLocationDot;
   faCalendarDays = faCalendarDays;
+  faClock = faClock;
 }

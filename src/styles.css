@@ -3,6 +3,7 @@
 
   @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=Cairo&family=Raleway:wght@400;500&display=swap');
 
+
 :root{
     --heading-font:24px bold;
     --main-color: #0070CD;
@@ -57,4 +58,10 @@ h4{
 .reserveColor{
   background: #099dff21;
   border-radius: var(    --main-border);
+}
+
+.acceptColor{
+  background: rgb(43, 203, 102);
+  border: var(--main-border);
+  color: white;
 }

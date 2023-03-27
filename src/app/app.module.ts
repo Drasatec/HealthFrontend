@@ -1,8 +1,11 @@
 import { MyBookingPatientPageModule } from './my-booking-patient-page/my-booking-patient-page.module';
 import { MyBookingClientPageModule } from './my-booking-client-page/my-booking-client-page.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
-import { NgModule } from '@angular/core';
+import { MatTabsModule } from '@angular/material/tabs';
+
+import { NgModule ,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -35,7 +38,9 @@ import { MyBookingClientPageComponent } from './my-booking-client-page/my-bookin
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
+    TooltipModule.forRoot(),
     CoreModule,
+    MatTabsModule,
     DoctorsPageModule,
     DoctorDetailsModule,
     ConfirmModule,
@@ -46,6 +51,10 @@ import { MyBookingClientPageComponent } from './my-booking-client-page/my-bookin
     MyBookingClientPageModule,
   MyBookingPatientPageModule
 
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]
