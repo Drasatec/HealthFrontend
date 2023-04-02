@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FutureBookingClientComponent } from './future-booking-client/future-booking-client.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -23,11 +23,16 @@ import { OrderBookingComponent } from './order-booking/order-booking.component';
     RouterModule,
     MatTabsModule,
     BrowserAnimationsModule,
-    MdbCheckboxModule
+    MdbCheckboxModule,
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
+
   exports: [
-    FutureBookingClientComponent,
+    FutureBookingClientComponent,OrderBookingComponent
 
   ]
 })
-export class MyBookingClientPageModule { }
+export class MyBookingPageModule { }

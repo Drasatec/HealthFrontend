@@ -144,11 +144,12 @@
         <li>
           <div class="dropdown">
             <a
-              href="#"
-              class="dropdown-toggle"
-      
-              data-bs-toggle="dropdown"
-              aria-expanded="true"
+          
+              data-bs-toggle="collapse"
+               href="#collapseExample" 
+               role="button" 
+               aria-expanded="false" 
+               aria-controls="collapseExample"
             >
               <img
                 src="../../../assets/Images/doctorImages/doctorImage.jpg"
@@ -156,17 +157,21 @@
                 alt="Card image cap"
               />
             </a>
-            <ul class="dropdown-menu text-end ">
+            <div class="collapse" id="collapseExample">
+            <ul class="dropdown-menu  d-felx flex-column text-end ">
               <li><a class="dropdown-item" href="#"
                 routerLinkActive="active"
-                [routerLink]="['/my-booking-client']">حجوزاتى </a></li>
+                [routerLink]="['/booking-clients-or-patinets-page']">حجوزاتى </a></li>
               <li>
                 <a class="dropdown-item" href="#">تسجيل الخروج </a>
               </li>
             </ul>
+            </div>
           </div>
         </li>
       </ul>
+ 
+      
       <form class="d-flex" role="search">
         <button
           class="btn btn-outline-light btn-light text-primary"

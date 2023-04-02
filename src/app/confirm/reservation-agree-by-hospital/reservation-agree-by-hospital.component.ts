@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -8,4 +9,38 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 })
 export class ReservationAgreeByHospitalComponent {
   faLocationDot = faLocationDot;
+  header: string = "";
+  background: string = "";
+
+  constructor(private router: Router) {
+    
+    
+  }
+  ngOnInit() {
+    this.checkUrl();
+  } 
+  checkUrl() {
+    if (this.router.url == "/agree-hospital") {
+      this.header = "تمت الموافقة من المستشفى  "
+      console.log(this.router.url);
+      this.background = "rgb(43, 203, 102)";
+    }
+    else if (this.router.url == "/agree-client") {
+      this.header = "تمت الموافقة على  الحجز   "
+      console.log(this.router.url);
+      this.background = "rgb(43, 203, 102);";
+    }
+    else if (this.router.url == "/disagree-client") {
+      this.header = " الحجز غير مناسب "
+      console.log(this.router.url);
+      this.background = "red";
+    }
+    else if (this.router.url == "/disagree-hospital") {
+      this.header = " الحجز غير مناسب   "
+      console.log(this.router.url);
+      this.background = "rgb(239, 165, 63)";
+    }
+    
+  }
+  
 }

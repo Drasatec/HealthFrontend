@@ -1,3 +1,4 @@
+import { BookingClientsOrPatinetsPageComponent } from './booking-clients-or-patinets-page/booking-clients-or-patinets-page.component';
 
 import { ConfirmComponent } from './confirm/confirm.component';
 import { NgModule } from '@angular/core';
@@ -8,10 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DoctorPageComponent } from './doctors-page/doctors-page.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { HomeComponent } from './home/home.page';
-import { ReservationDisAgreeByClientComponent } from './confirm/reservation-dis-agree-by-client/reservation-dis-agree-by-client.component';
 import { ReservationAgreeByHospitalComponent } from './confirm/reservation-agree-by-hospital/reservation-agree-by-hospital.component';
-import { ReservationDisAgreeByHospitalComponent } from './confirm/reservation-dis-agree-by-hospital/reservation-dis-agree-by-hospital.component';
-import { ReservationAgreebyclientComponent } from './confirm/reservation-agree-by-client/reservation-agreebyclient.component';
 import { ListOfPatientComponent } from './booking/list-of-patient/list-of-patient.component';
 import { BookingByPatientComponent } from './booking/booking-by-patient/booking-by-patient.component';
 import { BookingByClientComponent } from './booking/booking-by-client/booking-by-client.component';
@@ -44,15 +42,15 @@ const routes: Routes = [
   },
   {
     path: 'disagree-hospital',
-    component: ReservationDisAgreeByHospitalComponent ,
+    component: ReservationAgreeByHospitalComponent ,
   },
   {
     path: 'agree-client',
-    component: ReservationAgreebyclientComponent ,
+    component: ReservationAgreeByHospitalComponent ,
   },
   {
     path: 'disagree-client',
-    component: ReservationDisAgreeByClientComponent ,
+    component: ReservationAgreeByHospitalComponent ,
   },
   {
     path: 'booking-by-client',
@@ -67,13 +65,10 @@ const routes: Routes = [
     component: ListOfPatientComponent,
   },
   {
-    path: 'my-booking-client',
-    component: MyBookingClientPageComponent,
+    path: 'booking-clients-or-patinets-page',
+    component: BookingClientsOrPatinetsPageComponent,
   },
-  // {
-  //   path: 'future-booking-client',
-  //   component: FutureBookingClientComponent,
-  // },
+
 
 
   {
