@@ -1,0 +1,10 @@
+.cardStayle{
+    margin-top: 10rem ;
+    margin-bottom: 10rem;
+
+
+}
+
+button:hover{
+    background-color: var(--search-color);
+}

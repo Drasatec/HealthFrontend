@@ -1,0 +1,9 @@
+
+.aUnderline{
+    text-decoration: none;
+}
+.bgCardColor{
+    background-color: rgba(244, 249, 255, 0.824);
+    box-shadow: 1px 6px 6px 1px #b7b7b764;
+}
+

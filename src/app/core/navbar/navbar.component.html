@@ -74,7 +74,7 @@
             موافقة المستشفى</a
           >
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a
             class="nav-link text-white"
             href="#"
@@ -103,7 +103,7 @@
           >
             رفض العميل</a
           >
-        </li>
+        </li> -->
         <li class="nav-item">
           <a
             class="nav-link text-white"
@@ -135,46 +135,47 @@
           >
         </li>
       </ul>
-      <ul class="my-3 mx-2">
-        <li class="bell mx-2">
-          <a href="#">
-            <fa-icon [icon]="faBell"></fa-icon>
-          </a>
-        </li>
-        <li>
-          <div class="dropdown">
-            <a
-          
-              data-bs-toggle="collapse"
-               href="#collapseExample" 
-               role="button" 
-               aria-expanded="false" 
-               aria-controls="collapseExample"
-            >
-              <img
-                src="../../../assets/Images/doctorImages/doctorImage.jpg"
-                style="border-radius: 50%; width: 45px"
-                alt="Card image cap"
-              />
-            </a>
-            <div class="collapse" id="collapseExample">
-            <ul class="dropdown-menu  d-felx flex-column text-end ">
-              <li><a class="dropdown-item" href="#"
-                routerLinkActive="active"
-                [routerLink]="['/booking-clients-or-patinets-page']">حجوزاتى </a></li>
-              <li>
-                <a class="dropdown-item" href="#">تسجيل الخروج </a>
-              </li>
-            </ul>
-            </div>
-          </div>
-        </li>
-      </ul>
- 
+    
       
-      <form class="d-flex" role="search">
+      <form class="d-flex justify-content-center align-items-center" role="search">
+        <ul class="my-3 mx-2">
+          <li class="bell mx-2">
+            <a href="#">
+              <fa-icon [icon]="faBell"></fa-icon>
+            </a>
+          </li>
+          <li>
+            <div class="dropdown">
+              <a
+            
+                data-bs-toggle="collapse"
+                 href="#collapseExample" 
+                 role="button" 
+                 aria-expanded="false" 
+                 aria-controls="collapseExample"
+              >
+                <img
+                  src="../../../assets/Images/doctorImages/doctorImage.jpg"
+                  style="border-radius: 50%; width: 45px"
+                  alt="Card image cap"
+                />
+              </a>
+              <div class="collapse" id="collapseExample">
+              <ul class="dropdown-menu  d-felx flex-column text-end ">
+                <li><a class="dropdown-item" href="#"
+                  routerLinkActive="active"
+                  [routerLink]="['/booking-clients-page']">حجوزاتى </a></li>
+                <li>
+                  <a class="dropdown-item" href="#">تسجيل الخروج </a>
+                </li>
+              </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+   
         <button
-          class="btn btn-outline-light btn-light text-primary"
+          class="btn btn-outline-light btn-light py-2 text-primary"
           type="submit"
         >
           تسجيل الدخول

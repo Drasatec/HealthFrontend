@@ -1,4 +1,4 @@
-import { BookingClientsOrPatinetsPageComponent } from './booking-clients-or-patinets-page/booking-clients-or-patinets-page.component';
+import { BookingClientsPageComponent } from './booking-clients-page/booking-clients-page.component';
 
 import { ConfirmComponent } from './confirm/confirm.component';
 import { NgModule } from '@angular/core';
@@ -13,8 +13,7 @@ import { ReservationAgreeByHospitalComponent } from './confirm/reservation-agree
 import { ListOfPatientComponent } from './booking/list-of-patient/list-of-patient.component';
 import { BookingByPatientComponent } from './booking/booking-by-patient/booking-by-patient.component';
 import { BookingByClientComponent } from './booking/booking-by-client/booking-by-client.component';
-import { MyBookingClientPageComponent } from './my-booking-client-page/my-booking-client-page.component';
-import { FutureBookingClientComponent } from './my-booking-client-page/future-booking-client/future-booking-client.component';
+
 
  
 const routes: Routes = [
@@ -64,13 +63,12 @@ const routes: Routes = [
     path: 'list-of-patient',
     component: ListOfPatientComponent,
   },
+
   {
-    path: 'booking-clients-or-patinets-page',
-    component: BookingClientsOrPatinetsPageComponent,
+    path: 'booking-clients-page',
+    component: BookingClientsPageComponent,
   },
-
-
-
+  
   {
     path: '**',
     redirectTo: '',

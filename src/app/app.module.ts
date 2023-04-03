@@ -1,3 +1,5 @@
+import { HomeModule } from './home/home.module';
+import { BookingClientsPageModule } from './booking-clients-page/booking-clients-page.module';
 
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -18,18 +20,13 @@ import { BookingModule } from './booking/booking.module';
 import { ConfirmModule } from './confirm/confirm.module';
 import { DoctorDetailsModule } from './doctor-details/doctor-details.module';
 import { DoctorsPageModule } from './doctors-page/doctors-page.module';
-import { BookingClientsOrPatinetsPageComponent } from './booking-clients-or-patinets-page/booking-clients-or-patinets-page.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookingClientsOrPatinetsPageComponent,
-   
-    
-
-
+ 
   ],
   imports: [
     BrowserModule,
@@ -38,6 +35,7 @@ import { BookingClientsOrPatinetsPageComponent } from './booking-clients-or-pati
     FontAwesomeModule,
     TooltipModule.forRoot(),
     CoreModule,
+    HomeModule,
     MatTabsModule,
     DoctorsPageModule,
     DoctorDetailsModule,
@@ -46,6 +44,7 @@ import { BookingClientsOrPatinetsPageComponent } from './booking-clients-or-pati
     NgxPaginationModule,
     HttpClientModule,
     CarouselModule,
+ BookingClientsPageModule
 
 
 

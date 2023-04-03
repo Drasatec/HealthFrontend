@@ -1,18 +1,18 @@
-import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { BookingCardsComponent } from './booking-cards/booking-cards.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
 
 @NgModule({
   declarations: [
-   
+    BookingCardsComponent,
+
   ],
   imports: [
     CommonModule,
@@ -20,10 +20,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
     RouterModule,
     BrowserAnimationsModule
-
   ],
+  exports:[BookingCardsComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
-  exports: []
-  
 })
-export class BookingClientsOrPatinetsPageModule { }
+export class BookingClientsPageModule { }
