@@ -1,3 +1,4 @@
+import { MembersComponent } from './members/members.component';
 import { BookingClientsPageComponent } from './booking-clients-page/booking-clients-page.component';
 
 import { ConfirmComponent } from './confirm/confirm.component';
@@ -67,6 +68,14 @@ const routes: Routes = [
   {
     path: 'booking-clients-page',
     component: BookingClientsPageComponent,
+  },
+  {
+    path: 'members',
+    component: MembersComponent,
+  },
+  {
+    path: 'member-details',
+    component: MembersComponent,
   },
   
   {

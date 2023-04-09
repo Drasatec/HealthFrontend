@@ -18,7 +18,7 @@ import { ListOfPatientComponent } from './list-of-patient/list-of-patient.compon
 
   ],
   imports: [
-    CommonModule, FontAwesomeModule,RouterModule,
+    CommonModule, FontAwesomeModule,RouterModule, 
   ]
 })
 export class BookingModule { }

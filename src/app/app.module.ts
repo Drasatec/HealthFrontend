@@ -1,3 +1,4 @@
+import { MembersModule } from './members/members.module';
 import { HomeModule } from './home/home.module';
 import { BookingClientsPageModule } from './booking-clients-page/booking-clients-page.module';
 
@@ -27,6 +28,7 @@ import { DoctorsPageModule } from './doctors-page/doctors-page.module';
   declarations: [
     AppComponent,
  
+ 
   ],
   imports: [
     BrowserModule,
@@ -44,8 +46,8 @@ import { DoctorsPageModule } from './doctors-page/doctors-page.module';
     NgxPaginationModule,
     HttpClientModule,
     CarouselModule,
- BookingClientsPageModule
-
+    BookingClientsPageModule,
+    MembersModule,
 
 
   ],

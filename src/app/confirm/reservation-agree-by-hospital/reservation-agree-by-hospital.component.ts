@@ -21,12 +21,12 @@ export class ReservationAgreeByHospitalComponent {
   } 
   checkUrl() {
     if (this.router.url == "/agree-hospital") {
-      this.header = "تمت الموافقة من المستشفى  "
+      this.header = "تم تأكيد الحجز"
       console.log(this.router.url);
       this.background = "rgb(43, 203, 102)";
     }
     else if (this.router.url == "/agree-client") {
-      this.header = "تمت الموافقة على  الحجز   "
+      this.header = "تمت تأكيد الحجز   "
       console.log(this.router.url);
       this.background = "rgb(43, 203, 102);";
     }

@@ -23,7 +23,7 @@ import { ReservationAgreeByHospitalComponent } from './reservation-agree-by-hosp
     CommonModule, FontAwesomeModule,RouterModule 
   ],
   exports: [
-    ReservationAgreeByHospitalComponent,
+    ReservationAgreeByHospitalComponent, ReservationConfirmComponent
 
   ]
 })

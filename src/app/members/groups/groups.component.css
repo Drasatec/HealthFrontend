@@ -1,0 +1,30 @@
+button:hover{
+    background-color: var(--search-color);
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:active {
+    background-color:  #099dff21;
+}
+.bgColor:hover{
+    background-color:  #099dff21;
+    border-radius: 5px;
+    
+}
+.bgColor:hover a{
+    color: var(--search-color);
+}
+fa-icon{
+    font-size: 1.8rem;
+    color: var(--search-color);
+}
+.btnStyle{
+    color:var(--main-color);
+    background-color:  #099dff21;;
+}
+.btnStyle:hover{
+    color:var(--main-color);
+    background-color:  #099dff21;;
+}

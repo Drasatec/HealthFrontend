@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { DoctorsPageModule } from './../doctors-page/doctors-page.module';
 
 import { NgModule } from '@angular/core';
@@ -22,7 +23,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     , FontAwesomeModule,
     BrowserAnimationsModule,
     CarouselModule ,
-      
+      RouterModule
   ],
   exports: [
  

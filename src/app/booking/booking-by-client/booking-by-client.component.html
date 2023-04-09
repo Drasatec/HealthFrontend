@@ -1,4 +1,4 @@
-<div class="container m-5 d-felx justify-content-center align-items-center ">
+<div class="container my-5 d-felx justify-content-center align-items-center ">
     <div class="row">
         <div class="col-md-12">
             <div class="card mainBorder m-5 p-5">
@@ -22,7 +22,10 @@
                                 <option selected>حسن محمد</option>
                                 <option value="1">محمد على</option>
                                 <option value="2">كامل حسين</option>
-                                <option value="3">رأفت أحمد</option>
+                                <option value="3">رنا أحمد</option>
+                                <option value="3">ريهام أحمد</option>
+                                <option value="3">رامى  أحمد</option>
+                                <option value="3">رباب أحمد</option>
                               </select>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label my-3  generalColor ">الهاتف المحمول</label>
@@ -47,7 +50,10 @@
                                 <label for="floatingTextarea" class="text-secondary">المشكلة </label>
 
                               </div>
-                            <button type="submit" class="btn btnShadow btn-primary generalBGColor text-white my-5 mx-5 px-5">احجز موعد</button>
+                            <button type="submit" 
+                            class="btn btnShadow btn-primary generalBGColor text-white my-5 mx-5 px-5"
+                            [routerLink]="['/reservation-confirm']"
+                            >احجز موعد</button>
                             <button type="submit" class="btn btnShadow btn-outline-light my-5 generalColor mx-5 px-5 bg-white "> الغاء </button>  
                         </form>
                       </div> 
