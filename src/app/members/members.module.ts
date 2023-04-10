@@ -8,6 +8,7 @@ import { MembersComponent } from './members.component';
 import { FilterMembersComponent } from './filter-members/filter-members.component';
 import { GroupsComponent } from './groups/groups.component';
 import { MemberDetailsComponent } from './member-details/member-details.component';
+import { AddMemberComponent } from './add-member/add-member.component';
 
 
 
@@ -16,7 +17,8 @@ import { MemberDetailsComponent } from './member-details/member-details.componen
     MembersComponent,
     FilterMembersComponent,
     GroupsComponent,
-    MemberDetailsComponent
+    MemberDetailsComponent,
+    AddMemberComponent
   ],
   imports: [
     CommonModule,

@@ -24,7 +24,9 @@
                     
                     <div class="input-group my-5">
                       <input class="form-control rounded-2 form-control-lg me-4 " type="text" placeholder="اسم المجموعة " aria-label=".form-control-lg example">
-                      <button class="btn rounded-2 me-2 ms-4 generalBGColor px-4 py-3 text-white" type="button" id="button-addon2">اضافة </button>
+                      <button class="btn rounded-2 me-2 ms-4 generalBGColor px-4 py-3 text-white"
+                      data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                      type="button" id="button-addon2">اضافة </button>
                  
                     </div> 
                   </div>
@@ -62,10 +64,15 @@
     </div>
     <div class="row ">
       <div class="d-grid  col-10 mx-auto">
-        <button class="btn generalBGColor  text-white m-5 py-3 fs-5  rounded-2 ">اضافة عضو </button>  
+        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn generalBGColor  text-white m-5 py-3 fs-5  rounded-2 "
+ 
+        >اضافة عضو </button>  
       </div>
     </div>
   
+
+<!-- Modal -->
+<app-add-member></app-add-member>
 
   </div>
 </div>

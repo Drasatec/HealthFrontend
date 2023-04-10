@@ -1,3 +1,5 @@
+import { AddMemberComponent } from './members/add-member/add-member.component';
+import { MemberDetailsComponent } from './members/member-details/member-details.component';
 import { MembersComponent } from './members/members.component';
 import { BookingClientsPageComponent } from './booking-clients-page/booking-clients-page.component';
 
@@ -75,7 +77,11 @@ const routes: Routes = [
   },
   {
     path: 'member-details',
-    component: MembersComponent,
+    component: MemberDetailsComponent,
+  },
+  {
+    path: 'add-member',
+    component:  AddMemberComponent,
   },
   
   {

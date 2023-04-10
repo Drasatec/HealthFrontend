@@ -1,0 +1,11 @@
+.btnHover{
+    background-color: var(--search-color);
+}
+.modal-dialog{
+    max-width: 90rem!important;
+    height: 80vh!important;
+}
+.form-control{
+  background-color: rgba(176, 180, 179, 0.121);
+border: 0;
+}
