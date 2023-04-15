@@ -1,82 +1,134 @@
+<div class="card my-3" style="width: 100%">
+  <div class="container">
+    <div class="row">
+      <div class="card-header generalBGColor">
+        <h5 class="card-title text-center fs-3 text-white">المجموعات</h5>
+      </div>
+      <div class="row mt-5">
+        <mat-tab-group>
+          <mat-tab [label]="'الكل'"> </mat-tab>
+          <mat-tab [label]="'المبرمجين'"> dcvvvvvf </mat-tab>
+          <mat-tab [label]="'المهندسين'"> </mat-tab>
 
-      <div class="card  my-3" style="width: 100%;">
-        <div class="container">
-          <div class="row">
-            <div class=" card-header generalBGColor">
-              <h5 class="card-title text-center fs-3 text-white"> المجموعات</h5>
-          </div>
-          <div class="row  d-felx mt-5  justify-content-end">
-            <div class="col-md-3   " >
-              <!-- Button trigger modal -->
-              <button type="button" class="btn py-2 px-4 mb-2 btnStyle " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon>  اضافة مجموعة 
-             </button>
-             
-             <!-- Modal -->
-             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-               <div class="modal-dialog modal-dialog-centered">
-                 <div class="modal-content">
-                   <div class="modal-header">
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                   </div>
-                   <div class="modal-body">
-                    <h1 class="modal-title fs-5 generalColor my-4"  id="exampleModalLabel">إضافة مجموعة </h1>
-                    
-                    <div class="input-group my-5">
-                      <input class="form-control rounded-2 form-control-lg me-4 " type="text" placeholder="اسم المجموعة " aria-label=".form-control-lg example">
-                      <button class="btn rounded-2 me-2 ms-4 generalBGColor px-4 py-3 text-white"
-                      data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                      type="button" id="button-addon2">اضافة </button>
-                 
-                    </div> 
+          <mat-tab [label]="'المحاسبين '"> </mat-tab>
+          <mat-tab [label]="'العمال '"> </mat-tab>
+        </mat-tab-group>
+        <div class="row d-felx mt-5 justify-content-end">
+          <div class="col-md-3">
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn py-2 px-4 mb-2 btnStyle"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> اضافة
+              مجموعة
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
-                  
-                 </div>
-               </div>
-             </div>
-                    
-                       
-                     </div>
-          </div>
-  
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-  
-        <div class="input-group mt-3 mb-3">
-          <input class="form-control rounded-2 form-control-lg me-4 " type="text" placeholder="ابحث باسم العضو أو رقم الملف " aria-label=".form-control-lg example">
-          <button class="btn rounded-2 me-2 ms-4 generalBGColor px-4 py-3 text-white" type="button" id="button-addon2">ابحث</button>
-     
-        </div>
-  
-        <div class="m-3  fs-4 bgColor p-2" *ngFor="let member of members">
-                  <fa-icon [icon]="faCircleUser" ></fa-icon>
-          
-                  <a href="#" [routerLink]="['/member-details']"
-                   routerLinkActive="active"
+                  <div class="modal-body">
+                    <h1
+                      class="modal-title fs-5 generalColor my-4"
+                      id="exampleModalLabel"
                     >
-                  {{member.name}}
-                  </a>
-            </div>
-             
-              
+                      إضافة مجموعة
+                    </h1>
+
+                    <div class="input-group my-5">
+                      <input
+                        class="form-control rounded-2 form-control-lg me-4"
+                        type="text"
+                        placeholder="اسم المجموعة "
+                        aria-label=".form-control-lg example"
+                      />
+                      <button
+                        class="btn rounded-2 me-2 ms-4 generalBGColor px-4 py-3 text-white"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop1"
+                        type="button"
+                        id="button-addon2"
+                      >
+                        اضافة
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-    </div>
-    <div class="row ">
-      <div class="d-grid  col-10 mx-auto">
-        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn generalBGColor  text-white m-5 py-3 fs-5  rounded-2 "
- 
-        >اضافة عضو </button>  
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="input-group mt-3 mb-3">
+              <input
+                class="form-control rounded-2 form-control-lg me-4"
+                type="text"
+                placeholder="ابحث باسم العضو أو رقم الملف "
+                aria-label=".form-control-lg example" [(ngModel)]="searchInput"
+                (ngModelChange)="search($event)"
+              />
+              <button
+                class="btn rounded-2 me-2 ms-4 generalBGColor px-4 py-3 text-white"
+                type="button"
+                id="button-addon2"
+            (click)="searchByBtn()"              >
+                ابحث
+              </button>
+            </div>
+
+            <div
+              class="m-3 fs-4 bgColor p-2"
+              *ngFor="let member of patientFilter  "
+            >
+              <fa-icon [icon]="faCircleUser"></fa-icon>
+
+              <a
+                href="#"
+                [routerLink]="['/member-details/' + member.id]"
+                routerLinkActive="active"
+              >
+                {{ member.name }}
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
 
-<!-- Modal -->
-<app-add-member></app-add-member>
+    <div class="row">
+      <div class="d-grid col-10 mx-auto">
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+          class="btn generalBGColor text-white m-5 py-3 fs-5 rounded-2"
+      
+        >
+          اضافة عضو
+        </button>
+      </div>
+    </div>
 
+    <!-- Modal -->
+    <app-add-member></app-add-member>
   </div>
 </div>
-
-            
-   
- 

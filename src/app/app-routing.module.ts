@@ -80,6 +80,10 @@ const routes: Routes = [
     component: MemberDetailsComponent,
   },
   {
+    path: 'member-details/:id',
+    component: MemberDetailsComponent,
+  },
+  {
     path: 'add-member',
     component:  AddMemberComponent,
   },

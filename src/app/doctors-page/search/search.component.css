@@ -31,3 +31,6 @@ hr{
 .dropdown-item:active {
     background-color: var(--main-color);
 }
+.dropdown-menu {
+    z-index: 10000000;
+}

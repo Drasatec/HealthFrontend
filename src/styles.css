@@ -13,7 +13,7 @@
     --main-border:15px;
     --main-bg:#ebeef3;
     --span-color:#0d74b4;
-  
+    --main-height:100vh;
 }
 
 * {
@@ -68,3 +68,5 @@ h4{
 .btnHover{
   background-color: var(--search-color);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

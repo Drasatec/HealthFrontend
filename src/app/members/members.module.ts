@@ -1,3 +1,4 @@
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -9,6 +10,7 @@ import { FilterMembersComponent } from './filter-members/filter-members.componen
 import { GroupsComponent } from './groups/groups.component';
 import { MemberDetailsComponent } from './member-details/member-details.component';
 import { AddMemberComponent } from './add-member/add-member.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +27,9 @@ import { AddMemberComponent } from './add-member/add-member.component';
     FontAwesomeModule,
     RouterModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule,
+    FormsModule
   ]
 })
 export class MembersModule { }
