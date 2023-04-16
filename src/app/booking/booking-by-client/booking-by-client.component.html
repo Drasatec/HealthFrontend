@@ -17,16 +17,22 @@
                         <form>
                             <label for="exampleInputPassword1" class="form-label my-3 generalColor">اسم المريض</label>
   
-                            <select class="form-select reverse" aria-label="Default select example">
-                        
-                                <option selected>حسن محمد</option>
-                                <option value="1">محمد على</option>
-                                <option value="2">كامل حسين</option>
-                                <option value="3">رنا أحمد</option>
-                                <option value="3">ريهام أحمد</option>
-                                <option value="3">رامى  أحمد</option>
-                                <option value="3">رباب أحمد</option>
+                            <div class="input-group mb-3">
+                              <select class="form-select" id="inputGroupSelect02">
+                                
+                                <option value="" *ngFor="let patient of patientFilter">{{patient.name}}</option>
+                         
                               </select>
+                     
+                                <input
+                                  class="form-control rounded-2 form-control-lg me-4"
+                                  type="text"
+                                  placeholder=""
+                                  aria-label=".form-control-lg example" [(ngModel)]="searchInput"
+                                  (ngModelChange)="search($event)"
+                                />
+                              <button class="btn generalColor attinionColor fs-4 " >+</button>
+                            </div>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label my-3  generalColor ">الهاتف المحمول</label>
                               <input type="number" class="form-control" id="exampleInputPassword1" placeholder="012455465476">

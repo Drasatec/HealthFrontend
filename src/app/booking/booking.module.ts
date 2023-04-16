@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,7 +19,7 @@ import { ListOfPatientComponent } from './list-of-patient/list-of-patient.compon
 
   ],
   imports: [
-    CommonModule, FontAwesomeModule,RouterModule, 
+    CommonModule, FontAwesomeModule,RouterModule, FormsModule
   ]
 })
 export class BookingModule { }

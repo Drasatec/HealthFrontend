@@ -89,6 +89,10 @@ const routes: Routes = [
   },
   
   {
+    path: 'doctor-details/:id',
+    component: DoctorDetailsComponent,
+  },
+  {
     path: '**',
     redirectTo: '',
   },

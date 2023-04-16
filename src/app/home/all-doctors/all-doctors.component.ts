@@ -1,3 +1,4 @@
+import { IDoctor } from './../../Models/idoctor';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,13 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./all-doctors.component.css']
 })
 export class AllDoctorsComponent {
-  doctors: any[] = [];
+  
+  doctorList: IDoctor[] = [
+  { id: 1, fullName: 'أحمد على', photo: "../../../assets/Images/homeImages/doctor.jpg", specialty: "جراحة الفم والاسنان " },
+  {id:2 ,photo:"../../../assets/Images/homeImages/doctor.jpg", fullName:' رامى فريد', specialty:" قلب وأوعية دموية "    },
+  {id:3 ,photo:"../../../assets/Images/homeImages/doctor.jpg", fullName:'حسن محمد', specialty:"  صدر وأمراض تنفس "    },];
+  
+  
   constructor() {
-    this.doctors = [
-      {id:1 ,src:"../../../assets/Images/homeImages/doctor.jpg", name:'أحمد على', specialty:"جراحة الفم والاسنان "    },
-      {id:2 ,src:"../../../assets/Images/homeImages/doctor.jpg", name:' رامى فريد', specialty:" قلب وأوعية دموية "    },
-      {id:3 ,src:"../../../assets/Images/homeImages/doctor.jpg", name:'حسن محمد', specialty:"  صدر وأمراض تنفس "    },
-    ]
+ 
   }
 
 }
