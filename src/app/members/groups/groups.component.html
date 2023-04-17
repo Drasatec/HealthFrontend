@@ -4,15 +4,19 @@
       <div class="card-header generalBGColor">
         <h5 class="card-title text-center fs-3 text-white">المجموعات</h5>
       </div>
-      <div class="row mt-5">
-        <mat-tab-group>
-          <mat-tab [label]="'الكل'"> </mat-tab>
-          <mat-tab [label]="'المبرمجين'"> dcvvvvvf </mat-tab>
-          <mat-tab [label]="'المهندسين'"> </mat-tab>
-
-          <mat-tab [label]="'المحاسبين '"> </mat-tab>
-          <mat-tab [label]="'العمال '"> </mat-tab>
+      <div class="row mt-5 py-2 px-4 mx-5 reserveColor">
+<!-- 
+        <div class="col-md-3 col-lg-3 col-sm-6 " *ngFor="let group of groupList">
+          <button type="button" 
+          class="btn btn-primary">{{group.name}}</button>
+  
+        </div> -->
+      
+        <mat-tab-group >
+          <mat-tab *ngFor="let group of groupList"
+           [label]="group.name"> </mat-tab>
         </mat-tab-group>
+        </div>
         <div class="row d-felx mt-5 justify-content-end">
           <div class="col-md-3">
             <!-- Button trigger modal -->
@@ -86,13 +90,13 @@
                 aria-label=".form-control-lg example" [(ngModel)]="searchInput"
                 (ngModelChange)="search($event)"
               />
-              <button
+              <!-- <button
                 class="btn rounded-2 me-2 ms-4 generalBGColor px-4 py-3 text-white"
                 type="button"
                 id="button-addon2"
             (click)="searchByBtn()"              >
                 ابحث
-              </button>
+              </button> -->
             </div>
 
             <div
@@ -112,7 +116,7 @@
           </div>
         </div>
       </div>
-    </div>
+   
 
     <div class="row">
       <div class="d-grid col-10 mx-auto">

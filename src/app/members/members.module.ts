@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatTabsModule,
     FormsModule
-  ]
+  ],
+  exports:[AddMemberComponent]
 })
 export class MembersModule { }

@@ -21,12 +21,14 @@ import { BookingModule } from './booking/booking.module';
 import { ConfirmModule } from './confirm/confirm.module';
 import { DoctorDetailsModule } from './doctor-details/doctor-details.module';
 import { DoctorsPageModule } from './doctors-page/doctors-page.module';
+import { BookingPagesComponent } from './booking-pages/booking-pages.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    BookingPagesComponent,
  
  
   ],

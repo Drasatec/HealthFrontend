@@ -1,3 +1,4 @@
+import { IGroups } from './../../Models/igroups';
 import { Component } from '@angular/core';
 import { faCirclePlus, faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { IPatient } from 'src/app/Models/ipatient';
@@ -24,6 +25,15 @@ export class GroupsComponent {
   { id: 8, name: "حامد على ",groupID:2  }, 
   { id: 9, name: "ليلى على ", groupID: 2 }
   ];
+  groupList: IGroups[] = [
+    { id: 1, name: "الكل" },
+    { id: 2, name: "المهندسين"},
+    { id: 3, name: "المبرمجين"},
+    {id: 4, name: "العمال"},
+    { id: 5, name: "المحاسبين" },
+    
+  ]
+  
   patientFilter: IPatient[] = [
     
   ]

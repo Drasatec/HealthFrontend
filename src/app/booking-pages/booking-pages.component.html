@@ -1,0 +1,50 @@
+<div class="container my-5 mainBorder  ">
+
+    <div class="row  ">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">الرئيسية > </a></li>
+          <li class="breadcrumb-item active"><a href="#">حجوزاتى</a></li>
+        </ol>
+      </nav>
+  
+  
+    </div>
+  
+    <div class="row my-1 d-felx justify-content-center align-items-center">
+  
+  
+            <div class="col-md-12">
+              <div class="card border-0  mainBorder m-5 p-5">    
+                
+                <ul class="nav">
+                  <li class="nav-item" *ngFor="let menuList of menuLists ">
+                    <a href="#"    
+                    (click)= 'openMenuList(menuList)' 
+                  
+                    >{{menuList}}
+                  </a>
+                  </li>
+                </ul>
+                <ng-container  *ngIf="selectedList === 'القادمة ' ">
+                  <h1>hjhxuhbuhxb</h1>
+                  <!-- <app-booking-cards></app-booking-cards> -->
+                </ng-container>
+                <ng-container *ngIf="selectedList === 'الماضية  ' ">
+                  <!-- <app-booking-cards></app-booking-cards> -->
+                </ng-container>
+                <ng-container *ngIf="selectedList === 'المطلوبة  ' ">
+                  <!-- <app-booking-cards></app-booking-cards> -->
+                </ng-container>
+  
+  
+      
+  
+  </div>
+  </div>
+  
+                </div>
+  
+              </div>
+       
+    

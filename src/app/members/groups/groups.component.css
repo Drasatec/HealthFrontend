@@ -28,39 +28,8 @@ fa-icon{
     color:var(--main-color);
     background-color:  #099dff21;;
 }
-/* .mat-tap-group{
-    background-color: #099dff21;
-    border-radius: 7px;
-
-}
-
-.mat-tab-label-active {
-    color:var(--search-color);
-}
-.mat-mdc-tab {
-    background-color: red!important ;
-}
-.mat-tab-label-active {
-    color: red;
-  } */
-  .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab {
-    flex-grow: 1;
-    background-color: red !important;
-}
-
-.mat-mdc-tab {
-    background-color: red !important ;
-}
-.mat-mdc-tab .mdc-tab__text-label {
-    display: inline-flex;
-    align-items: center;
-    color: red;
-    background-color: blue;
-}
-::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
-::ng-deep.mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
-  background-color: #FCE500;
-  font-weight: 700;
-  color: black;
-  opacity: 1;
+.reserveColor{
+   width:90%;
+   background-color:  #8c8c8c20;
+   border-radius: 4px;
 }

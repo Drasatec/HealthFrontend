@@ -11,4 +11,6 @@ export class BookingCardsComponent {
   faLocationDot = faLocationDot;
   faCalendarDays = faCalendarDays;
   faClock = faClock;
+
+  
 }
