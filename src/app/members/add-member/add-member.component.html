@@ -1,5 +1,5 @@
-<div class="card">
-  <div
+<div class="card my-5 m-auto" style="width: 80%">
+  <!-- <div
   class="modal fade"
   id="staticBackdrop"
   data-bs-backdrop="static"
@@ -141,6 +141,155 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+  <h1 class="fs-3 generalColor my-4 fw-bold p-3 m-auto">
+    {{ header }}
+  </h1>
+  <form class="row g-3 p-3">
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label">المجموعة</label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>اختر مجموعة</option>
+        <option class="my-2 py-3" *ngFor="let group of groupList" value="1">
+          <p>
+            {{ group.name }}
+          </p>
+        </option>
+      </select>
+    </div>
 
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label">رقم المريض</label>
+      <input
+        type="number"
+        placeholder="ادخل رقم المريض "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label">اسم المريض</label>
+      <input
+        type="text"
+        placeholder="ادخل اسم المريض "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label"> رقم الموبايل</label>
+      <input
+        type="number"
+        placeholder="ادخل رقم الموبايل "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label"> العنوان</label>
+      <input
+        type="text"
+        placeholder="ادخل العنوان "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputPassword4" class="form-label">النوع</label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>ذكر</option>
+        <option value="1">انثى</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label">تاريخ الميلاد</label>
+      <input
+        type="date"
+        class="form-control"
+        id="inputAddress"
+        placeholder="DD/MM/YY"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> الحالة الاجتماعية </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>أعزب</option>
+        <option value="1">متزوج</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> الجنسية </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>مصرى</option>
+        <option value="1">هندى</option>
+        <option value="2">صينى</option>
+        <option value="3">ألمانى</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> الديانة </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>مسلم</option>
+        <option value="1">مسيحى</option>
+        <option value="2">يهودى</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> نوع الهوية </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected></option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label"> رقم الهوية </label>
+      <input
+        type="number"
+        placeholder="ادخل رقم الهوية  "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> فصيلة الدم </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected></option>
+      </select>
+    </div>
+    <!-- upload -->
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> صورة المرض </label>
+      <div class="input-group mb-3">
+        <input type="file" class="form-control" id="inputGroupFile02" />
+        <label
+          class="input-group-text generalBGColor text-white"
+          for="inputGroupFile02"
+          >ارفع ملف</label
+        >
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> الحالة </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>نشط</option>
+        <option value="1">غير نشط</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label"> سبب الحالة </label>
+      <input
+        type="text"
+        placeholder=" "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+  </form>
+  <div class="row mt-5 mx-3">
+    <button
+      class="btn text-white mb-5 py-2 fs-4 btnHover generalBGColor"
+      type="submit"
+    >
+      اضافة
+    </button>
+  </div>
 </div>

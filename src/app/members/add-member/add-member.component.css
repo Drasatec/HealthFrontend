@@ -5,7 +5,30 @@
     max-width: 90rem!important;
     height: 80vh!important;
 }
-.form-control{
-  background-color: rgba(176, 180, 179, 0.121);
+.form-control ,.form-select{
+  background-color: rgb(58 95 171 / 12%);
+  padding-bottom: 14px;
+  padding-top: 14px;
 border: 0;
 }
+.form-select {
+ 
+  background-position: left .75rem center !important;
+
+
+}
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    
+  border-radius: 7px !important;
+
+}
+.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-control, .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-select, .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+  border-radius: 7px !important;
+}
+
+  
+  option p{
+    background-color:  #099dff21;
+    margin: 3px 0;
+
+  }
