@@ -27,8 +27,14 @@ border: 0;
 }
 
   
-  option p{
-    background-color:  #099dff21;
+  
+.styleP{
+    background-color:  #04141fe7 !important;
     margin: 3px 0;
+    color: aqua;
 
   }
+  .btnStyle{
+    color:var(--main-color);
+    background-color:  #099dff21;;
+}

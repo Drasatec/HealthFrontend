@@ -11,6 +11,8 @@ import { GroupsComponent } from './groups/groups.component';
 import { MemberDetailsComponent } from './member-details/member-details.component';
 import { AddMemberComponent } from './add-member/add-member.component';
 import { FormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select'
+import {MatInputModule} from '@angular/material/input'
 
 
 
@@ -29,7 +31,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    MatInputModule  
   ],
   exports:[AddMemberComponent]
 })

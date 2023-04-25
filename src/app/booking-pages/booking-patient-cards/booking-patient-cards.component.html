@@ -1,10 +1,10 @@
 <div class="container my-3   d-felx justify-content-center align-items-center ">
-    <div class="row">
+    <div class="row" *ngFor="let patient of patientList">
         <div class="col-md-12">
      
       <div class="card  my-3 py-4 bgCardColor  border-0  mainBorder px-4"  style="width: 100%;">
     <div class="contanier">
-        <div class="row" *ngFor="let patient of patientList">
+        <div class="row" >
             <div class="col-md-2">
                 <img class="mx-5 my-3" src="../../../assets/Images/doctorImages/doctorImage.jpg" style="border-radius: 50%; width:60%" alt="Card image cap">
             </div>

@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { IGroups } from 'src/app/Models/igroups';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-member',
@@ -8,6 +9,9 @@ import { IGroups } from 'src/app/Models/igroups';
   styleUrls: ['./add-member.component.css']
 })
 export class AddMemberComponent {
+  faCirclePlus = faCirclePlus;
+addGroupFlag:boolean=false
+
   header: string = "";
   groupList: IGroups[] = [
     { id: 1, name: "الكل" },
@@ -33,6 +37,11 @@ ngOnInit() {
        this.header = "تعديل بيانات المشترك";
        console.log(this.router.url);
     }
+  }
+  addGroup() {
+    this.addGroupFlag = true
+    console.log(this.addGroupFlag);
+    
   }
 
 }

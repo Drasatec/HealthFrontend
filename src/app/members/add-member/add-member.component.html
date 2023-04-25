@@ -148,14 +148,60 @@
   <form class="row g-3 p-3">
     <div class="col-md-6 col-sm-12 mb-2">
       <label for="inputEmail4" class="form-label">المجموعة</label>
-      <select class="form-select" aria-label="Default select example">
+      <mat-form-field appearance="fill">
+        <mat-label> كل التخصصات</mat-label>
+        <mat-select  >
+          <mat-option *ngFor="let group of groupList" [value]="group.id">
+            {{ group.name }}
+          </mat-option>
+          <button  *ngIf="!addGroupFlag" type="button" class="btn py-2 px-4 mb-2 btnStyle"  (click)="addGroup()">
+            <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> اضافة مجموعة
+          </button>
+          <div *ngIf="addGroupFlag">
+            <mat-form-field class="example-full-width">
+            
+              <input matInput placeholder="مستفى الرحمة "   />
+  
+            </mat-form-field>
+            <button type="button" class="btn py-2 px-4 mb-2 btnStyle">
+              <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> حفظ
+            </button>
+          </div>
+         
+        </mat-select>
+      </mat-form-field>
+      <!-- <select class="form-select" aria-label="Default select example">
         <option selected>اختر مجموعة</option>
         <option class="my-2 py-3" *ngFor="let group of groupList" value="1">
-          <p>
-            {{ group.name }}
-          </p>
+          {{ group.name }}
         </option>
-      </select>
+        <hr class="dropdown-divider" />
+        <option value="">
+          <button type="button" class="btn py-2 px-4 mb-2 btnStyle">
+            <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> اضافة مجموعة
+          </button>
+          <div>
+            <input type="text"   >
+            <button type="button" class="btn py-2 px-4 mb-2 btnStyle9">
+              <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> حفظ
+            </button>
+          </div>
+        </option>
+       
+      </select> -->
+
+      <!-- <div class="dropdown">
+        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        
+        </button>
+        <ul class="dropdown-menu ">
+          <li><a class="dropdown-item active" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
+      </div> -->
     </div>
 
     <div class="col-md-6 col-sm-12 mb-2">

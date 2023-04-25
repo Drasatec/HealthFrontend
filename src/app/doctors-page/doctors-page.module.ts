@@ -12,7 +12,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppointmentBookingComponent } from './appointment-booking/appointment-booking.component';
 import { PaginationComponent } from './pagination/pagination.component';
-
+import {MatSelectModule} from '@angular/material/select'
+import {MatInputModule} from '@angular/material/input'
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -31,7 +33,11 @@ import { PaginationComponent } from './pagination/pagination.component';
     FontAwesomeModule,
     RouterModule,
     BrowserAnimationsModule,
-    CarouselModule ,
+    CarouselModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule
+    
 
 
   ],

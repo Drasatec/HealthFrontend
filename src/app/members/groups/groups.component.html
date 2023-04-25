@@ -14,8 +14,7 @@
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> اضافة
-            مجموعة
+            <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> اضافة مجموعة
           </button>
 
           <!-- Modal -->
@@ -50,6 +49,7 @@
                       type="text"
                       placeholder="اسم المجموعة "
                       aria-label=".form-control-lg example"
+                      [(ngModel)]="groupInput"
                     />
                     <button
                       class="btn rounded-2 me-2 ms-4 generalBGColor px-4 py-3 text-white"
@@ -57,6 +57,7 @@
                       data-bs-target="#staticBackdrop1"
                       type="button"
                       id="button-addon2"
+                      (click)="addMember()"
                     >
                       اضافة
                     </button>
@@ -68,69 +69,63 @@
         </div>
       </div>
 
-      <div class="row mt-3 py-2 px-4 mx-5 my-3  ">
-<!-- 
+      <div class="row mt-3 py-2 px-4 mx-5 my-3">
+        <!-- 
         <div class="col-md-3 col-lg-3 col-sm-6 " *ngFor="let group of groupList">
           <button type="button" 
           class="btn btn-primary">{{group.name}}</button>
   
         </div> -->
-      
+
         <mat-tab-group class="reserveColor p-3">
-          <mat-tab  *ngFor="let group of groupList"
-           [label]="group.name">
-          
-          
-      
+          <mat-tab *ngFor="let group of groupList" [label]="group.name">
           </mat-tab>
         </mat-tab-group>
-        </div>
-        <div class="row">
-          <div class="col-md-12 wInput">
-            <div class="input-group mt-3 mb-3">
-              <input
-                class="form-control rounded-2 form-control-lg me-4"
-                type="text"
-                placeholder="ابحث باسم العضو أو رقم الملف "
-                aria-label=".form-control-lg example" [(ngModel)]="searchInput"
-                (ngModelChange)="search($event)"
-              />
-              <!-- <button
+      </div>
+      <div class="row">
+        <div class="col-md-12 wInput">
+          <div class="input-group mt-3 mb-3">
+            <input
+              class="form-control rounded-2 form-control-lg me-4"
+              type="text"
+              placeholder="ابحث باسم العضو أو رقم الملف "
+              aria-label=".form-control-lg example"
+              [(ngModel)]="searchInput"
+              (ngModelChange)="search($event)"
+            />
+            <!-- <button
                 class="btn rounded-2 me-2 ms-4 generalBGColor px-4 py-3 text-white"
                 type="button"
                 id="button-addon2"
             (click)="searchByBtn()"              >
                 ابحث
               </button> -->
-            </div>
+          </div>
 
-            <div
-              class="m-3 fs-4 bgColor p-2"
-              *ngFor="let member of patientFilter  "
+          <div
+            class="m-3 fs-4 bgColor p-2"
+            *ngFor="let member of patientFilter"
+          >
+            <fa-icon [icon]="faCircleUser"></fa-icon>
+
+            <a
+              href="#"
+              [routerLink]="['/member-details/' + member.id]"
+              routerLinkActive="active"
             >
-              <fa-icon [icon]="faCircleUser"></fa-icon>
-
-              <a
-                href="#"
-                [routerLink]="['/member-details/' + member.id]"
-                routerLinkActive="active"
-              >
-                {{ member.name }}
-              </a>
-            </div>
+              {{ member.name }}
+            </a>
           </div>
         </div>
-
-
       </div>
-   
+    </div>
 
     <div class="row">
       <div class="d-grid col-10 mx-auto">
         <button
           type="button"
           class="btn generalBGColor text-white m-5 py-3 fs-5 rounded-2"
-        [routerLink]="['/add-member']"
+          [routerLink]="['/add-member']"
         >
           اضافة مشترك
         </button>

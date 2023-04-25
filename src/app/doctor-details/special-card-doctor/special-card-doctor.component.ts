@@ -23,9 +23,9 @@ export class SpecialCardDoctorComponent {
   }
   
   doctorList: IDoctor[] = [
-    { id: 1, fullName: 'أحمد على', photo: "../../../assets/Images/homeImages/doctor.jpg", specialty: "جراحة الفم والاسنان " },
-    {id:2 ,photo:"../../../assets/Images/homeImages/doctor.jpg", fullName:' رامى فريد', specialty:" قلب وأوعية دموية "    },
-    {id:3 ,photo:"../../../assets/Images/homeImages/doctor.jpg", fullName:'حسن محمد', specialty:"  صدر وأمراض تنفس "    },];
+    { id: 1, fullName: 'أحمد على', photo: "../../../assets/Images/homeImages/doctor.jpg", specialId:1},
+    {id:2 ,photo:"../../../assets/Images/homeImages/doctor.jpg", fullName:' رامى فريد',  specialId:3    },
+    {id:3 ,photo:"../../../assets/Images/homeImages/doctor.jpg", fullName:'حسن محمد', specialId:2   },];
     
   
     constructor(private activeParam:ActivatedRoute) {

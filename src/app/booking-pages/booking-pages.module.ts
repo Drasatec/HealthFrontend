@@ -5,12 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 
 @NgModule({
   declarations: [
-    BookingPatientCardsComponent
+    BookingPatientCardsComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -18,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FontAwesomeModule,
     RouterModule,
     BrowserAnimationsModule
+    , MatTabsModule
   ]
 })
 export class BookingPagesModule { }

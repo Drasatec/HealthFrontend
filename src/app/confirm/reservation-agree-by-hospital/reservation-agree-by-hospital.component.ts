@@ -11,6 +11,8 @@ export class ReservationAgreeByHospitalComponent {
   faLocationDot = faLocationDot;
   header: string = "";
   background: string = "";
+  display: string = "";
+  Reqdisplay: string = "";
 
   constructor(private router: Router) {
     
@@ -21,24 +23,31 @@ export class ReservationAgreeByHospitalComponent {
   } 
   checkUrl() {
     if (this.router.url == "/agree-hospital") {
-      this.header = "تم تأكيد الحجز"
+      this.header = "تم  الموافقة من المستشفى "
       console.log(this.router.url);
       this.background = "rgb(43, 203, 102)";
+      this.Reqdisplay = "none";
     }
     else if (this.router.url == "/agree-client") {
       this.header = "تمت تأكيد الحجز   "
       console.log(this.router.url);
-      this.background = "rgb(43, 203, 102);";
+      this.background = "rgb(43, 203, 102)";
+      this.Reqdisplay = "none";
     }
     else if (this.router.url == "/disagree-client") {
       this.header = " الحجز غير مناسب "
       console.log(this.router.url);
       this.background = "red";
+      this.Reqdisplay = "none";
     }
     else if (this.router.url == "/disagree-hospital") {
-      this.header = " الحجز غير مناسب   "
+      this.header = "  الحجز غير مناسب من قبل المستشفى   "
       console.log(this.router.url);
       this.background = "rgb(239, 165, 63)";
+      this.Reqdisplay = "none";
+    }
+    else if (this.router.url == "/requested-client") { 
+      this.display = "none";
     }
     
   }

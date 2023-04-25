@@ -51,6 +51,11 @@ const routes: Routes = [
     component: ReservationAgreeByHospitalComponent ,
   },
   {
+    path: 'requested-client',
+    component: ReservationAgreeByHospitalComponent ,
+  },
+
+  {
     path: 'booking-by-client',
     component: BookingByClientComponent ,
   },

@@ -5,7 +5,7 @@
                 <div class="container-fluid">
                     <div class="row mt-5">
                     
-                        <div class="attinionColor rounded" [ngStyle]="{'background-color': background }">
+                        <div class="attinionColor rounded" [ngStyle]="{'background-color': background ,'display': display}">
                         <h2 class="text-center p-3 ">  {{header}} </h2>
                     </div>
                     </div>
@@ -50,13 +50,63 @@
                         </div>
                               
                             </div>
-                            <div class="row d-felx justify-content-end">
+                            <div class="row d-felx justify-content-end"  [ngStyle]="{'display': display}">
                                 <div class="col-md-2 col-sm-6 col-lg-2">
                                     <button class="btn btn-danger"
                                     [routerLink]="['/reservation-confirm']"
                                     >الغاء عملية الحجز</button>
                                 </div>
                               
+                            </div>
+                            <div class="row mx-5" [ngStyle]="{'display': Reqdisplay}">
+                                
+                                <button class="btn py-3 btnStyle my-3 text-white fs-4 ">موافقة </button>
+                                <button class="btn  btn-danger py-3 text-white fs-4  "
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"> رفض</button>
+                                  
+
+        <!-- Modal -->
+        <div
+          class="modal fade "
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered " >
+            <div class="modal-content">
+              <div class="modal-body m-4">
+                <h1
+                  class="modal-title fs-5 generalColor mx-3 my-4"
+                  id="exampleModalLabel"
+                >
+                  سبب الرفض
+                </h1>
+
+                <div class="input-group my-5">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px"></textarea>
+                        <label for="floatingTextarea2">اكتب سبب الرفض</label>
+                      </div>
+           
+                </div>
+                <div class="row m-2">
+                    <button
+                    class="btn rounded-2  generalBGColor px-5 py-2 text-white"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop1"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    ارسال
+                  </button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+        </div>
                             </div>
                         </div>
                  
