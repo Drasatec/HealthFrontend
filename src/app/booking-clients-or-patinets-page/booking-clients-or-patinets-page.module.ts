@@ -1,4 +1,6 @@
-import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+// we will remove all this module
+
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BrowserModule } from '@angular/platform-browser';

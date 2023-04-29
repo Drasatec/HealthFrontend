@@ -34,3 +34,51 @@ hr{
 .dropdown-menu {
     z-index: 10000000;
 }
+.mySelect {
+
+    color:white;
+}
+/* .formStyle{
+    background-color: transparent;
+} */
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent !important;
+    color:white;
+}
+
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color:white;
+    padding-right: 20px;
+}
+
+::ng-deep .mat-mdc-select-arrow{
+color:white;
+}
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+    border-bottom-color: rgba(255, 255, 255, 0.317);
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before:hover {
+    border-bottom-color: rgba(255, 255, 255, 0.317);
+}
+
+
+ ::ng-deep .mat-mdc-select-value{
+color:white;
+}
+::ng-deep .mat-mdc-select-value-text {
+    padding-left:3.5rem;
+   
+  
+}
+::ng-deep .mat-mdc-option.mdc-list-item {
+ 
+    text-align: center;
+}
+::ng-deep .mat-mdc-option .mdc-list-item__primary-text {
+    margin-right: 0px !important;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+    color:white
+}

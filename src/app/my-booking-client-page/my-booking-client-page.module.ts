@@ -1,3 +1,5 @@
+// we will remove all this module
+
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FutureBookingClientComponent } from './future-booking-client/future-booking-client.component';
