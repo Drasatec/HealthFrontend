@@ -13,11 +13,11 @@ export class SearchComponent {
   searchInput: string = "";
 
   hospitalList: IHospital[] = [
-    { id: 1, name: ' مستشفى الرحمة '},
-    { id: 2, name: '   مستشفى القدس  ' },
-    { id: 3, name: ' مستشفى السلام ' },
-    { id: 4, name: 'مستشفى القادسية '},
-    { id: 5, name: ' مستشفى الصفوة  ' },
+    { id: 1, name: ' مستشفى الرحمة ' ,special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}]},
+    { id: 2, name: '   مستشفى القدس  ' ,special: [{id: 1, name: "قلب وأوردة ",hospitalId:3}]},
+    { id: 3, name: ' مستشفى السلام ',special: [{id: 1, name: "قلب وأوردة ",hospitalId:3}] },
+    { id: 4, name: 'مستشفى القادسية ',special: [{id: 1, name: "قلب وأوردة ",hospitalId:1}]},
+    { id: 5, name: ' مستشفى الصفوة  ' ,special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] },
     
   ];
   spialtiesList: ISpecialty[] = [
@@ -33,15 +33,15 @@ export class SearchComponent {
     { id: 7, name: 'جراحة أوردة ', hospitalId: 3 },
   ];
   doctors: IDoctor[] = [
-    { id: 1, fullName: 'محمد على ',photo:"" , specialId: 1 },
-    { id: 2, fullName: '  أحمد محسن ',photo:"" , specialId: 1 },
-    { id: 2, fullName: 'راندا  علاء ', photo:"" ,specialId: 2 },
-    { id: 3, fullName: 'سما محمد ', photo: "", specialId: 3 },
-    { id: 2, fullName: '  أحمد محسن ',photo:"" , specialId: 3 },
-    { id: 2, fullName: 'راندا  علاء ', photo:"" ,specialId: 4 },
-    { id: 3, fullName: 'سما محمد ', photo: "", specialId: 4 },
-    { id: 2, fullName: 'راندا  علاء ', photo:"" ,specialId: 5},
-    { id: 3, fullName: 'سما محمد ', photo:"" ,specialId: 5},
+    { id: 1, fullName: 'محمد على ', photo: "", special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] },
+    { id: 2, fullName: '  أحمد محسن ',photo:"" , special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}]  },
+    { id: 2, fullName: 'راندا  علاء ', photo:"" , special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] },
+    { id: 3, fullName: 'سما محمد ', photo: "",  special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] },
+    { id: 2, fullName: '  أحمد محسن ',photo:"" ,  special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] },
+    { id: 2, fullName: 'راندا  علاء ', photo:"" , special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] } ,
+    { id: 3, fullName: 'سما محمد ', photo: "", special: [{ id: 1, name: "قلب وأوردة ", hospitalId: 2 }] } ,
+    { id: 2, fullName: 'راندا  علاء ', photo:"" , special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] },
+    { id: 3, fullName: 'سما محمد ', photo:"" , special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] },
   ];
   hospitalFilter: IHospital[] = [];
   spialtiesFilter: ISpecialty[] = [];
@@ -51,11 +51,11 @@ export class SearchComponent {
   }
 
   selectHospital(id: any) {
-    this.hospitalList = this.spialtiesList.filter((i) => i.hospitalId == id);
+    this.spialtiesList = this.spialtiesList.filter((i) => i.hospitalId == id);
     console.log(id, this.hospitalList);
   }
   selectSpecial(special: any) {
-    // this.spialtiesList = this.spialtiesList.filter((i) => i.hospitalId == special);
+  
     console.log(special);
   }
 

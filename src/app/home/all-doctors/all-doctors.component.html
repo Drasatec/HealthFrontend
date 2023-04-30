@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="row my-5">
-    <div class="col-md-6 col-sm-12 col-lg-4" *ngFor="let doc of doctorList">
+    <div class="col-md-6 col-sm-12 col-lg-4" *ngFor="let doc of doctorList ">
       <div class="card border-0" style="width: 26rem">
         <a
           href="#"
@@ -29,15 +29,15 @@
           />
           <div class="card-body">
             <h5 class="generalColor text-center">{{ doc.fullName }}</h5>
-            <p class="card-text text-center text-dark">{{ doc.specialId }}</p>
+            <p
+              *ngFor="let sepcial of doc.special"
+              class="card-text text-center text-dark"
+            >
+              {{ sepcial.name }}
+            </p>
           </div>
         </a>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
