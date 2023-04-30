@@ -1,6 +1,5 @@
 import { MembersModule } from './members/members.module';
 import { HomeModule } from './home/home.module';
-import { BookingClientsPageModule } from './booking-clients-page/booking-clients-page.module';
 
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -24,6 +23,7 @@ import { ConfirmModule } from './confirm/confirm.module';
 import { DoctorDetailsModule } from './doctor-details/doctor-details.module';
 import { DoctorsPageModule } from './doctors-page/doctors-page.module';
 import { BookingPagesComponent } from './booking-pages/booking-pages.component';
+import { BookingPagesModule } from './booking-pages/booking-pages.module';
 
 @NgModule({
   declarations: [AppComponent, BookingPagesComponent],
@@ -43,7 +43,7 @@ import { BookingPagesComponent } from './booking-pages/booking-pages.component';
     NgxPaginationModule,
     HttpClientModule,
     CarouselModule,
-    BookingClientsPageModule,
+    BookingPagesModule,
     MembersModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

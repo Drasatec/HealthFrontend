@@ -1,3 +1,4 @@
+//will be removed component
 import { Component } from '@angular/core';
 
 @Component({
