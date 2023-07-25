@@ -2,96 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
-import { ConfirmComponent } from './confirm/confirm.component';
-import { DoctorPageComponent } from './doctors-page/doctors-page.component';
-import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
-import { HomeComponent } from './home/home.page';
-import { ReservationAgreeByHospitalComponent } from './confirm/reservation-agree-by-hospital/reservation-agree-by-hospital.component';
-import { BookingByPatientComponent } from './booking/booking-by-patient/booking-by-patient.component';
-import { BookingByClientComponent } from './booking/booking-by-client/booking-by-client.component';
-import { BookingPagesComponent } from './booking-pages/booking-pages.component';
-import { AddMemberComponent } from './members/add-member/add-member.component';
-import { MemberDetailsComponent } from './members/member-details/member-details.component';
-import { MembersComponent } from './members/members.component';
 
-
- 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomeComponent,
+    redirectTo:'home'
   },
-  {
-    path: 'doctors',
-    component: DoctorPageComponent,
-  },
-  {
-    path: 'doctor-details',
-    component: DoctorDetailsComponent ,
-  },
-  {
-    path: 'reservation-confirm',
-    component: ConfirmComponent ,
-  },
-  {
-    path: 'agree-hospital',
-    component: ReservationAgreeByHospitalComponent ,
-  },
-  {
-    path: 'disagree-hospital',
-    component: ReservationAgreeByHospitalComponent ,
-  },
-  {
-    path: 'agree-client',
-    component: ReservationAgreeByHospitalComponent ,
-  },
-  {
-    path: 'disagree-client',
-    component: ReservationAgreeByHospitalComponent ,
-  },
-  {
-    path: 'requested-client',
-    component: ReservationAgreeByHospitalComponent ,
-  },
+  { path: 'booking', loadChildren: () => import('./booking/booking.module').then(m => m.BookingModule) },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+  { path: 'doctor', loadChildren: () => import('./doctor/doctor.module').then(m => m.DoctorModule) },
+  { path: 'reservation', loadChildren: () => import('./reservation/reservation.module').then(m => m.ReservationModule) },
+  { path: 'member', loadChildren: () => import('./member/member.module').then(m => m.MemberModule) },
 
-  {
-    path: 'booking-by-client',
-    component: BookingByClientComponent ,
-  },
-  {
-    path: 'booking-by-patient',
-    component: BookingByPatientComponent ,
-  },
-  {
-    path: 'booking-pages',
-    component: BookingPagesComponent ,
-  },
-  {
-    path: 'members',
-    component: MembersComponent,
-  },
-  {
-    path: 'member-details',
-    component: MemberDetailsComponent,
-  },
-  {
-    path: 'member-details/:id',
-    component: MemberDetailsComponent,
-  },
-  {
-    path: 'add-member',
-    component:  AddMemberComponent,
-  },
-  
-  {
-    path: 'doctor-details/:id',
-    component: DoctorDetailsComponent,
-  },
-  {
-    path:'update-member',
-    component: AddMemberComponent,
-  },
   {
     path: '**',
     redirectTo: '',

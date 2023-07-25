@@ -1,0 +1,32 @@
+<div class="search mt-5 py-2">
+  <div class="container-fluid">
+    <form class="row" [formGroup]="form">
+      <div class="col-md-3 mt-2">
+          <ng-select [items]="hospitalList" appendTo="body" placeholder="مستشفيات"
+              bindValue="hospitalId" bindLabel="name" [virtualScroll]="true"
+              aria-describedby="search-addon" appDebounceInputChange [debounceTime]="1000"
+              formControlName="hospitalId" [multiple]="false">
+          </ng-select>
+      </div>
+      <div class="col-md-3 mt-2">
+        <ng-select [items]="spialtiesList" appendTo="body" placeholder="التخصصات"
+            bindValue="medicalSpecialtyId" bindLabel="name" [virtualScroll]="true"
+            aria-describedby="search-addon" appDebounceInputChange [debounceTime]="1000"
+            formControlName="specialId" [multiple]="false" (change)="selectSpecial($event)">
+        </ng-select>
+      </div>
+      <div class="col-md-3 mt-2">
+        <ng-select [items]="doctorsList" appendTo="body" placeholder="الاطباء"
+            bindValue="doctorId" bindLabel="fullName" [virtualScroll]="true"
+            aria-describedby="search-addon" appDebounceInputChange [debounceTime]="1000"
+            formControlName="doctorId" [multiple]="false">
+        </ng-select>
+      </div>
+      <div class="col-md-3 mt-4 ">
+        <div class="d-flex justify-content-end " role="search">
+          <button class="btn btn-outline-light btn-light text-primary px-5" type="submit" (click)="submit()">ابحث</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,9 +1,0 @@
-.mat-tap-group{
-    background-color: #099dff21;
-    border-radius: 7px;
-
-}
-
-.mat-tab-label-active {
-    color:var(--search-color);
-}

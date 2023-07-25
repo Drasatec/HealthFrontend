@@ -1,0 +1,164 @@
+<div class="container my-5 d-felx justify-content-center align-items-center">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mainBorder m-5 p-5">
+        <div class="container-fluid">
+          <div class="row mt-5">
+            <div class="attinionColor rounded">
+              <h2 class="text-center p-3">حجز موعد</h2>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-md-6 mt-5">
+              <div class="appimentColor rounded">
+                <h2 class="text-center p-3">معلومات الموعد</h2>
+              </div>
+              <form>
+
+                <label
+                  for="exampleInputPassword1"
+                  class="form-label my-3 generalColor"
+                  >اسم المريض</label
+                >
+                <div class=" input-group mb-3">
+                <input
+                  class="form-control rounded-2 "
+                  list="datalistOptions"
+                  id="exampleDataList"
+                  placeholder="اكتب اسم المريض"
+                  type="text"
+                  placeholder="اكتب اسم المريض"
+                  aria-label=".form-control-lg example"
+                  [(ngModel)]="searchInput"
+
+                />
+                <!-- <datalist id="datalistOptions">
+                  <option  *ngFor="let patient of patientFilter"
+                   [value]='patient.name'></option>
+
+                </datalist> -->
+
+
+                  <button
+                  class="btn generalColor attinionColor fs-4"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+
+                   [routerLink]="['/add-member']"
+                   routerLinkActive="router-link-active" >+</button>
+              </div>
+                <div class="mb-3">
+                  <label
+                    for="exampleInputPassword1"
+                    class="form-label my-3 generalColor"
+                    >الهاتف المحمول</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="012455465476"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label
+                    for="exampleInputPassword1"
+                    class="form-label my-3 generalColor"
+                  >
+                    نوع الزيارة
+                  </label>
+                  <br />
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="inlineRadio1"
+                      value="option1"
+                    />
+                    <label class="form-check-label" for="inlineRadio1"
+                      >كشف</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="inlineRadio2"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="inlineRadio2"
+                      >استشارة</label
+                    >
+                  </div>
+                </div>
+                <label
+                  for="exampleInputPassword1"
+                  class="form-label my-3 generalColor"
+                >
+                  اكتب مشكلتك</label
+                >
+                <div class="form-floating">
+                  <textarea
+                    class="form-control"
+                    placeholder="Leave a comment here"
+                    id="floatingTextarea"
+                  ></textarea>
+                  <label for="floatingTextarea" class="text-secondary"
+                    >المشكلة
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btnShadow btn-primary generalBGColor text-white my-5 mx-5 px-5"
+                  [routerLink]="['/reservation-confirm']"
+                >
+                  احجز موعد
+                </button>
+                <button
+                  type="submit"
+                  class="btn btnShadow btn-outline-light my-5 generalColor mx-5 px-5 bg-white"
+                >
+                  الغاء
+                </button>
+              </form>
+            </div>
+            <div class="col-md-6 border-end">
+              <div class="row">
+                <div class="col-md-4 my-5 mx-3">
+                  <img
+                    class="mx-5 my-3"
+                    src="../../../assets/Images/doctorImages/doctorImage.jpg"
+                    style="border-radius: 50%; width: 80%"
+                    alt="Card image cap"
+                  />
+                </div>
+                <div class="col-md-7 my-5">
+                  <div class="card-body my-3">
+                    <h4 class="card-title">د. محمد علاء الدين</h4>
+                    <p class="card-text fs-5">استشارى جراحة الفم والفكين</p>
+                    <p class="text-center my-3">
+                      <fa-icon
+                        class="spanColor px-2"
+                        [icon]="faLocationDot"
+                      ></fa-icon
+                      >مستشفى الرحمة
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="text-center appimentColor p-3 my-3 mx-5">
+                    الأربعاء 15/3/2023 | 06:00م-10:00م
+                  </p>
+                  <p class="text-center fs-5 mx-5 my-2">الدخول بأسبقية الحجز</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

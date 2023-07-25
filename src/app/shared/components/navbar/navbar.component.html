@@ -1,0 +1,69 @@
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">مستشفى الرحمة </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  [routerLink]="['/']"
+          routerLinkActive="active"
+          >الرئيسية</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">من نحن</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="bell mx-2">
+          <a href="#">
+            <fa-icon [icon]="faBell"></fa-icon>
+          </a>
+        </li>
+        <li>
+          <div class="dropdown ">
+            <a
+              data-bs-toggle="collapse"
+               href="#collapseExample"
+               role="button"
+               aria-expanded="false"
+               aria-controls="collapseExample"
+            >
+              <img class
+
+                src="../../../assets/Images/doctorImages/doctorImage.jpg"
+                style="border-radius: 50%; width: 45px"
+                alt="Card image cap"
+              />
+            </a>
+            <div class="collapse" id="collapseExample">
+            <ul class="dropdown-menu dropdown-menu-start d-felx flex-column text-end ">
+              <li><a class="dropdown-item" href="#"
+                routerLinkActive="active"
+                [routerLink]="['/booking-pages']">حجوزاتى </a></li>
+              <li>
+                <li><a class="dropdown-item" href="#"
+                  routerLinkActive="active"
+                  [routerLink]="['/members']">الأعضاء </a></li>
+                <li>
+                <a class="dropdown-item" href="#">تسجيل الخروج </a>
+              </li>
+            </ul>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+      <button
+        class="btn btn-outline-light btn-light py-2 text-primary"
+        type="submit"
+      >
+        تسجيل الدخول
+      </button>
+    </div>
+
+  </div>
+</nav>
