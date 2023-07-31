@@ -6,15 +6,16 @@ import { DoctorDetailsComponent } from './components/doctor-cards/doctor-cards.c
 import { DoctorPageComponent } from './components/doctors-page/doctors-page.component';
 
 const routes: Routes = [
-  { path: '', component: DoctorComponent },
+  { path: '', component: DoctorPageComponent },
 
   {
     path: 'doctor-details/:id',
     component: DoctorDetailsComponent,
   },
   {
-    path: 'doctors',
+    path: 'doctors/:hosId/:specialtyId/:docId',
     component: DoctorPageComponent,
+    data: { breadcrumb: {alias: 'Doctors'}}
   },
   {
     path: 'doctor-details',

@@ -13,3 +13,13 @@ export class SpecialNamesModel {
   medicalSpecialtyId:number | null =null;
   name:string | null =null;
 }
+
+export class GenderModel{
+  genderNumber:number |null=null;
+  genderName:string | null =null;
+}
+
+export class DegreeModel{
+  degreeName:string | null =null;
+doctorDegreeId:number |null=null;
+}

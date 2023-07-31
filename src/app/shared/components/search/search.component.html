@@ -5,21 +5,21 @@
           <ng-select [items]="hospitalList" appendTo="body" placeholder="مستشفيات"
               bindValue="hospitalId" bindLabel="name" [virtualScroll]="true"
               aria-describedby="search-addon" appDebounceInputChange [debounceTime]="1000"
-              formControlName="hospitalId" [multiple]="false">
+              formControlName="hosId" [multiple]="false">
           </ng-select>
       </div>
       <div class="col-md-3 mt-2">
         <ng-select [items]="spialtiesList" appendTo="body" placeholder="التخصصات"
             bindValue="medicalSpecialtyId" bindLabel="name" [virtualScroll]="true"
             aria-describedby="search-addon" appDebounceInputChange [debounceTime]="1000"
-            formControlName="specialId" [multiple]="false" (change)="selectSpecial($event)">
+            formControlName="specialtyId" [multiple]="false" (change)="selectSpecial($event,0)">
         </ng-select>
       </div>
       <div class="col-md-3 mt-2">
         <ng-select [items]="doctorsList" appendTo="body" placeholder="الاطباء"
             bindValue="doctorId" bindLabel="fullName" [virtualScroll]="true"
             aria-describedby="search-addon" appDebounceInputChange [debounceTime]="1000"
-            formControlName="doctorId" [multiple]="false">
+            formControlName="docId" [multiple]="false">
         </ng-select>
       </div>
       <div class="col-md-3 mt-4 ">

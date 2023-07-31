@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cover',
@@ -9,7 +10,7 @@ export class CoverComponent {
   imgList: any[] = [];
   activeSlideIndex = 0;
 
-  constructor() {
+  constructor(private route:Router) {
     this.imgList = [
       {id:1,path:"/assets/Images/homeImages/cover1.jpg"},
       {id:1,path:"/assets/Images/homeImages/cover2.jpg"},
@@ -18,5 +19,6 @@ export class CoverComponent {
   }
   filterChange(e:any){
     console.log(e)
+    this.route.navigate(['doctor/doctors/',e.hosId,e.specialtyId,e.docId])
   }
 }

@@ -16,7 +16,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatInputModule } from '@angular/material/input';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { DebounceInputChangeDirective } from '../directives/input-change-debounce.directive';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
 
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -26,7 +31,7 @@ import { DebounceInputChangeDirective } from '../directives/input-change-debounc
     NavbarComponent,
     FooterComponent,
     DebounceInputChangeDirective,
-
+    BreadcrumbComponent
   ],
   imports: [
     CommonModule,
@@ -42,13 +47,19 @@ import { DebounceInputChangeDirective } from '../directives/input-change-debounc
     RouterModule,
     MatTabsModule,
     MatInputModule,
-    NgSelectModule
+    NgSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatPaginatorModule,
   ],
   exports:[
+    RouterModule,
     SearchComponent,
     PaginationComponent,
     NavbarComponent,
     FooterComponent,
+    BreadcrumbComponent,
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
@@ -63,7 +74,10 @@ import { DebounceInputChangeDirective } from '../directives/input-change-debounc
     MatInputModule,
     NgSelectModule,
     DebounceInputChangeDirective,
-
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatPaginatorModule
   ]
 })
 export class SharedModule { }

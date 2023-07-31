@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { faLocationDot, faStar  ,faDollarSign} from '@fortawesome/free-solid-svg-icons';
+import { DoctorModel } from 'src/app/Models/doctor.model';
 // import { IDoctor } from 'src/app/Models/names.model';
 
 @Component({
@@ -12,10 +13,6 @@ export class DoctorDetailsComponent {
   faLocationDot = faLocationDot;
   faDollarSign = faDollarSign;
 
-  doctorList= [
-    {id:1, fullName: 'أحمد على',  photo:"../../../assets/Images/homeImages/doctor.jpg",   special: [{id: 1, name: "قلب وأوردة ",        hospitalId:2}] },
-    {id:2, fullName:' رامى فريد', photo:"../../../assets/Images/homeImages/doctor.jpg",   special: [{id: 1, name: " جهاز هضمى وباطنة ",hospitalId:2}] },
-    {id:3, fullName:'حسن محمد',   photo:"../../../assets/Images/homeImages/doctor.jpg",   special: [{id: 1, name: "علاج طبيعى  ",        hospitalId:2}] },
-  ]
+ @Input() doctors:DoctorModel[]=[]
 
 }

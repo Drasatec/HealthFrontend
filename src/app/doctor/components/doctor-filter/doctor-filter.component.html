@@ -3,72 +3,58 @@
     <div class=" card-header mainBorder  generalBGColor">
         <h5 class="card-title mainBorder  text-white">حدد بحثك</h5>
     </div>
-    <div class="accordion mainBorder" id="accordionExample">
+    <div class="accordion mainBorder" id="accordionExample" >
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+           &nbsp; تاريخ الحجز
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" [min]="minDate" [formControl]="date" (dateChange)="onDateChange($event)">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+          </div>
+        </div>
+      </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-             اللقب
+              النوع
             </button>
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                <div class="form-check-reverse">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                    <label class="form-check-label" for="flexCheckDefault">
-                    أستاذ
-                    </label>
-                  </div>
-                  <div class="form-check-reverse">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
-                    <label class="form-check-label" for="flexCheckChecked">
-                   مدرس
-                    </label>
-                  </div>
-                  <div class="form-check-reverse">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
-                    <label class="form-check-label" for="flexCheckChecked">
-                  استشارى
-                    </label>
-                  </div>
-                  <div class="form-check-reverse">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
-                    <label class="form-check-label" for="flexCheckChecked">
-                   أخصائى
-                    </label>
-                  </div>
+              <mat-radio-group (change)="changeGender($event)" [(ngModel)]="labelPosition"  aria-label="Select an option2">
+                <mat-radio-button class="example-margin" value="all">الكل</mat-radio-button>
+                <mat-radio-button class="example-margin" *ngFor="let gender of genderList" [value]="gender.genderNumber">
+                  {{gender.genderName}}
+                </mat-radio-button>
+              </mat-radio-group>
+
             </div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingTwo">
             <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-             &nbsp; النوع  
+              الدرجة العلمية
             </button>
           </h2>
           <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <div class="form-check-reverse">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"checked>
-                    <label class="form-check-label" for="flexCheckDefault">
-                    الكل
-                    </label>
-                  </div>
-                  <div class="form-check-reverse">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
-                    <label class="form-check-label" for="flexCheckChecked">
-                   دكتور
-                    </label>
-                  </div>
-                  <div class="form-check-reverse">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
-                    <label class="form-check-label" for="flexCheckChecked">
-                  دكتور
-                    </label>
-                  </div>
-              
-            </div>
+            <mat-radio-group (change)="changeDegree($event)" [(ngModel)]="labelPosition2"  aria-label="Select an option">
+              <mat-radio-button class="example-margin" value="all">الكل</mat-radio-button>
+              <mat-radio-button class="example-margin" *ngFor="let degree of degreeList" [value]="degree.doctorDegreeId">
+                {{degree.degreeName}}
+              </mat-radio-button>
+            </mat-radio-group>
           </div>
         </div>
-      
+
       </div>
   </div>

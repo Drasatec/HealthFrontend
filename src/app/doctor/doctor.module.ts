@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { DoctorRoutingModule } from './doctor-routing.module';
 import { DoctorComponent } from './doctor.component';
@@ -31,6 +31,7 @@ import { AllDoctorsComponent } from './components/all-doctors/all-doctors.compon
   ],
   exports:[
     AllDoctorsComponent
-  ]
+  ],
+  providers: [DatePipe],
 })
 export class DoctorModule { }

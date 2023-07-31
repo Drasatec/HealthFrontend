@@ -1,14 +1,14 @@
-<div class="card  my-3 py-4  mainBorder px-4"  style="width: 100%;" *ngFor="let doctor of doctorList">
+<div class="card  my-3 py-4  mainBorder px-4"  style="width: 100%;" *ngFor="let doctor of doctors">
     <div class="contanier">
         <div class="row">
             <div class="col-md-2">
-                <img class="mx-5 my-3" src="../../../assets/Images/doctorImages/doctorImage.jpg" style="border-radius: 50%; width:70%" alt="Card image cap">
+                <img class="mx-5 my-3" [src]="doctor?.doctor?.photo ? doctor?.doctor?.photo : '/assets/Images/doctorImages/doctorImage.jpg'" style="border-radius: 50%; width:70%" alt="Card image cap">
             </div>
             <div class="col-md-8 text-end">
                 <div class="card-body">
-                    <h5 class="card-title">دكتور   {{doctor.fullName }} </h5>
-                    <p *ngFor="let special of doctor.special" class="card-text">{{special.name}}</p>
-               
+                    <h5 class="card-title">دكتور  {{doctor.doctor.doctorTranslations[0].fullName }} </h5>
+                    <p class="card-text">{{doctor.doctor.doctorTranslations[0].headline}}</p>
+
                     <div class="mt-1  ">
                       <div>
                           <fa-icon class="ratingColor" [icon]="faStar"></fa-icon>
@@ -19,23 +19,21 @@
                       </div>
                   </div>
                   <br>
-                  <p> دكتور  <span class="spanColor"> اسنان </span>  متخصص <span class="spanColor">فى جراحة وجه الفكين   </span> </p>
-                  <p class="spanColor"> عيادة الرحمة الغربية </p>
+                  <p> {{doctor.doctor.doctorTranslations[0].about}} </p>
+                  <!-- <p class="spanColor"> عيادة الرحمة الغربية </p>
                   <p>  <fa-icon class="spanColor"  [icon]="faLocationDot"></fa-icon> طنطا :شارع الجيش </p>
-                  <p>   <fa-icon class="spanColor" [icon]="faDollarSign"></fa-icon>   الكشف :<span class="spanColor">   300 فرنك  </span></p>
-                   
-                
+                  <p>   <fa-icon class="spanColor" [icon]="faDollarSign"></fa-icon>   الكشف :<span class="spanColor">   300 فرنك  </span></p> -->
                   </div>
             </div>
             <div class="col-md-2 d-flex align-items-end  ">
-                
+
                 <a [routerLink]="['/doctor-details']" class="btn generalBGColor text-white  px-5 mb-4 ">حجز</a>
-       
-               
+
+
             </div>
         </div>
     </div>
-  
-   
+
+
 
   </div>
