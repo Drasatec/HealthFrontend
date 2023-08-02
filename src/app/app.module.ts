@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { SharedModule } from './shared/shared.module';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,7 +21,6 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     SharedModule,
-
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [],

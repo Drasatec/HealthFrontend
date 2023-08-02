@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'doctor', loadChildren: () => import('./doctor/doctor.module').then(m => m.DoctorModule), data: {breadCrum: "Doctors"} },
   { path: 'reservation', loadChildren: () => import('./reservation/reservation.module').then(m => m.ReservationModule) },
   { path: 'member', loadChildren: () => import('./member/member.module').then(m => m.MemberModule) },
+  { path: 'about-us', loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule) },
 
   {
     path: '**',

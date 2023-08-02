@@ -20,64 +20,53 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
-
+const Modules=[
+  CommonModule,
+  FormsModule,
+  ReactiveFormsModule,
+  FontAwesomeModule,
+  NgxPaginationModule,
+  MatTabsModule,
+  CarouselModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  TooltipModule,
+  RouterModule,
+  MatTabsModule,
+  MatInputModule,
+  NgSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatRadioModule,
+  MatPaginatorModule,
+  BsDropdownModule,
+  MatCardModule,
+  MatIconModule
+]
+const components=[
+  SearchComponent,
+  PaginationComponent,
+  NavbarComponent,
+  FooterComponent,
+  DebounceInputChangeDirective,
+  BreadcrumbComponent
+]
 @NgModule({
   declarations: [
-    SearchComponent,
-    PaginationComponent,
-    NavbarComponent,
-    FooterComponent,
-    DebounceInputChangeDirective,
-    BreadcrumbComponent
+  ...components
   ],
   imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FontAwesomeModule,
-    NgxPaginationModule,
-    MatTabsModule,
-    CarouselModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    TooltipModule.forRoot(),
-    RouterModule,
-    MatTabsModule,
-    MatInputModule,
-    NgSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    MatPaginatorModule,
+    ...Modules
   ],
   exports:[
-    RouterModule,
-    SearchComponent,
-    PaginationComponent,
-    NavbarComponent,
-    FooterComponent,
-    BreadcrumbComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    FontAwesomeModule,
-    NgxPaginationModule,
-    MatTabsModule,
-    CarouselModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    TooltipModule,
-    RouterModule,
-    MatTabsModule,
-    MatInputModule,
-    NgSelectModule,
-    DebounceInputChangeDirective,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    MatPaginatorModule
+    ...Modules,
+    ...components
   ]
 })
 export class SharedModule { }

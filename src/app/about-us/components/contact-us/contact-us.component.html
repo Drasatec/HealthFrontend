@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <mat-card class="example-card">
+    <mat-card-header class="justify-content-center text-bold">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title >{{hospital.hospitalTrasnlations[0]?.name}}</mat-card-title>
+      <mat-card-subtitle>ادخل البيانات التالية للأتصال بالمستشفى كليوباترا</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row my-3">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+          <h5>للتواصل معنا</h5>
+          <ul class="list-unstyled my-2">
+            <li class="d-flex align-items-center my-3" *ngFor="let phone of hospital.phoneNumbers"><mat-icon class="text-primary mx-2">call</mat-icon>{{phone.telephoneNumber}}</li>
+            <li class="d-flex align-items-center my-3"><mat-icon class="text-primary mx-2">location_on</mat-icon>{{hospital.hospitalTrasnlations[0]?.address}}</li>
+          </ul>
+          <div id="map">
+            <div class="my-google-map">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
