@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    <h3 class="card-title align-items-start flex-column mr-3 mb-5 mt-0">
+      <span class="card-label text-primary"> تاكيد الحجز</span>
+    </h3>
+    <button mat-button (click)="closeDialog()" class="btn-close-trans">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+  <div class="card-body row">
+    <div class="col-md-2">
+
+      <img
+        class="mx-5 my-3"
+        [src]="doctor.photo?imgUrl + 'small/'+doctor.photo:'/assets/Images/doctorImages/doctorImage.jpg'"
+        style="border-radius: 50%; width: 70%"
+        alt="Card image cap"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body my-3">
+        <h4 class="card-title ">{{doctor.doctorTranslations[0].fullName}}</h4>
+        <p class="card-text fs-5">{{doctor.doctorTranslations[0].headline}}</p>
+        <div class="reserveColor p-5 m-4 text-center">
+          <p class="bold fs-5 generalColor">موعدك في العيادة</p>
+          <p>
+            {{workPeriod.dayName}} <span class="spanColor">{{data.VisitingDate}}</span>
+            <span class="fSize">{{workPeriod.workingPeriod}}</span>
+          </p>
+        </div>
+        <p class="spanColor bold fs-5">{{workPeriod.clinic}}</p>
+
+        <div class="d-grid gap-2">
+          <button class="btn button1 generalBGColor text-white" (click)="confirm()">
+            تأكيد الحجز
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

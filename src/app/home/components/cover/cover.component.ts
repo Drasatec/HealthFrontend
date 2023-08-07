@@ -19,6 +19,6 @@ export class CoverComponent {
   }
   filterChange(e:any){
     console.log(e)
-    this.route.navigate(['doctor/doctors/',e.hosId,e.specialtyId,e.docId])
+    this.route.navigate(['doctor/doctors/',e.hosId,e.specialtyId,e.docId?e.docId : ''])
   }
 }

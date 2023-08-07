@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'reservation', loadChildren: () => import('./reservation/reservation.module').then(m => m.ReservationModule) },
   { path: 'member', loadChildren: () => import('./member/member.module').then(m => m.MemberModule) },
   { path: 'about-us', loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule) },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
 
   {
     path: '**',

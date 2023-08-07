@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">مستشفى الرحمة </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
         </li>
 
       </ul>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 ms-2 mb-lg-0">
         <li class="bell mx-2">
           <a href="#">
             <fa-icon [icon]="faBell"></fa-icon>
@@ -56,7 +56,7 @@
                   routerLinkActive="active"
                   [routerLink]="['/members']">الأعضاء </a></li>
                 <li>
-                <a class="dropdown-item" href="#">تسجيل الخروج </a>
+                <a class="dropdown-item" routerLink="/login">تسجيل الخروج </a>
               </li>
             </ul>
             </div>

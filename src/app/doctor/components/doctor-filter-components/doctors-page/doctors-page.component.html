@@ -15,16 +15,18 @@
         <app-doctor-filter (GenderChange)="getFilterGender($event)"
         (DateChange)="filterDay($event)"
         (filterChange)="getFilterDegree($event)"
+        (PeriodChange)="getPeriodChange($event)"
         ></app-doctor-filter>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9" *ngIf="!loading;else progressSpinner">
+
       <!-- <a [routerLink]="['/doctor-details']" class="btn  px-5 mb-4"> -->
-        <app-doctor-cards [doctors]="doctors" *ngIf="doctors.length >0;else noData"></app-doctor-cards>
+        <app-doctor-cards [doctors]="doctors" [selectedDate]="selectedDate" *ngIf="doctors.length >0;else noData"></app-doctor-cards>
       <!-- </a> -->
 
       <div class="my-3  px-4 d-flex justify-content-center">
-        <mat-paginator
+        <mat-paginator *ngIf="doctors.length >0"
           [length]="totalItems"
           [pageSize]="pageSize"
           [pageIndex]="pageIndex"
@@ -35,6 +37,21 @@
       </div>
 
     </div>
+    <ng-template #progressSpinner>
+      <div class="overlay" >
+        <div class="center">
+
+        <mat-progress-spinner
+          diameter="100"
+          mode="indeterminate"
+          color="primary"
+          strokeWidth="10"
+          value="100">
+        </mat-progress-spinner>
+
+        </div>
+      </div>
+      </ng-template>
   </div>
   <ng-template #noData>
     <div class="text-center py-4">

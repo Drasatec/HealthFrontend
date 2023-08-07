@@ -21,4 +21,8 @@ export class HospitalService {
     const url = `${this.baseURL}HospitalFeature/all?lang=ar&hosId=${id}`;
     return this.http.get<HospitalFeatureModel[]>(url);
   }
+  sendHospitalContact(body:any): Observable<any> {
+    const url = `${this.baseURL}ContactForm/add`;
+    return this.http.post(url,body);
+  }
   }
