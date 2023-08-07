@@ -26,6 +26,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const Modules=[
   CommonModule,
@@ -50,7 +51,7 @@ const Modules=[
   MatCardModule,
   MatIconModule,
   MatProgressSpinnerModule,
-
+  MatSnackBarModule
 ]
 const components=[
   SearchComponent,
