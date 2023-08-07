@@ -3,6 +3,7 @@ export class DoctorModel{
     doctorWorkPeriod: DoctorWorkPeriodModel =new DoctorWorkPeriodModel;
     doctor:DoctorInfoModel=new DoctorInfoModel;
 }
+
 export class TranslationModel{
   id:  number |null =null;
   fullName: string |null =null;
@@ -36,4 +37,9 @@ export class DoctorWorkPeriodModel{
   doctorId:  number |null =null;
   workingPeriodId:  number |null =null;
   onDay:  number |null =null;
-};
+  workingPeriod: string |null =null;
+  hospital: string |null =null;
+  clinic: string |null =null;
+  doctor: string |null =null;
+  dayName: string |null =null;
+}

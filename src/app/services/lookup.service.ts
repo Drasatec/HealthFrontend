@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../environment/environment.prod';
-import { DoctorNamesModel, HospitalNamesModel, SpecialNamesModel } from '../Models/names.model';
+import { DoctorNamesModel, HospitalNamesModel, SpecialNamesModel, VisitTypeModel } from '../Models/names.model';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +51,7 @@ getAllHospitalsNames(fetchCriteria?: any): Observable<any> {
   }
   getAllVisitTypesNames(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}TypesVisit/names?lang=ar`;
-    return this.http.get(url,{ params: fetchCriteria });
+    return this.http.get<VisitTypeModel[]>(url,{ params: fetchCriteria });
   }
   getAllPriceCategoryNames(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}PriceCategory/names?lang=ar`;

@@ -24,6 +24,7 @@ export class DoctorPageComponent implements OnInit {
       private route:ActivatedRoute,
       private doctorService:DoctorService,
       private datePipe: DatePipe,
+
     ) { }
   searchData!:any
   ngOnInit() {
@@ -37,6 +38,7 @@ export class DoctorPageComponent implements OnInit {
   }
   doctors:DoctorModel[]=[]
   filterGender:any;
+  filterPeriod:any
   days=[{id:1,name:"Saturday"},{id:2,name:"Sunday"},{id:3,name:"Monday"},{id:4,name:"Tuesday"},{id:5,name:"Wednesday"},{id:6,name:"Thursday"},{id:7,name:"Friday"}]
 
   getFilterGender(event:any){
@@ -50,13 +52,20 @@ export class DoctorPageComponent implements OnInit {
   }
   getFilterSearch(event:any){
     this.searchData =event
+    console.log(this.searchData)
     this.filterDoctor()
 
   }
+  getPeriodChange(event:any){
+    this.filterPeriod=event
+    this.filterDoctor()
+  }
   selectedDay:any
   filterDateParams:any
+  selectedDate!:Date
   filterDay(e?:any,date?:any){
     console.log(e,date)
+    this.selectedDate=e ? e : date
     if(date){
       this.selectedDay = this.days.filter(x=> x.name === this.getDayName(date))[0]
       this.filterDateParams={
@@ -82,23 +91,29 @@ export class DoctorPageComponent implements OnInit {
     return '';
   }
   filterDegree:any
+  loading=false;
   filterDoctor(){
+    this.loading=true
     let payload={
       PageNumber: this.pageIndex +1,
       PageSize: this.pageSize,
       ...this.searchData, //search
       ...this.filterGender, //gender
       ...this.filterDateParams, //date
-      ...this.filterDegree //degree
+      ...this.filterDegree, //degree
+      ...this.filterPeriod
     }
     console.log(payload)
     this.doctorService.getAllDoctor(payload).subscribe(
       (res)=>{
+        this.loading=false
         this.doctors=res.data
         console.log(this.doctors)
         this.dataSource = new MatTableDataSource(this.doctors);
         this.dataSource.paginator = this.paginator;
         this.totalItems = res.total;
+      },(error)=>{
+        this.loading=false
       }
     )
   }

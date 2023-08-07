@@ -1,27 +1,26 @@
-/* .navcolor{
-     background: var(--main-color);
+nav{
+  background: var(--main-color);
+  color:#fff
 
 }
 
-ul{
-     display: flex;
-     list-style-type: none;
-     flex-direction: row;
-}*/
+nav a{
+  color:#fff
+}
+.dropdown-menu a{
+  color:#333
+}
 .bell{
-      background-color: rgba(218, 222, 225, 0.934);
-      padding:3px 10px;
+  background-color: rgba(218, 222, 225, 0.934);
+  padding:3px 10px;
 
-    height: 35px;
-      border-radius: 50%;
+  height: 35px;
+  border-radius: 50%;
 
 }
 fa-icon{
-     margin: auto;
-     font-size: 1.2rem;
-     color:rgb(13, 37, 70);
+  margin: auto;
+  font-size: 1.2rem;
+  color:rgb(13, 37, 70);
 }
-/*
-.dropdown-toggle::after{
-     display: none;
-} */
+

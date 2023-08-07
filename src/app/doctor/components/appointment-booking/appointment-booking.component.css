@@ -29,3 +29,13 @@
 .page-link span{
     color: var(--main-color);
 }
+.slider {
+  border:1px solid var(--main-color);
+  cursor: pointer;
+  text-align: center;
+  margin: 1rem;
+}
+.slider.active {
+  background-color: var(--main-color);
+  color:#fff
+}

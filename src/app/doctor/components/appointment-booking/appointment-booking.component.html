@@ -1,61 +1,53 @@
 <div class="contanier bg-white mainBorder">
- <div class="row  d-felx justify-content-center align-items-center">
-  <div class=" col-lg-6 col-md-6 col-sm-6  ">
-    <nav aria-label="..." class="py-4 my-3  ">
-      <ul class="pagination">
-        <li class="page-item ">
-          <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&lt;</span>
-            </a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="#">مارس 2023</a></li>
-        
-        <li class="page-item">
-          <a class="page-link generalColor" href="#" aria-label="Next">
-              <span aria-hidden="true">&gt;</span>
-            </a>
-        </li>
-      </ul>
-    </nav>
-  
-  </div>
+  <div class="row  d-felx justify-content-center align-items-center">
+    <div class=" col-12">
+      <div class="card  my-3 py-4  mainBorder px-4"  style="width: 100%;">
+        <div class="contanier">
+          <div class="row">
+            <div class="col-md-2">
+                <img class="mx-5 my-3" [src]="imgUrl + 'small/' +doctor?.photo ? doctor?.photo : '/assets/Images/doctorImages/doctorImage.jpg'" style="border-radius: 50%; width:70%" alt="Card image cap">
+            </div>
+            <div class="col-md-8 text-end">
+                <div class="card-body">
+                    <h5 class="card-title">دكتور  {{doctor.doctorTranslations[0].fullName }} </h5>
+                    <p class="card-text">{{doctor.doctorTranslations[0].headline}}</p>
 
- </div>
-   
-
-<div class="row">
-
-
-    <owl-carousel-o [options]="customOptions">
-      <div class="col-md-3 col-lg-3 col-sm-12">
-        <div
-          class="card cardStyle overflow-hidden"
-          style="width: 18rem; height: 20rem"
-        >
-        <ng-template carouselSlide>Slide 1</ng-template>  
-          <!-- <img src="{{ item.cover }}" class="card-img-top" alt="cityCard" />
-          <div class="card-body">
-            <h5 class="card-title">{{ item.name }}</h5>
-
-            <a routerLink="/city/{{ item._id }}" class="btn btnStyle"
-              >see more</a
-            > -->
-          <!-- </div> -->
+                    <div class="mt-1  ">
+                      <div>
+                          <fa-icon class="ratingColor" [icon]="faStar"></fa-icon>
+                          <fa-icon class="ratingColor" [icon]="faStar"></fa-icon>
+                          <fa-icon class="ratingColor" [icon]="faStar"></fa-icon>
+                          <fa-icon class="ratingColor" [icon]="faStar"></fa-icon>
+                          <fa-icon class="ratingColor" [icon]="faStar"></fa-icon>
+                      </div>
+                  </div>
+                  <br>
+                  <p> {{doctor.doctorTranslations[0].about}} </p>
+                  <!-- <p>  <fa-icon class="spanColor"  [icon]="faLocationDot"></fa-icon> طنطا :شارع الجيش </p>
+                  <p>   <fa-icon class="spanColor" [icon]="faDollarSign"></fa-icon>   الكشف :<span class="spanColor">   300 فرنك  </span></p> -->
+                  </div>
+            </div>
+          </div>
         </div>
-   
+        <div class="row">
+          <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging" [ngStyle]="{'direction': 'ltr'}">
+            <ng-container *ngFor="let item of workperiodsDoctor;let i = index">
+              <ng-template carouselSlide>
+
+                <div class="slider my-2"  [ngClass]="{'active': i === activeItemIndex}">
+                  <a (click)="getPeriod(item.workingPeriodId); setActiveItem(i)" >
+                    <h5>{{item.dayName}}</h5>
+                    <p>{{item.workingPeriod}}</p>
+                  </a>
+
+                </div>
+              </ng-template>
+            </ng-container>
+
+          </owl-carousel-o>
+
+        </div>
       </div>
-    
-     
-      <ng-template carouselSlide>Slide 2</ng-template>  
-      <ng-template carouselSlide>Slide 3</ng-template>  
-      <ng-template carouselSlide>Slide 1</ng-template>  
-      <ng-template carouselSlide>Slide 2</ng-template>  
-      <ng-template carouselSlide>Slide 3</ng-template> 
-      <ng-template carouselSlide>Slide 1</ng-template>  
-      <ng-template carouselSlide>Slide 2</ng-template>  
-      <ng-template carouselSlide>Slide 3</ng-template> 
-    </owl-carousel-o>
-    
-
-
+    </div>
+  </div>
 </div>

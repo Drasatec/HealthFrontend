@@ -22,9 +22,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const Modules=[
   CommonModule,
@@ -47,7 +49,9 @@ const Modules=[
   MatPaginatorModule,
   BsDropdownModule,
   MatCardModule,
-  MatIconModule
+  MatIconModule,
+  MatProgressSpinnerModule,
+  MatSnackBarModule
 ]
 const components=[
   SearchComponent,

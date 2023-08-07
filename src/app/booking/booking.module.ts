@@ -1,7 +1,7 @@
-import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { BookingByClientComponent } from './components/booking-by-client/booking-by-client.component';
@@ -12,6 +12,9 @@ import { BookingComponent } from './booking.component';
 import { BookingPagesComponent } from './components/booking-pages/booking-pages.component';
 import { BookingPatientCardsComponent } from './components/booking-patient-cards/booking-patient-cards.component';
 import { SharedModule } from '../shared/shared.module';
+import {MatIconModule} from '@angular/material/icon';
+import { ReservationConfirmComponent } from './components/reservation-confirm/reservation-confirm.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -23,13 +26,19 @@ import { SharedModule } from '../shared/shared.module';
     ListOfPatientComponent,
     BookingComponent,
     BookingPagesComponent,
-    BookingPatientCardsComponent
+    BookingPatientCardsComponent,
+    ReservationConfirmComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     BookingRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    MatDialogModule,
+    MatIconModule,
+    MatSnackBarModule
+  ],
+  providers: [DatePipe],
+
 })
 export class BookingModule { }

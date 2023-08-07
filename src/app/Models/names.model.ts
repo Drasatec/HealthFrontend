@@ -13,7 +13,10 @@ export class SpecialNamesModel {
   medicalSpecialtyId:number | null =null;
   name:string | null =null;
 }
-
+export class WorkPeriodModel{
+  name:string | null =null;
+  workingPeriodId:number | null =null;
+}
 export class GenderModel{
   genderNumber:number |null=null;
   genderName:string | null =null;
@@ -22,4 +25,8 @@ export class GenderModel{
 export class DegreeModel{
   degreeName:string | null =null;
 doctorDegreeId:number |null=null;
+}
+export class VisitTypeModel {
+  typeVisitId:number |null=null;
+  name:string | null =null;
 }

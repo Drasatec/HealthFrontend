@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DoctorComponent } from './doctor.component';
-import { ConfirmComponent } from '../reservation/components/confirm/confirm.component';
-import { DoctorDetailsComponent } from './components/doctor-cards/doctor-cards.component';
-import { DoctorPageComponent } from './components/doctors-page/doctors-page.component';
+import { DoctorDetailsComponent } from './components/doctor-filter-components/doctor-cards/doctor-cards.component';
+import { DoctorPageComponent } from './components/doctor-filter-components/doctors-page/doctors-page.component';
+import { AppointmentBookingComponent } from './components/appointment-booking/appointment-booking.component';
 
 const routes: Routes = [
   { path: '', component: DoctorPageComponent },
@@ -13,18 +12,14 @@ const routes: Routes = [
     component: DoctorDetailsComponent,
   },
   {
-    path: 'doctors/:hosId/:specialtyId/:docId',
+    path: 'doctors/:hospitalId/:medicalSpecialtyId/:docId',
     component: DoctorPageComponent,
     data: { breadcrumb: {alias: 'Doctors'}}
   },
   {
-    path: 'doctor-details',
-    component: DoctorDetailsComponent ,
-  },
-  {
-    path: 'reservation-confirm',
-    component: ConfirmComponent ,
-  },
+    path: 'AppointmentBooking/:DoctorId/:HospitalId/:WorkingPeriodId/:date',
+    component: AppointmentBookingComponent ,
+  }
 ];
 
 @NgModule({

@@ -1,0 +1,14 @@
+.fSize{
+    font-size: 14px;
+}
+.button1:hover{
+    background-color: var(--search-color);
+  }
+  .btn-close-trans {
+    background-color: transparent;
+    color:red;
+    border:none
+  }
+  ::ng-deep .cdk-overlay-pane {
+    overflow-y: auto;
+  }

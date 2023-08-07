@@ -1,9 +1,9 @@
-import { LookupService } from './../../../services/lookup.service';
+import { LookupService } from '../../../../services/lookup.service';
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { DegreeModel, GenderModel } from 'src/app/Models/names.model';
+import { DegreeModel, GenderModel, WorkPeriodModel } from 'src/app/Models/names.model';
 import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
@@ -27,12 +27,21 @@ export class DoctorFilterComponent implements OnInit{
   @Output() GenderChange =new EventEmitter<any>()
   @Output() DateChange=new EventEmitter<any>()
   @Output() filterChange=new EventEmitter<any>()
-
+    @Output() PeriodChange=new EventEmitter<any>()
 
   ngOnInit(): void {
     this.getGender()
     this.getDegree()
+    this.getWorkPeriod()
     // this.filterDay(new Date())
+  }
+  workPeriods:WorkPeriodModel[]=[]
+  getWorkPeriod(){
+    this.lookupService.getAllWorkingPeriodNames().subscribe(
+      (res)=>{
+        this.workPeriods=res
+      }
+    )
   }
   genderList:GenderModel[]=[]
   getGender(){
@@ -70,5 +79,10 @@ export class DoctorFilterComponent implements OnInit{
     }
     this.filterChange.emit(filter)
   }
-
+  changeWorkPeriod(event:any){
+    let filter={
+      workingPeriodId: event.value
+    }
+    this.PeriodChange.emit(filter)
+  }
 }

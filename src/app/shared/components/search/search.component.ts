@@ -28,10 +28,10 @@ export class SearchComponent {
     this.getSpeciality(this.payload)
     this.createForm()
     if(this.data){
-      this.selectSpecial('',+this.data.specialityId)
+      this.selectDoctors(+this.data,+this.data)
       this.form.patchValue({
-        hosId:+this.data.hosId,
-        specialtyId:+this.data.specialtyId,
+        hosId:+this.data.hospitalId,
+        specialtyId:+this.data.medicalSpecialtyId,
         docId:+this.data.docId,
       })
     }
@@ -52,16 +52,41 @@ export class SearchComponent {
       }
     )
   }
-  selectSpecial(e:any,specialId:number){
+  specialId:any=''
+  hosId:any=''
+
+  selectDoctors(special:any,hos:any){
+    console.log(special,hos)
     let payload ={
-      ...this.payload,
-      specialtyId:e ? e.medicalSpecialtyId : specialId
+      specialtyId:special ? special.medicalSpecialtyId : this.specialId,
+      hosId:hos ? hos.hospitalId : this.hosId
     }
     this._lookupservice.getAllDoctors(payload).subscribe(
       (res)=>{
         this.doctorsList=res
       }
     )
+  }
+  changeHospital(e:any){
+    this.form.patchValue({
+      docId:null
+    })
+    this.doctorsList=[]
+    let pay={
+      medicalSpecialtyId:this.specialId
+    }
+    this.hosId = e ? e.hospitalId : ''
+    this.selectDoctors(pay,e)
+
+  }
+  changeSpcial(e:any){
+    let pay={
+      hospitalId:this.hosId
+    }
+    this.selectDoctors(e,pay)
+    this.specialId = e ? e.medicalSpecialtyId : '';
+
+
   }
   createForm(){
     this.form = new FormGroup({
@@ -71,6 +96,7 @@ export class SearchComponent {
     });
   }
   submit(){
+    console.log(this.form.value)
     this.FilterChange.emit(this.form.value)
   }
 }
