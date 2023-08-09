@@ -15,7 +15,7 @@ export class RegistrationComponent {
     email:  new FormControl ('',[Validators.required,Validators.email]),
     password: new FormControl ('',[Validators.required,Validators.minLength(8)]),
     confirmPassword:new FormControl ('',[Validators.required]),
-    phoneNumber: new FormControl ('',[Validators.required])
+    phoneNumber: new FormControl('',[Validators.required])
   },{
     validators: this.passwordMatchValidator()
   }
@@ -40,8 +40,12 @@ export class RegistrationComponent {
  confirmMethod:string="null"
   save(){
     this.form.markAllAsTouched();
-    this.confirmMethod = "email"
+    this.confirmMethod = "null"
     if(this.form.valid){
+      let data = this.form.value
+      this.form.patchValue({
+        phoneNumber:'+2' + data.phoneNumber
+      })
       this.authService.register(this.form.value,this.confirmMethod).subscribe(
         (res)=>{
           if(res.success){
@@ -50,7 +54,7 @@ export class RegistrationComponent {
                 duration: 5000,
                 panelClass: 'success'
               });
-              this.router.navigate(['/auth/confirm-method/',this.confirmMethod])
+              this.router.navigate(['/auth/confirm-method/',this.confirmMethod,this.confirmMethod === 'email'? this.form.controls.email : this.form.controls.phoneNumber])
             }else {
               this.snackBar.open("تم التسجيل بنجاح ", "success", {
                 duration: 5000,
@@ -59,7 +63,7 @@ export class RegistrationComponent {
               this.router.navigate(['/auth/profile'])
             }
           }else {
-            this.snackBar.open(res.message, "error", {
+            this.snackBar.open("انت مسجل بالفعل", "error", {
               duration: 5000,
               panelClass: 'error'
             });

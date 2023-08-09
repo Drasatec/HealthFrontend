@@ -1,1 +1,95 @@
-<p>profile works!</p>
+<div [formGroup]="form" class="row bg-white p-5 text-center">
+  <h3> ادخال البيانات</h3>
+  <div class="col-md-6">
+    <div class="form-group my-2">
+      <label for="example-search-input" class="text-base-color text-bold">الاسم </label>
+      <input [class.is-invalid]="form.controls.FullName.invalid && form.controls.FullName.touched"
+        class="form-control" type="text" formControlName="FullName" />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group my-2">
+      <label for="example-search-input" class="text-base-color text-bold">ألاسم باللغة الانجليزية</label>
+      <input [class.is-invalid]="form.controls.FullNameEn.invalid && form.controls.FullNameEn.touched"
+        class="form-control" type="text" formControlName="FullNameEn"/>
+      <div class="invalid-feedback">
+        <span *ngIf="form.controls.FullNameEn.errors?.['required']">من فضلك ادخل الاسم</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group my-2">
+      <label for="example-search-input" class="text-base-color text-bold">العنوان </label>
+      <input [class.is-invalid]="form.controls.Address.invalid && form.controls.Address.touched"
+        class="form-control" type="text" formControlName="Address"  />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group mb-3">
+      <label for="example-search-input" class="text-base-color text-bold">النوع</label>
+      <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="genders" formControlName="Gender"
+          bindValue="genderName" bindLabel="genderNumber" appDebounceInputChange >
+      </ng-select>
+      <div class="invalid-feedback">
+        <span *ngIf="form.controls.Gender.errors?.['required']">من فضلك ادخل النوع</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group mb-3">
+      <label  for="example-search-input" class="text-base-color text-bold">تاريخ الميلاد</label>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="BirthDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="invalid-feedback">
+        <span *ngIf="form.controls.BirthDate.errors?.['required']">من فضلك ادخل تاريخ الميلاد</span>
+      </div>
+  </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group mb-3">
+      <label for="example-search-input" class="text-base-color text-bold">الحالة الاجتماعية</label>
+      <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="MaritalStatus" formControlName="MaritalStatus"
+          bindValue="value" bindLabel="name" appDebounceInputChange >
+      </ng-select>
+      <div class="invalid-feedback">
+        <span *ngIf="form.controls.MaritalStatus.errors?.['required']">من فضلك ادخل الحالة الاجتماعية</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group mb-3">
+      <label for="example-search-input" class="text-base-color text-bold"> الجنسية</label>
+      <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="nationality" formControlName="NationalityId"
+          bindValue="nationalityId" bindLabel="name" appDebounceInputChange >
+      </ng-select>
+      <div class="invalid-feedback">
+        <span *ngIf="form.controls.NationalityId.errors?.['required']">من فضلك ادخل  الجنسية</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group mb-3">
+      <label for="example-search-input" class="text-base-color text-bold"> الديانة</label>
+      <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="religions" formControlName="Religion"
+          bindValue="id" bindLabel="name" appDebounceInputChange >
+      </ng-select>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group my-2">
+      <label for="example-search-input" class="text-base-color text-bold">فصيلة الدم </label>
+      <input [class.is-invalid]="form.controls.BloodType.invalid && form.controls.BloodType.touched"
+        class="form-control" type="text" formControlName="BloodType"  />
+    </div>
+  </div>
+
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" (click)="save()">حفظ</button>
+  </div>
+</div>
+

@@ -30,3 +30,7 @@ export class VisitTypeModel {
   typeVisitId:number |null=null;
   name:string | null =null;
 }
+export class NationalityModel {
+  nationalityId:number |null=null;
+  name:string | null =null;
+}

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../environment/environment.prod';
-import { DoctorNamesModel, HospitalNamesModel, SpecialNamesModel, VisitTypeModel } from '../Models/names.model';
+import { DoctorNamesModel, GenderModel, HospitalNamesModel, NationalityModel, SpecialNamesModel, VisitTypeModel } from '../Models/names.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ constructor(private http: HttpClient) {}
 
 getAllHospitalsNames(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}Hospital/names?lang=ar`;
-    return this.http.get<HospitalNamesModel>(url,{ params: fetchCriteria });
+    return this.http.get<HospitalNamesModel[]>(url,{ params: fetchCriteria });
   }
   getAllBuildingsNames(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}building/names?lang=ar`;
@@ -35,7 +35,7 @@ getAllHospitalsNames(fetchCriteria?: any): Observable<any> {
   }
   getAllSpecialNames(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}MedicalSpecialty/names?lang=ar`;
-    return this.http.get<SpecialNamesModel>(url,{ params: fetchCriteria });
+    return this.http.get<SpecialNamesModel[]>(url,{ params: fetchCriteria });
   }
   getAllRoomTypesNames(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}RoomType/names?lang=ar`;
@@ -43,7 +43,7 @@ getAllHospitalsNames(fetchCriteria?: any): Observable<any> {
   }
   getAllNationalityNames(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}Nationality/names?lang=ar`;
-    return this.http.get(url,{ params: fetchCriteria });
+    return this.http.get<NationalityModel[]>(url,{ params: fetchCriteria });
   }
   getAllWorkingPeriodNames(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}WorkingPeriod/names?lang=ar`;
@@ -71,7 +71,7 @@ getAllHospitalsNames(fetchCriteria?: any): Observable<any> {
   }
   getAllGender(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}HumanGender/names?lang=ar`;
-    return this.http.get(url,{ params: fetchCriteria });
+    return this.http.get<GenderModel[]>(url,{ params: fetchCriteria });
   }
   getAllCurrency(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}Currency/all`;
@@ -83,7 +83,7 @@ getAllHospitalsNames(fetchCriteria?: any): Observable<any> {
   }
   getAllDoctors(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}Doctor/names?lang=ar`;
-    return this.http.get<DoctorNamesModel>(url,{ params: fetchCriteria });
+    return this.http.get<DoctorNamesModel[]>(url,{ params: fetchCriteria });
   }
   getAllPatients(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}Patient/names?lang=ar`;

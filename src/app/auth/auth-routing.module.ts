@@ -11,7 +11,7 @@ const routes: Routes = [
     {path:'',redirectTo:'/login',pathMatch:'full'},
     {path:'login',component:LoginComponent},
     {path:'register',component:RegistrationComponent},
-    {path:'confirm-method/:method',component:ConfirmMethodComponent},
+    {path:'confirm-method/:method/:data',component:ConfirmMethodComponent},
     {path:'profile',component:ProfileComponent},
 
   ]}];

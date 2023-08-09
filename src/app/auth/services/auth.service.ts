@@ -15,4 +15,20 @@ export class AuthService {
     const url = `${this.baseURL}Authenticate/reqister?verification=${verification}`;
     return this.http.post(url,body);
   }
+  login(body:any): Observable<any> {
+    const url = `${this.baseURL}Authenticate/login`;
+    return this.http.post(url,body);
+  }
+  confirmEmail(body:any): Observable<any> {
+    const url = `${this.baseURL}Authenticate/verification-email`;
+    return this.http.post(url,body);
+  }
+  confirmPhone(body:any): Observable<any> {
+    const url = `${this.baseURL}Authenticate/verification-sms`;
+    return this.http.post(url,body);
+  }
+  addProfile(body:any): Observable<any> {
+    const url = `${this.baseURL}Patient/add-patient-data`;
+    return this.http.post(url,body);
+  }
 }
