@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { GenderModel, NationalityModel } from '../../../Models/names.model';
 import { LookupService } from '../../../services/lookup.service';
@@ -23,24 +23,31 @@ export class ProfileComponent implements OnInit{
     FullNameEn:new FormControl('',[Validators.required]),
     LangCode:new FormControl('ar'),
     Address:new FormControl(''),
-    Gender:new FormControl('',[Validators.required]),
+    Gender:new FormControl<any>(null,[Validators.required]),
     BirthDate:new FormControl('',[Validators.required]),
-    MaritalStatus:new FormControl('',[Validators.required]),
-    NationalityId:new FormControl('',[Validators.required]),
+    MaritalStatus:new FormControl<any>(null,[Validators.required]),
+    NationalityId:new FormControl<any>(null,[Validators.required]),
     BloodType:new FormControl(''),
-    Religion:new FormControl(''),
-
+    Religion:new FormControl<any>(null),
+    PatientStatus:new FormControl<any>(0),
+    userId:new FormControl<any>(null),
   }
   )
-
+  userId:string=''
   constructor(
     private authService:AuthService,
     private snackBar: MatSnackBar,
     private router:Router,
-    private lookupservice:LookupService
+    private lookupservice:LookupService,
+    private route:ActivatedRoute
     ){}
 
   ngOnInit(): void {
+    this.route.params.subscribe({
+      next:next=>{
+        this.userId = next['userId']
+      }
+    })
     this.getGender()
     this.getNationality()
   }
@@ -64,7 +71,7 @@ export class ProfileComponent implements OnInit{
   readonly DT_FORMAT = "DD-MM-YYYY";
 
   prepareDataBeforeSend(data:any){
-    console.log(data)
+
     let paylod={
       ...data,
       BirthDate:data.BirthDate ? moment([
@@ -96,9 +103,8 @@ export class ProfileComponent implements OnInit{
         bodyObj[key] = formVal[key]
         if (key == "patientTranslations") {
           for (let i = 0; i < formVal['patientTranslations'].length; i++) {
-            body.append('patientTranslations['+(i)+'][id]', formVal.patientTranslations[i].id );
-            body.append('patientTranslations['+(i)+'][FullName]', formVal.patientTranslations[i].FullName);
-            body.append('patientTranslations['+(i)+'][Address]', formVal.patientTranslations[i].Address);
+            body.append('patientTranslations['+(i)+'][FullName]', formVal.patientTranslations[i].FullName ? formVal.patientTranslations[i].FullName :'');
+            body.append('patientTranslations['+(i)+'][Address]', formVal.patientTranslations[i].Address ? formVal.patientTranslations[i].FullName : '');
             body.append('patientTranslations['+(i)+'][LangCode]', formVal.patientTranslations[i].LangCode);
           }
         }
@@ -113,7 +119,7 @@ export class ProfileComponent implements OnInit{
   save(){
     console.log("save")
     this.form.markAllAsTouched();
-    console.log("save2")
+    console.log("save2",this.form.value)
 
     if(this.form.valid){
     console.log("save3")
@@ -126,7 +132,7 @@ export class ProfileComponent implements OnInit{
               duration: 5000,
               panelClass: 'success'
             });
-            this.router.navigate(['/home'])
+            this.router.navigate(['/auth/login'])
           }else {
             this.snackBar.open("حاول مرة اخري", "error", {
               duration: 5000,

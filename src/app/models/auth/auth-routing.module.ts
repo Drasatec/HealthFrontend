@@ -12,7 +12,7 @@ const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'register',component:RegistrationComponent},
     {path:'confirm-method/:method/:data',component:ConfirmMethodComponent},
-    {path:'profile',component:ProfileComponent},
+    {path:'profile/:userId',component:ProfileComponent},
 
   ]}];
 

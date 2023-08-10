@@ -1,15 +1,15 @@
-<div [formGroup]="form" class="row bg-white p-5 text-center">
-  <h3> ادخال البيانات</h3>
-  <div class="col-md-6">
+<div [formGroup]="form" class="row bg-white p-5">
+  <h3 class="fs-2 fw-bold"> ادخال البيانات</h3>
+  <div class="col-lg-6 col-12">
     <div class="form-group my-2">
-      <label for="example-search-input" class="text-base-color text-bold">الاسم </label>
+      <label for="example-search-input" class="text-base-color text-bold mb-2">الاسم </label>
       <input [class.is-invalid]="form.controls.FullName.invalid && form.controls.FullName.touched"
         class="form-control" type="text" formControlName="FullName" />
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-lg-6 col-12">
     <div class="form-group my-2">
-      <label for="example-search-input" class="text-base-color text-bold">ألاسم باللغة الانجليزية</label>
+      <label for="example-search-input" class="text-base-color text-bold mb-2">الاسم باللغة الانجليزية<span class="text-danger">*</span> </label>
       <input [class.is-invalid]="form.controls.FullNameEn.invalid && form.controls.FullNameEn.touched"
         class="form-control" type="text" formControlName="FullNameEn"/>
       <div class="invalid-feedback">
@@ -17,79 +17,81 @@
       </div>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-lg-6 col-12">
     <div class="form-group my-2">
-      <label for="example-search-input" class="text-base-color text-bold">العنوان </label>
+      <label for="example-search-input" class="text-base-color text-bold  mb-2">العنوان </label>
       <input [class.is-invalid]="form.controls.Address.invalid && form.controls.Address.touched"
         class="form-control" type="text" formControlName="Address"  />
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-lg-6 col-12">
     <div class="form-group mb-3">
-      <label for="example-search-input" class="text-base-color text-bold">النوع</label>
+      <label for="example-search-input" class="text-base-color text-bold mb-2">النوع<span class="text-danger">*</span> </label>
       <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="genders" formControlName="Gender"
-          bindValue="genderName" bindLabel="genderNumber" appDebounceInputChange >
+          bindValue="genderNumber" bindLabel="genderName" appDebounceInputChange
+          [class.is-invalid]="form.controls.Gender.invalid && form.controls.Gender.touched">
       </ng-select>
       <div class="invalid-feedback">
         <span *ngIf="form.controls.Gender.errors?.['required']">من فضلك ادخل النوع</span>
       </div>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-lg-6 col-12">
     <div class="form-group mb-3">
-      <label  for="example-search-input" class="text-base-color text-bold">تاريخ الميلاد</label>
-      <mat-form-field>
-        <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="BirthDate">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+      <label  for="example-search-input" class="text-base-color text-bold d-block mb-2">تاريخ الميلاد<span class="text-danger">*</span> </label>
+      <input formControlName="BirthDate" class="form-control border-right-0"
+          placeholder="dd-mm-yyyy" name="dp" ngbDatepicker #d="ngbDatepicker" autocomplete="off"
+          (click)="d.toggle()" >
+      <button class="btn btn-outline-primary calendar rounded-0 rounded-right border-left-0 py-0"
+          (click)="d.toggle()" type="button">
+          <i class="fa-solid fa-calendar-days"></i>
+      </button>
       <div class="invalid-feedback">
         <span *ngIf="form.controls.BirthDate.errors?.['required']">من فضلك ادخل تاريخ الميلاد</span>
       </div>
   </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-lg-6 col-12">
     <div class="form-group mb-3">
-      <label for="example-search-input" class="text-base-color text-bold">الحالة الاجتماعية</label>
+      <label for="example-search-input" class="text-base-color text-bold mb-2">الحالة
+        الاجتماعية<span class="text-danger">*</span> </label>
       <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="MaritalStatus" formControlName="MaritalStatus"
-          bindValue="value" bindLabel="name" appDebounceInputChange >
+          bindValue="id" bindLabel="name" appDebounceInputChange [class.is-invalid]="form.controls.MaritalStatus.invalid && form.controls.MaritalStatus.touched">
       </ng-select>
       <div class="invalid-feedback">
         <span *ngIf="form.controls.MaritalStatus.errors?.['required']">من فضلك ادخل الحالة الاجتماعية</span>
       </div>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-lg-6 col-12">
     <div class="form-group mb-3">
-      <label for="example-search-input" class="text-base-color text-bold"> الجنسية</label>
+      <label for="example-search-input" class="text-base-color text-bold mb-2"> الجنسية<span class="text-danger">*</span> </label>
       <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="nationality" formControlName="NationalityId"
-          bindValue="nationalityId" bindLabel="name" appDebounceInputChange >
+          bindValue="nationalityId" bindLabel="name" appDebounceInputChange [class.is-invalid]="form.controls.NationalityId.invalid && form.controls.NationalityId.touched">
       </ng-select>
       <div class="invalid-feedback">
         <span *ngIf="form.controls.NationalityId.errors?.['required']">من فضلك ادخل  الجنسية</span>
       </div>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-lg-6 col-12">
     <div class="form-group mb-3">
-      <label for="example-search-input" class="text-base-color text-bold"> الديانة</label>
+      <label for="example-search-input" class="text-base-color text-bold  mb-2"> الديانة</label>
       <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="religions" formControlName="Religion"
           bindValue="id" bindLabel="name" appDebounceInputChange >
       </ng-select>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-lg-6 col-12">
     <div class="form-group my-2">
-      <label for="example-search-input" class="text-base-color text-bold">فصيلة الدم </label>
+      <label for="example-search-input" class="text-base-color text-bold  mb-2">فصيلة الدم </label>
       <input [class.is-invalid]="form.controls.BloodType.invalid && form.controls.BloodType.touched"
         class="form-control" type="text" formControlName="BloodType"  />
     </div>
   </div>
 
   <div class="d-grid gap-2">
-    <button class="btn btn-primary" (click)="save()">حفظ</button>
+    <button class="btn btn-primary" (click)="save()" [disabled]="form.invalid">حفظ</button>
   </div>
 </div>
 

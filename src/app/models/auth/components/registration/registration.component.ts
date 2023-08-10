@@ -60,7 +60,7 @@ export class RegistrationComponent {
                 duration: 5000,
                 panelClass: 'success'
               });
-              this.router.navigate(['/auth/profile'])
+              this.router.navigate(['/auth/profile',res.userId])
             }
           }else {
             this.snackBar.open("انت مسجل بالفعل", "error", {
