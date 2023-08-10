@@ -1,0 +1,12 @@
+
+.attinionColor{
+    /* background: rgb(43, 203, 102); */
+    border: var(--main-border);
+    color: white;
+  }
+  .btnStyle{
+    background-color: rgb(43, 203, 102);
+  }
+  .generalBGColor:hover{
+    background-color: var(--search-color);
+  }

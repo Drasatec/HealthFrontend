@@ -1,1 +1,101 @@
+
+@import "node_modules/bootstrap/dist/css/bootstrap.min.css";
+.text-bold{
+  font-weight: bold;
+}
+.overlay {
+  height:100vh;
+  width:100%;
+  background-color:rgba(0, 0, 0, 0.286);
+  z-index:    10;
+  top:        0;
+  left:       0;
+  position:   fixed;
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
 /* You can add global styles to this file, and also import other style files */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=Cairo&family=Raleway:wght@400;500&display=swap');
+
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+:root{
+  --heading-font:24px bold;
+  --main-color: #0070CD;
+  --search-color:#1671bc;
+  --subtitle-font: 16px medium;
+  --paragraph-font: 14px ;
+  --main-border:15px;
+  --main-bg:#ebeef3;
+  --span-color:#0d74b4;
+  --main-height:100vh;
+}
+
+* {
+  direction: rtl;
+  font-family: 'Cairo', sans-serif;
+  box-sizing: border-box;
+
+
+}
+
+body{
+background-color: var( --main-bg);
+overflow-x: hidden;
+}
+
+.ratingColor{
+color:#fbc634 !important;
+}
+
+.spanColor{
+color: var( --span-color);
+}
+
+h4{
+font-weight: bolder;
+font-size: 30px;
+}
+.btnShadow{
+box-shadow: 3px 3px 8px #88888874;
+}
+
+
+.mainBorder{
+border-radius: var(--main-border);
+
+}
+.generalBGColor{
+background-color:var(--main-color)
+}
+.generalColor{
+color:var(--main-color)
+}
+.reserveColor{
+background: #099dff21;
+border-radius: var(    --main-border);
+}
+
+.acceptColor{
+background: rgb(43, 203, 102);
+border: var(--main-border);
+color: white;
+}
+.btnHover{
+background-color: var(--search-color);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

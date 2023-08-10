@@ -1,0 +1,25 @@
+<div class="container  cardStayle">
+    <div class="row ">
+        <div class="col-sm-12 col-md-6 col-lg-6" >
+          <h2>التخصصات</h2>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 d-flex justify-content-end" >
+            <button type="button" class="btn generalBGColor text-white py-3 px-5">عرض الكل</button>
+        </div>
+    </div>
+    <div class="row my-5 ">
+      <div class="col-md-4 mb-4 col-lg-3 col-sm-6" *ngFor="let spc of spectialtyThree">
+
+        <div class="card w-100 p-5 border-0">
+            <div class="card-body text-center">
+                <!-- <fa-icon class=" generalColor fs-1"  [icon]="faHeartPulse"></fa-icon> -->
+              <p class="card-text  generalColor">{{spc.name}}</p>
+
+            </div>
+          </div>
+
+
+        </div>
+
+    </div>
+</div>

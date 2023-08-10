@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row ms-4">
+    <app-search [data]="searchData" (FilterChange)="getFilterSearch($event)"></app-search>
+  </div>
+  <div class="row my-5 ">
+    <!-- <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">الرئيسية > </a></li>
+          <li class="breadcrumb-item active"><a href="#">الأطباء</a></li>
+        </ol>
+      </nav> -->
+      <!-- <app-breadcrumb [deliminator]="'/doctor'"></app-breadcrumb> -->
+
+    <div class="col-md-3">
+        <app-doctor-filter (GenderChange)="getFilterGender($event)"
+        (DateChange)="filterDay($event)"
+        (filterChange)="getFilterDegree($event)"
+        (PeriodChange)="getPeriodChange($event)"
+        ></app-doctor-filter>
+    </div>
+
+    <div class="col-md-9" *ngIf="!loading;else progressSpinner">
+
+      <!-- <a [routerLink]="['/doctor-details']" class="btn  px-5 mb-4"> -->
+        <app-doctor-cards [doctors]="doctors" [selectedDate]="selectedDate" *ngIf="doctors.length >0;else noData"></app-doctor-cards>
+      <!-- </a> -->
+
+      <div class="my-3  px-4 d-flex justify-content-center">
+        <mat-paginator *ngIf="doctors.length >0"
+          [length]="totalItems"
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          (page)="pageChanged($event)"
+        >
+        </mat-paginator>
+      </div>
+
+    </div>
+    <ng-template #progressSpinner>
+      <div class="overlay" >
+        <div class="center">
+
+        <mat-progress-spinner
+          diameter="100"
+          mode="indeterminate"
+          color="primary"
+          strokeWidth="10"
+          value="100">
+        </mat-progress-spinner>
+
+        </div>
+      </div>
+      </ng-template>
+  </div>
+  <ng-template #noData>
+    <div class="text-center py-4">
+      <h3 class="text-primary">لا توجد بيانات</h3>
+    </div>
+  </ng-template>
+
+</div>
+
+
+

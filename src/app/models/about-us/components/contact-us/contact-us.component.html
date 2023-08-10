@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <mat-card class="example-card">
+    <mat-card-header class="justify-content-center text-center text-bold">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title >{{hospital.hospitalTrasnlations[0]?.name}}</mat-card-title>
+      <mat-card-subtitle>ادخل البيانات التالية للأتصال بالمستشفى كليوباترا</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content >
+      <div class="row my-3">
+        <div class="col-md-6">
+          <h5>ارسال رسالة</h5>
+          <div [formGroup]="form">
+            <div class="row mt-4">
+              <div class="col-12 filter-border">
+                <div class="form-group mb-3">
+                    <input type="text" formControlName="SenderName" class="form-control pr-3 my-2" placeholder="اسم المرسل">
+                </div>
+              </div>
+              <div class="col-12 filter-border">
+                <div class="form-group mb-3">
+                    <input type="email" formControlName="Email" class="form-control pr-3 my-2" placeholder="الايميل">
+                </div>
+              </div>
+              <div class="col-12 filter-border">
+                <div class="form-group mb-3">
+                    <input type="text" formControlName="Subject" class="form-control pr-3 my-2" placeholder="عنوان الرسالة">
+                </div>
+              </div>
+              <div class="col-12 filter-border">
+                <div class="form-group mb-3">
+                  <ng-select class="pr-3 my-2"
+                    [items]="hospitals"
+                    bindLabel="name"
+                    bindValue="hospitalId"
+                    labelForId="state"
+                    [multiple]="false"
+                    placeholder="المستشفي"
+                    clearAllText="Clear"
+                    formControlName="HospitalId">
+                  </ng-select>
+                </div>
+              </div>
+              <div class="col-12 filter-border">
+                <div class="form-group mb-3">
+                    <textarea  formControlName="Message" class="form-control pr-3 my-2" placeholder="الرسالة"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- begin:: search  -->
+              <div class="d-flex justify-content-center mt-4">
+                <button type="button " class="btn btn-primary background-primary col-3"  [class.spinnerBtn]="loading" [disabled]="loading || !form.valid" (click)="save()">
+                    <span>ارسال</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h5>للتواصل معنا</h5>
+          <ul class="list-unstyled my-2">
+            <li class="d-flex align-items-center my-3" *ngFor="let phone of hospital.phoneNumbers"><mat-icon class="text-primary mx-2">call</mat-icon>{{phone.telephoneNumber}}</li>
+            <li class="d-flex align-items-center my-3"><mat-icon class="text-primary mx-2">location_on</mat-icon>{{hospital.hospitalTrasnlations[0]?.address}}</li>
+          </ul>
+          <div id="map">
+            <div class="my-google-map">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

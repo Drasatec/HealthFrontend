@@ -1,0 +1,341 @@
+<div class="card my-5 m-auto" style="width: 80%">
+  <!-- <div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content m-5">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+        <h1
+          class="modal-title fs-3 generalColor m-auto"
+          id="staticBackdropLabel"
+        >
+          اضافة مشترك
+        </h1>
+      </div>
+      <div class="modal-body mx-5">
+        <form class="row my-5 g-3">
+          <div class="col-md-2 mb-3 text-start">
+            <label for="validationServer01" class="form-label">المجموعة </label>
+          </div>
+          <div class="col-md-9 mb-3">
+            <input
+              type="text"
+              class="form-control py-3"
+              id="validationServer01"
+              value=""
+              required
+            />
+          </div>
+          <div class="col-md-2 mb-3 text-start">
+            <label for="validationServer01" class="form-label"
+              >اسم المشترك
+            </label>
+          </div>
+          <div class="col-md-9 mb-3">
+            <input
+              type="text"
+              class="form-control  py-3"
+              placeholder="ادخل اسم المشترك "
+              id="validationServer01"
+              value=""
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-2 mb-3 text-start">
+            <label for="validationServer01" class="form-label">العنوان </label>
+          </div>
+          <div class="col-md-9 mb-3">
+            <input
+              type="text"
+              placeholder="ادخل العنوان"
+              class="form-control py-3 "
+              id="validationServer01"
+              value=""
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-2 mb-3 text-start">
+            <label for="validationServer01" class="form-label">السن</label>
+          </div>
+          <div class="col-md-9 mb-3">
+            <input
+              type="number"
+              placeholder="ادخل السن "
+              class="form-control py-3"
+              id="validationServer01"
+              value=""
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-2 mb-3 text-start">
+            <label for="validationServer01" class="form-label"
+              >رقم التليفون</label
+            >
+          </div>
+          <div class="col-md-9 mb-3">
+            <input
+              type="number"
+              class="form-control py-3"
+              placeholder="ادخل رقم الهاتف"
+              id="validationServer01"
+              value=""
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-2 mb-3 text-start">
+            <label for="validationServer01" class="form-label"
+              >رقم الواتس
+            </label>
+          </div>
+          <div class="col-md-9 mb-3">
+            <input
+              type="number"
+              placeholder="ادخل رقم الواتس "
+              class="form-control py-3"
+              id="validationServer01"
+              value=""
+              required
+            />
+          </div>
+          <div class="col-md-2 mb-3 text-start">
+            <label for="validationServer01" class="form-label"
+              >البريد الالكترونى
+            </label>
+          </div>
+          <div class="col-md-9 mb-3">
+            <input
+              type="e-mail"
+              placeholder="ادخل البريد الالكترونى "
+              class="form-control py-3"
+              id="validationServer01"
+              value=""
+              required
+            />
+          </div>
+
+          <div class="col-11  mb-3 text-start">
+            <button
+              class="btn text-white px-5 py-2 btnHover generalBGColor"
+              type="submit"
+            >
+              اضافة
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+  <h1 class="fs-3 generalColor my-4 fw-bold p-3 m-auto">
+    {{ header }}
+  </h1>
+  <form class="row g-3 p-3">
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label">المجموعة</label>
+      <mat-form-field appearance="fill">
+        <mat-label> كل التخصصات</mat-label>
+        <mat-select  >
+          <mat-option *ngFor="let group of groupList" [value]="group.id">
+            {{ group.name }}
+          </mat-option>
+          <button  *ngIf="!addGroupFlag" type="button" class="btn py-2 px-4 mb-2 btnStyle"  (click)="addGroup()">
+            <!-- <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> اضافة مجموعة -->
+          </button>
+          <div *ngIf="addGroupFlag">
+            <mat-form-field class="example-full-width">
+
+              <input matInput placeholder="مستفى الرحمة "   />
+
+            </mat-form-field>
+            <button type="button" class="btn py-2 px-4 mb-2 btnStyle">
+              <!-- <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> حفظ -->
+            </button>
+          </div>
+
+        </mat-select>
+      </mat-form-field>
+      <!-- <select class="form-select" aria-label="Default select example">
+        <option selected>اختر مجموعة</option>
+        <option class="my-2 py-3" *ngFor="let group of groupList" value="1">
+          {{ group.name }}
+        </option>
+        <hr class="dropdown-divider" />
+        <option value="">
+          <button type="button" class="btn py-2 px-4 mb-2 btnStyle">
+            <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> اضافة مجموعة
+          </button>
+          <div>
+            <input type="text"   >
+            <button type="button" class="btn py-2 px-4 mb-2 btnStyle9">
+              <fa-icon class="fs-6" [icon]="faCirclePlus"></fa-icon> حفظ
+            </button>
+          </div>
+        </option>
+
+      </select> -->
+
+      <!-- <div class="dropdown">
+        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+        </button>
+        <ul class="dropdown-menu ">
+          <li><a class="dropdown-item active" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
+      </div> -->
+    </div>
+
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label">رقم المريض</label>
+      <input
+        type="number"
+        placeholder="ادخل رقم المريض "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label">اسم المريض</label>
+      <input
+        type="text"
+        placeholder="ادخل اسم المريض "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label"> رقم الموبايل</label>
+      <input
+        type="number"
+        placeholder="ادخل رقم الموبايل "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label"> العنوان</label>
+      <input
+        type="text"
+        placeholder="ادخل العنوان "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputPassword4" class="form-label">النوع</label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>ذكر</option>
+        <option value="1">انثى</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label">تاريخ الميلاد</label>
+      <input
+        type="date"
+        class="form-control"
+        id="inputAddress"
+        placeholder="DD/MM/YY"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> الحالة الاجتماعية </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>أعزب</option>
+        <option value="1">متزوج</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> الجنسية </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>مصرى</option>
+        <option value="1">هندى</option>
+        <option value="2">صينى</option>
+        <option value="3">ألمانى</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> الديانة </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>مسلم</option>
+        <option value="1">مسيحى</option>
+        <option value="2">يهودى</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> نوع الهوية </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected></option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label"> رقم الهوية </label>
+      <input
+        type="number"
+        placeholder="ادخل رقم الهوية  "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> فصيلة الدم </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected></option>
+      </select>
+    </div>
+    <!-- upload -->
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> صورة المرض </label>
+      <div class="input-group mb-3">
+        <input type="file" class="form-control" id="inputGroupFile02" />
+        <label
+          class="input-group-text generalBGColor text-white"
+          for="inputGroupFile02"
+          >ارفع ملف</label
+        >
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputAddress" class="form-label"> الحالة </label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>نشط</option>
+        <option value="1">غير نشط</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <label for="inputEmail4" class="form-label"> سبب الحالة </label>
+      <input
+        type="text"
+        placeholder=" "
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+  </form>
+  <div class="row mt-5 mx-3">
+    <button
+      class="btn text-white mb-5 py-2 fs-4 btnHover generalBGColor"
+      type="submit"
+    >
+      اضافة
+    </button>
+  </div>
+</div>

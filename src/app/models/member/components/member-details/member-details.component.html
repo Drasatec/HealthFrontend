@@ -1,0 +1,92 @@
+<div class="container my-5 d-felx justify-content-center align-items-center">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mainBorder m-5 p-5">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2 col-sm-12 col-lg-3 my-5">
+              <img
+                class="my-3"
+                src="../../../assets/Images/doctorImages/doctorImage.jpg"
+                style="border-radius: 50%; width: 70%"
+                alt="Card image cap"
+              />
+            </div>
+            <div class="col-md-7 col-sm-12 col-lg-6 my-5">
+              <h4 class="mt-5 text-end">{{ patient.name }}</h4>
+            </div>
+
+            <div class="col-md-3 col-sm-12 col-lg-3 my-5 me-auto">
+              <button
+                class="btn px-3 generalBGColor text-white fs-5 btnHover mt-5"
+                [routerLink]="['/update-member']"
+              >
+                تعديل
+              </button>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-6">
+              <p class="bold fs-4">اسم المريض</p>
+              <p class="text-black-50">{{ patient.name }}</p>
+              <br />
+              <br />
+
+              <p class="bold fs-4">رقم المريض</p>
+              <p class="text-black-50">255</p>
+
+              <br />
+              <br />
+              <p class="bold fs-4">اسم المجموعة</p>
+              <p class="text-black-50">المهندسين</p>
+              <br />
+              <br />
+              <p class="bold fs-4">رقم الموبايل</p>
+              <p class="text-black-50">0111255455</p>
+              <br />
+              <br />
+              <p class="bold fs-4">العنوان</p>
+              <p class="text-black-50">طنطا</p>
+              <br />
+              <br />
+              <p class="bold fs-4">تاريخ الميلاد</p>
+              <p class="text-black-50">11/4/1991</p>
+            </div>
+            <div class="col-md-6">
+              <p class="bold fs-4">الحالة الاجتماعية</p>
+              <p class="text-black-50">أعزب</p>
+              <br />
+              <br />
+
+              <p class="bold fs-4">فصيلة الدم</p>
+              <p class="text-black-50">A+</p>
+
+              <br />
+              <br />
+              <p class="bold fs-4">الهوية</p>
+              <p class="text-black-50">البطاقة</p>
+              <br />
+              <br />
+              <p class="bold fs-4">رقم الهوية</p>
+              <p class="text-black-50">15420111255455</p>
+              <br />
+              <br />
+              <p class="bold fs-4">الجنسية</p>
+              <p class="text-black-50">مصرى</p>
+              <br />
+              <br />
+              <p class="bold fs-4">الديانة</p>
+              <p class="text-black-50">مسلم</p>
+            </div>
+          </div>
+          <div class="row mt-3 d-felx justify-content-end">
+            <div class="col-md-2 col-sm-6 col-lg-2">
+              <button class="btn py-2 px-3 btn-danger">حذف المريض</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

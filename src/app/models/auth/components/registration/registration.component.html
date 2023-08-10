@@ -1,0 +1,51 @@
+<div [formGroup]="form" class="bg-white p-5 text-center">
+  <h3> تسجيل حساب</h3>
+  <div class="form-group my-2">
+    <input [class.is-invalid]="form.controls.fullName.invalid && form.controls.fullName.touched"
+      class="form-control" type="text" formControlName="fullName" placeholder=" الاسم كامل" />
+    <div class="invalid-feedback">
+      <span *ngIf="form.controls.fullName.errors?.['required']">من فضلك ادخل الاسم</span>
+    </div>
+  </div>
+  <div class="form-group my-2">
+    <input [class.is-invalid]="form.controls.email.invalid && form.controls.email.touched"
+    type="text" class="form-control" placeholder="الايميل" formControlName="email">
+    <div class="invalid-feedback">
+      <span *ngIf="form.controls.email.errors?.['required']">من فضلك ادخل الايميل</span>
+      <span *ngIf="form.controls.email.errors?.['email']">من فضلك ادخل ايميل صحيح</span>
+
+    </div>
+  </div>
+  <div class="form-group my-2">
+    <input [class.is-invalid]="form.controls.phoneNumber.invalid && form.controls.phoneNumber.touched"
+      type="text" class="form-control" placeholder="رقم التليفون" formControlName="phoneNumber">
+    <div class="invalid-feedback">
+      <span *ngIf="form.controls.phoneNumber.errors?.['required']">من فضلك ادخل التليفون</span>
+    </div>
+  </div>
+  <div class="form-group my-2">
+    <input [class.is-invalid]="form.controls.password.invalid && form.controls.password.touched"
+      type="text" class="form-control" placeholder="كلمة السر" formControlName="password">
+    <div class="invalid-feedback">
+      <span *ngIf="form.controls.password.errors?.['required']">من فضلك ادخل الرقم السري</span>
+      <span *ngIf="form.controls.password.errors?.['minlength']">يجب ان لا يقل عن 8 خانات</span>
+
+    </div>
+  </div>
+  <div class="form-group my-2">
+    <input [class.is-invalid]="form.controls.confirmPassword.invalid && form.controls.confirmPassword.touched"
+      type="text" class="form-control"  placeholder="تأكيد كلمة المرور" formControlName="confirmPassword">
+    <div class="invalid-feedback">
+      <span *ngIf="form.controls.confirmPassword.errors?.['required']">من فضلك ادخل الرقم السري مرة اخري</span>
+      <span *ngIf="form.errors?.['passwordMismatch']">ادخل رقم السري مرة اخري</span>
+    </div>
+  </div>
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" (click)="save()">تسجيل</button>
+  </div>
+</div>
+<div class="d-flex justify-content-between mt-2">
+  <button class="btn btn-outline-primary" routerLink="/auth/login">تسجيل الدخول</button>
+  <button class="btn btn-link"> نسيت كلمة المرور؟</button>
+
+</div>
