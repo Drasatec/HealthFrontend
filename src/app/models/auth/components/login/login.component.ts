@@ -29,6 +29,8 @@ export class LoginComponent {
               duration: 5000,
               panelClass: 'success'
             });
+            this.router.navigate(['/home']);
+
           }else {
             this.snackBar.open("الايميل او الباسورد خاطئة", "error", {
               duration: 5000,

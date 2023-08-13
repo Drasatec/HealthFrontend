@@ -75,7 +75,7 @@ border-radius: var(--main-border);
 
 }
 .generalBGColor{
-background-color:var(--main-color)
+background-color:var(--main-color) !important
 }
 .generalColor{
 color:var(--main-color)
@@ -98,7 +98,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+h5{
+  font-size: 1.25rem !important;
+}
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

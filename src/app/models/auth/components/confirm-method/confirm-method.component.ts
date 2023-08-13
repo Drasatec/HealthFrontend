@@ -43,6 +43,7 @@ export class ConfirmMethodComponent implements OnInit{
                   duration: 5000,
                   panelClass: 'success'
                 });
+                this.router.navigate(['/auth/profile',res.userId])
             }else {
               this.snackBar.open("محاولة خاطئة", "error", {
                 duration: 5000,
@@ -60,8 +61,9 @@ export class ConfirmMethodComponent implements OnInit{
       }else {
         let data = {
           PhoneNumber:this.data,
-          VerificationCode:this.form.controls.VerificationCode
+          VerificationCode:this.form.value.VerificationCode
         }
+        console.log(data)
         this.authService.confirmPhone(data).subscribe(
           (res)=>{
             if(res.success){
@@ -69,6 +71,7 @@ export class ConfirmMethodComponent implements OnInit{
                   duration: 5000,
                   panelClass: 'success'
                 });
+                this.router.navigate(['/auth/login'])
             }else {
               this.snackBar.open("محاولة خاطئة", "error", {
                 duration: 5000,

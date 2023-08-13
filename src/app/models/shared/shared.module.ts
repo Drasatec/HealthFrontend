@@ -23,10 +23,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SharedComponent } from './components/shared/shared.component';
 
 const Modules=[
   CommonModule,
@@ -61,7 +62,8 @@ const Modules=[
     NavbarComponent,
     FooterComponent,
     DebounceInputChangeDirective,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    SharedComponent
   ],
   imports: [
     CommonModule,
@@ -111,13 +113,14 @@ const Modules=[
   MatCardModule,
   MatIconModule,
   MatProgressSpinnerModule,
-  MatSnackBarModule,
     SearchComponent,
     PaginationComponent,
     NavbarComponent,
     FooterComponent,
     DebounceInputChangeDirective,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    MatSnackBarModule,
+    SharedComponent
   ]
 })
 export class SharedModule { }

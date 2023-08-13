@@ -1,20 +1,37 @@
+import { SharedModule } from './models/shared/shared.module';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SharedComponent } from './models/shared/components/shared/shared.component';
+import { AuthGuard } from './models/auth/guard/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo:'home',
-    data: {breadCrum: "Home"}
+    component: SharedComponent,
+    children: [
+      {path:'',
+      redirectTo:'home',
+    pathMatch:'full'},
+      { path: 'booking',
+        loadChildren: () => import('./models/booking/booking.module').then(m => m.BookingModule),
+        canActivate:[AuthGuard]
+      },
+
+      { path: 'reservation',
+        loadChildren: () => import('./models/reservation/reservation.module').then(m => m.ReservationModule),
+        canActivate:[AuthGuard]
+      },
+      { path: 'home', loadChildren: () => import('./models/home/home.module').then(m => m.HomeModule) },
+      { path: 'doctor', loadChildren: () => import('./models/doctor/doctor.module').then(m => m.DoctorModule), data: {breadCrum: "Doctors"} },
+      { path: 'member', loadChildren: () => import('./models/member/member.module').then(m => m.MemberModule) },
+      { path: 'about-us', loadChildren: () => import('./models/about-us/about-us.module').then(m => m.AboutUsModule) },
+
+    ]
   },
-  { path: 'booking', loadChildren: () => import('./models/booking/booking.module').then(m => m.BookingModule) },
-  { path: 'home', loadChildren: () => import('./models/home/home.module').then(m => m.HomeModule) },
-  { path: 'doctor', loadChildren: () => import('./models/doctor/doctor.module').then(m => m.DoctorModule), data: {breadCrum: "Doctors"} },
-  { path: 'reservation', loadChildren: () => import('./models/reservation/reservation.module').then(m => m.ReservationModule) },
-  { path: 'member', loadChildren: () => import('./models/member/member.module').then(m => m.MemberModule) },
-  { path: 'about-us', loadChildren: () => import('./models/about-us/about-us.module').then(m => m.AboutUsModule) },
-  { path: 'auth', loadChildren: () => import('./models/auth/auth.module').then(m => m.AuthModule) },
+  {
+    path: 'auth',
+    loadChildren: () => import('./models/auth/auth.module').then((m) => m.AuthModule),
+  },
 
   {
     path: '**',
@@ -23,7 +40,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    SharedModule,
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+      scrollPositionRestoration: 'enabled',
+    }),
+    // RouterModule.forRoot(routes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

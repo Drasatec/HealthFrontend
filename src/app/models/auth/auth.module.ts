@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ConfirmMethodComponent } from './components/confirm-method/confirm-method.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import {  NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import {  NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     AuthRoutingModule,
     SharedModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+
+    NgSelectModule,
 
   ]
 })

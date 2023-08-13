@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -40,7 +40,7 @@ export class RegistrationComponent {
  confirmMethod:string="null"
   save(){
     this.form.markAllAsTouched();
-    this.confirmMethod = "null"
+    this.confirmMethod = "sms"
     if(this.form.valid){
       let data = this.form.value
       this.form.patchValue({
@@ -54,13 +54,14 @@ export class RegistrationComponent {
                 duration: 5000,
                 panelClass: 'success'
               });
-              this.router.navigate(['/auth/confirm-method/',this.confirmMethod,this.confirmMethod === 'email'? this.form.controls.email : this.form.controls.phoneNumber])
+              let data=this.confirmMethod === 'email'? this.form.value.email : this.form.value.phoneNumber
+              this.router.navigate(['/auth/confirm-method',this.confirmMethod,data])
             }else {
               this.snackBar.open("تم التسجيل بنجاح ", "success", {
                 duration: 5000,
                 panelClass: 'success'
               });
-              this.router.navigate(['/auth/profile',res.userId])
+              this.router.navigate(['/auth/profile',res.id])
             }
           }else {
             this.snackBar.open("انت مسجل بالفعل", "error", {
