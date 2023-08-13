@@ -11,7 +11,7 @@ import { AuthenticateResponse } from '../../Models/auth.model';
 export class AuthService {
   baseURL: string = environment.apiUrl;
   private storageKey = '~CurrentUser~';
-
+  redirectUrl:string=''
   constructor(private http: HttpClient,private router: Router) {}
 
   register(body:any,verification:string): Observable<any> {
@@ -43,5 +43,15 @@ export class AuthService {
   }
   get currentUser(): AuthenticateResponse | null {
     return JSON.parse(localStorage.getItem(this.storageKey) || 'null');
+  }
+  setRedirectUrl(url: string) {
+    this.redirectUrl = url;
+  }
+  getRedirectUrl():string {
+    return this.redirectUrl
+  }
+  isAuthenticated(): boolean {
+    // console.log(localStorage.getItem(this.storageKey)? true :false);
+    return localStorage.getItem(this.storageKey) ? true :false
   }
 }

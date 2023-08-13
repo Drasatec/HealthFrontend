@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { faStar, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { DoctorWorkPeriodModel, DoctorInfoModel } from 'src/app/models/Models/doctor.model';
+import { AuthService } from 'src/app/models/auth/services/auth.service';
 import { DoctorService } from 'src/app/models/services/doctor.service';
 import { environment } from 'src/environment/environment.prod';
 
@@ -67,7 +68,7 @@ export class AppointmentBookingComponent implements OnInit{
   // }
   params:any
   constructor(private rouer:ActivatedRoute,private _doctorservice:DoctorService,
-    private route:Router){}
+    private route:Router,private authService:AuthService){}
   ngOnInit(): void {
     this.rouer.params.subscribe(
       (res)=>{
@@ -101,9 +102,25 @@ export class AppointmentBookingComponent implements OnInit{
   selectedWorkPeriod:number=0
   getPeriod(event:any){
     this.selectedWorkPeriod=event
-    this.route.navigate(['/booking/booking-by-patient',this.params.DoctorId,this.selectedWorkPeriod,this.params.date])
+    // this.route.navigate(['/booking/booking-by-patient',this.params.DoctorId,this.selectedWorkPeriod,this.params.date])
+    let data={
+      DoctorId:this.params.DoctorId,
+      WorkingPeriodId:this.selectedWorkPeriod,
+      date:this.params.date
+    }
+    this.navigateToNextPageWithData(data)
   }
   setActiveItem(index: number) {
     this.activeItemIndex = index;
+  }
+  navigateToNextPageWithData(data: any) {
+    if (this.authService.isAuthenticated()) {
+      // User is authenticated, navigate directly
+      this.route.navigate(['/booking/booking-by-patient'], { queryParams: { data: JSON.stringify(data) } });
+    } else {
+      // Set redirect URL with data and navigate to login page
+      this.authService.setRedirectUrl(`/booking/booking-by-patient?data=${JSON.stringify(data)}`);
+      this.route.navigate(['/auth/login']);
+    }
   }
 }

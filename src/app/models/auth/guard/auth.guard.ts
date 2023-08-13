@@ -8,7 +8,6 @@ export const AuthGuard: CanActivateFn = (route, state): boolean => {
   if (currentUserService.currentUser?.token) {
     if (state.url === '/') {
         router.navigate(['/home']);
-
     }
     return true;
   }

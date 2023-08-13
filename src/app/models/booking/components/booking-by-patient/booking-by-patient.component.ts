@@ -49,9 +49,10 @@ export class BookingByPatientComponent implements OnInit{
   })
   ngOnInit(): void {
     this.getVisitType()
-    this.route.params.subscribe(
+    this.route.queryParams.subscribe(
       (params)=>{
         this.params=params
+        console.log(this.params)
         this.getDoctorInfo(this.params.DoctorId)
         this.getPeriodInfoDoctor(this.params.DoctorId,this.params.WorkingPeriodId)
         this.filterDay(this.params.date)

@@ -15,7 +15,7 @@ export class LoginComponent {
     password: new FormControl ('',[Validators.required,Validators.minLength(8)]),
   }
   )
-
+  redirectUrl:string=''
   constructor(private authService:AuthService,private snackBar: MatSnackBar,
     private router:Router
     ){}
@@ -29,7 +29,13 @@ export class LoginComponent {
               duration: 5000,
               panelClass: 'success'
             });
-            this.router.navigate(['/home']);
+            if(this.authService.getRedirectUrl()){
+              this.redirectUrl=this.authService.getRedirectUrl()
+              console.log(this.redirectUrl)
+              this.router.navigate([this.redirectUrl])
+            }else{
+              this.router.navigate(['/home'])
+            }
 
           }else {
             this.snackBar.open("الايميل او الباسورد خاطئة", "error", {
