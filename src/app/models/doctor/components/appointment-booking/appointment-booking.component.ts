@@ -114,12 +114,21 @@ export class AppointmentBookingComponent implements OnInit{
     this.activeItemIndex = index;
   }
   navigateToNextPageWithData(data: any) {
-    if (this.authService.isAuthenticated()) {
+    const encodedData = encodeURIComponent(JSON.stringify(data));
+    console.log(encodedData)
+    console.log(this.authService.isAuthenticated())
+    if (this.authService.isAuthenticated() === true) {
+      console.log("here")
       // User is authenticated, navigate directly
-      this.route.navigate(['/booking/booking-by-patient'], { queryParams: { data: JSON.stringify(data) } });
+      // this.route.navigate(['/booking/booking-by-patient'], { queryParams: { data: encodedData } });
+      this.route.navigate(['/booking/booking-by-patient'], { queryParams: { data: encodedData } });
+
     } else {
+      console.log("not")
       // Set redirect URL with data and navigate to login page
-      this.authService.setRedirectUrl(`/booking/booking-by-patient?data=${JSON.stringify(data)}`);
+      
+      this.authService.setRedirectUrl(encodedData);
+      
       this.route.navigate(['/auth/login']);
     }
   }

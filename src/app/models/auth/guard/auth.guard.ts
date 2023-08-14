@@ -5,7 +5,7 @@ export const AuthGuard: CanActivateFn = (route, state): boolean => {
   const router = inject(Router);
   const currentUserService = inject(AuthService);
 
-  if (currentUserService.currentUser?.token) {
+  if (currentUserService.currentUser) {
     if (state.url === '/') {
         router.navigate(['/home']);
     }

@@ -5,7 +5,9 @@ import { HospitalNamesModel } from 'src/app/models/Models/names.model';
 import { HospitalService } from 'src/app/models/services/hospital.service';
 import { LookupService } from 'src/app/models/services/lookup.service';
 
-
+interface FormValue {
+  [key: string]: any; // Or specify the correct types for each property
+}
 
 @Component({
   selector: 'app-contact-us',
@@ -40,14 +42,42 @@ export class ContactUsComponent implements OnInit{
       }
     )
   }
+  formData(obj:any) {
+    console.log(obj)
+
+    let body = new FormData();
+    let bodyObj: FormValue = {}
+    const formVal = obj;
+    Object.keys(formVal).forEach((key) => {
+      if (formVal[key]) {
+        bodyObj[key] = formVal[key]
+        if (key == "patientTranslations") {
+          for (let i = 0; i < formVal['patientTranslations'].length; i++) {
+            body.append('patientTranslations['+(i)+'][FullName]', formVal.patientTranslations[i].FullName ? formVal.patientTranslations[i].FullName :'');
+            body.append('patientTranslations['+(i)+'][Address]', formVal.patientTranslations[i].Address ? formVal.patientTranslations[i].FullName : '');
+            body.append('patientTranslations['+(i)+'][LangCode]', formVal.patientTranslations[i].LangCode);
+          }
+        }
+        else {
+          body.append(key, formVal[key]);
+        }
+
+      }
+    });
+    return body;
+  }
+  dataSend:any
   save(){
     this.form.markAllAsTouched()
     if(this.form.valid){
       this.loading=true;
-      this._hospitalservice.sendHospitalContact(this.form.value).subscribe(
+      this.dataSend=this.formData(this.form.value)
+      this._hospitalservice.sendHospitalContact(this.dataSend).subscribe(
         (res)=>{
+          this.loading=false;
 
         },(error)=>{
+          this.loading=false;
 
         }
       )

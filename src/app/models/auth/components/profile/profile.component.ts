@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit{
     private router:Router,
     private lookupservice:LookupService,
     private route:ActivatedRoute,
-    public dialog: MatDialog,
+    // public dialog: MatDialog,
 
     ){}
 
@@ -76,7 +76,7 @@ export class ProfileComponent implements OnInit{
     )
   }
   sendData:any;
-  readonly DT_FORMAT = "DD-MM-YYYY";
+  readonly DT_FORMAT = "YYYY-MM-DD";
 
   prepareDataBeforeSend(data:any){
 

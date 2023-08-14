@@ -11,7 +11,8 @@ import { AuthenticateResponse } from '../../Models/auth.model';
 export class AuthService {
   baseURL: string = environment.apiUrl;
   private storageKey = '~CurrentUser~';
-  redirectUrl:string=''
+  private userId =''
+  redirectUrl:any
   constructor(private http: HttpClient,private router: Router) {}
 
   register(body:any,verification:string): Observable<any> {
@@ -39,19 +40,34 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
   saveLoginToken(data:AuthenticateResponse){
+    console.log(data)
     localStorage.setItem(this.storageKey, JSON.stringify(data.token));
+    localStorage.setItem(this.userId, JSON.stringify(data.userId));
+
+    console.log(localStorage.getItem(this.storageKey))
+    console.log(JSON.parse(localStorage.getItem(this.storageKey) || 'null'))
   }
   get currentUser(): AuthenticateResponse | null {
     return JSON.parse(localStorage.getItem(this.storageKey) || 'null');
   }
-  setRedirectUrl(url: string) {
+  get currentUserId():string  {
+    return JSON.parse(localStorage.getItem(this.userId) || 'null');
+  }
+  setRedirectUrl(url: any) {
     this.redirectUrl = url;
   }
-  getRedirectUrl():string {
-    return this.redirectUrl
+  getRedirectUrl():any|null {
+    const url = this.redirectUrl;
+    this.redirectUrl = null; // Clear the stored URL
+    return url;
   }
-  isAuthenticated(): boolean {
+  isAuthenticated(){
     // console.log(localStorage.getItem(this.storageKey)? true :false);
-    return localStorage.getItem(this.storageKey) ? true :false
+    let auth = this.currentUser
+    if(auth){
+      return true
+    }else {
+      return false
+    }
   }
 }

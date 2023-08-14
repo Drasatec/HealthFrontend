@@ -9,6 +9,7 @@ import { VisitTypeModel } from 'src/app/models/Models/names.model';
 import { DoctorService } from 'src/app/models/services/doctor.service';
 import { LookupService } from 'src/app/models/services/lookup.service';
 import { environment } from 'src/environment/environment.prod';
+import { AuthService } from 'src/app/models/auth/services/auth.service';
 
 @Component({
   selector: 'app-booking-by-patient',
@@ -31,11 +32,11 @@ export class BookingByPatientComponent implements OnInit{
     private datePipe: DatePipe,
     private router:Router,
     public dialog: MatDialog,
-
+    private authservice:AuthService
 
   ){}
   form=new FormGroup ({
-    PatientId:new FormControl<number>(0),
+    PatientId:new FormControl<string>(''),
     HospitalId:new FormControl<number>(0),
     SpecialtyId:new FormControl(1),
     DoctorId:new FormControl<number>(0),
@@ -47,17 +48,23 @@ export class BookingByPatientComponent implements OnInit{
     dayNumber:new FormControl<number>(0),
     BookingReason:new FormControl(''),
   })
+  userId:string=''
   ngOnInit(): void {
     this.getVisitType()
     this.route.queryParams.subscribe(
       (params)=>{
-        this.params=params
-        console.log(this.params)
+        const decodedData = JSON.parse(decodeURIComponent(params['data']));
+      console.log(decodedData);
+        this.params=decodedData
         this.getDoctorInfo(this.params.DoctorId)
         this.getPeriodInfoDoctor(this.params.DoctorId,this.params.WorkingPeriodId)
         this.filterDay(this.params.date)
+        if(this.authservice.currentUserId){
+          this.userId = this.authservice.currentUserId
+        }
+        console.log(this.authservice.currentUserId)
         this.form.patchValue({
-          PatientId:2,
+          PatientId:this.userId,
           DoctorId:+this.params.DoctorId,
           VisitingDate:this.params.date,
           WorkingPeriodId:+this.params.WorkingPeriodId

@@ -13,7 +13,7 @@ const routes: Routes = [
     component: BookingByClientComponent ,
   },
   {
-    path: 'booking-by-patient/:DoctorId/:WorkingPeriodId/:date',
+    path: 'booking-by-patient',
     component: BookingByPatientComponent ,
   },
   {

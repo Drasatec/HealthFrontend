@@ -35,7 +35,7 @@ export class SearchComponent {
         docId:+this.data.docId,
       })
     }
-    console.log(this.form.value)
+    // console.log(this.form.value)
   }
 
   getHospital(payload:any) {

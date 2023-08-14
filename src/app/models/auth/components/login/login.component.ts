@@ -11,8 +11,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent {
   form=new FormGroup({
-    email:  new FormControl ('',[Validators.required,Validators.email]),
-    password: new FormControl ('',[Validators.required,Validators.minLength(8)]),
+    email:  new FormControl ('fatma2@gmail.com',[Validators.required,Validators.email]),
+    password: new FormControl ('12345678',[Validators.required,Validators.minLength(8)]),
   }
   )
   redirectUrl:string=''
@@ -29,14 +29,18 @@ export class LoginComponent {
               duration: 5000,
               panelClass: 'success'
             });
-            if(this.authService.getRedirectUrl()){
-              this.redirectUrl=this.authService.getRedirectUrl()
-              console.log(this.redirectUrl)
-              this.router.navigate([this.redirectUrl])
-            }else{
-              this.router.navigate(['/home'])
-            }
+            this.authService.saveLoginToken(res)
+            console.log(this.authService.isAuthenticated())
+            const redirectUrl = this.authService.getRedirectUrl();
+            console.log(redirectUrl)
+            if (redirectUrl) {
+              // Navigate to the stored redirect URL
+              this.router.navigate(['/booking/booking-by-patient'], { queryParams: { data: redirectUrl } });
 
+            } else {
+              // Navigate to the default page after login
+              this.router.navigate(['/']);
+            }
           }else {
             this.snackBar.open("الايميل او الباسورد خاطئة", "error", {
               duration: 5000,

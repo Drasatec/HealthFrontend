@@ -25,6 +25,7 @@ export class ConfirmMethodComponent implements OnInit{
       (res)=>{
         this.confirmMethod= res['method']
         this.data=res['data']
+
       }
     )
   }
@@ -43,7 +44,7 @@ export class ConfirmMethodComponent implements OnInit{
                   duration: 5000,
                   panelClass: 'success'
                 });
-                this.router.navigate(['/auth/profile',res.userId])
+                this.router.navigate(['/auth/profile',res.value.userId])
             }else {
               this.snackBar.open("محاولة خاطئة", "error", {
                 duration: 5000,
@@ -71,7 +72,7 @@ export class ConfirmMethodComponent implements OnInit{
                   duration: 5000,
                   panelClass: 'success'
                 });
-                this.router.navigate(['/auth/login'])
+                this.router.navigate(['/auth/profile',res.value.userId])
             }else {
               this.snackBar.open("محاولة خاطئة", "error", {
                 duration: 5000,
