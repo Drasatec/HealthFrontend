@@ -24,7 +24,7 @@
         </li>
 
       </ul>
-      <ul class="navbar-nav me-auto justify-content-center align-items-center">
+      <ul class="navbar-nav me-auto justify-content-center align-items-center" *ngIf="loggedIn">
         <li class="bell mx-2">
           <a href="#">
             <fa-icon [icon]="faBell"></fa-icon>
@@ -46,7 +46,7 @@
               [routerLink]="['/booking/booking-pages']">حجوزاتى </a></li>
             <li>
               
-              <a class="dropdown-item" (click)="logout()">تسجيل الخروج </a>
+              <a class="dropdown-item"  (click)="logout()">تسجيل الخروج </a>
             </li>
           </ul>
         </li>
@@ -54,7 +54,7 @@
 
       <button
         class="btn btn-outline-light btn-light py-2 text-primary"
-        type="submit" (click)="login()"
+        type="submit" (click)="login()" *ngIf="!loggedIn"
       >
         تسجيل الدخول
       </button>

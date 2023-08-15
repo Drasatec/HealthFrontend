@@ -18,15 +18,20 @@ export class NavbarComponent implements OnInit{
     private route:Router){}
   faBell = faBell;
   hospitals:HospitalNamesModel[]=[]
+  loggedIn:boolean=false
   ngOnInit(): void {
     this._lookupservice.getAllHospitalsNames().subscribe(
       (res)=>{
         this.hospitals=res.splice(0,6)
       }
     )
+    if(this.authservice.currentUser){
+      this.loggedIn =true
+    }
   }
   logout(){
     this.authservice.logOut()
+    this.loggedIn=false
     this.route.navigate(['/home'])
   }
   login(){

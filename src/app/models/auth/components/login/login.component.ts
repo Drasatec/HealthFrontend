@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent {
   form=new FormGroup({
-    email:  new FormControl ('fatma2@gmail.com',[Validators.required,Validators.email]),
+    email:  new FormControl ('ff@gmail.com',[Validators.required,Validators.email]),
     password: new FormControl ('12345678',[Validators.required,Validators.minLength(8)]),
   }
   )
