@@ -8,4 +8,7 @@ li .active{
     width:100%
 
 }
+mat-paginator {
+    direction: ltr;
+}
 

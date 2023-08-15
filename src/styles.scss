@@ -94,6 +94,30 @@ background: rgb(43, 203, 102);
 border: var(--main-border);
 color: white;
 }
+.acceptColor{
+  background: rgb(43, 203, 102);
+  border: var(--main-border);
+  color: white;
+  }
+  .refuseColor{
+    border-radius: 0.25rem;
+background: var(--1-s, #EF0F0F);
+    }
+    .waitColor{
+      background: #F9791D;
+      border: var(--main-border);
+      color: white;
+      }
+      .finishColor{
+        background: #FFB624;
+        border: var(--main-border);
+        color: white;
+        }
+        .pendingColor{
+          background: var(--main-border);
+          border: var(--main-border);
+          color: white;
+          }  
 .btnHover{
 background-color: var(--search-color);
 }

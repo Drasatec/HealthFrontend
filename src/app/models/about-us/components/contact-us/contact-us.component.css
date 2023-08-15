@@ -1,0 +1,7 @@
+mat-card{
+background-color: var( --bg-color) !important;
+
+}
+.border-right{
+    border-right:1px solid #ddd
+}

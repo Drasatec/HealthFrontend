@@ -1,5 +1,6 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { HospitalModel } from 'src/app/models/Models/hospital.model';
 import { HospitalNamesModel } from 'src/app/models/Models/names.model';
 import { HospitalService } from 'src/app/models/services/hospital.service';
@@ -27,7 +28,9 @@ export class ContactUsComponent implements OnInit{
   })
   constructor(
     private _lookupservice:LookupService,
-    private _hospitalservice:HospitalService
+    private _hospitalservice:HospitalService,
+    private snackbar:MatSnackBar,
+
     ){}
 
   ngOnInit(): void {
@@ -74,10 +77,16 @@ export class ContactUsComponent implements OnInit{
       this.dataSend=this.formData(this.form.value)
       this._hospitalservice.sendHospitalContact(this.dataSend).subscribe(
         (res)=>{
-          this.loading=false;
-
+          this.snackbar.open("تم ارسال الرسالة بنجاح ", "ُsuccess", {
+            duration: 5000,
+            panelClass: 'success'
+          });
+          this.form.reset()
         },(error)=>{
-          this.loading=false;
+          this.snackbar.open("حاول مرة اخري  ", "error", {
+            duration: 5000,
+            panelClass: 'error'
+          });
 
         }
       )

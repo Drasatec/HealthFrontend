@@ -1,19 +1,12 @@
 <div class="container my-5 mainBorder">
-  <!-- <div class="row">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">الرئيسية > </a></li>
-        <li class="breadcrumb-item active"><a href="#">حجوزاتى</a></li>
-      </ol>
-    </nav>
-  </div> -->
+  <h3>حجوزاتي</h3>
   <div class="row my-1 d-felx justify-content-center align-items-center">
     <div class="col-md-12">
       <div class="card border-0 mainBorder m-5 p-5">
         <mat-tab-group class=" p-3"  (selectedIndexChange)="get($event)">
           <mat-tab *ngFor="let tab of tabList" [label]="tab.name" >
             <div class="container my-3 d-felx justify-content-center align-items-center">
-              <div class="row" *ngFor="let patient of bookingList">
+              <div class="row" *ngFor="let book of bookingList">
                 <div class="col-md-12">
                   <div
                     class="card my-3 py-4 bgCardColor border-0 mainBorder px-4"
@@ -31,51 +24,41 @@
                         </div>
                         <div class="col-md-7 text-end">
                           <div class="card-body">
-                            <h5 class="card-title mt-5">{{ patient.name }}</h5>
-
-                            <br />
-                            <br />
-
+                            
                             <p class="card-text">
                               <a class="aUnderline generalColor" href=""
                               [routerLink]="['/agree-hospital']"
                                 >تفاصيل الحجز
                               </a>
                             </p>
-
-                            <br />
-
-                            <h5 class="card-title">دكتور محمد علاء الدين</h5>
-                            <p class="card-text">استشارى جراحة الفم والفكين</p>
-
-                            <p>
-                              <!-- <fa-icon
-                                class="spanColor"
-                                [icon]="faLocationDot"
-                              ></fa-icon> -->
-                              &nbsp;مستشفى الرحمة
-                            </p>
+                            <h5 class="card-title">{{book.doctor}}</h5>
+                            <p class="card-text">{{book.hospital}}</p>
 
                             <div class="reserveColor p-3 text-center">
                               <p class="spanColor">
-                                <!-- <fa-icon
-                                  class="spanColor"
-                                  [icon]="faCalendarDays"
-                                ></fa-icon> -->
-                                &nbsp; الأحد و 7 مارس &nbsp; &nbsp; &nbsp;
-                                &nbsp; &nbsp; &nbsp;
-                                <!-- <fa-icon
-                                  class="spanColor"
-                                  [icon]="faClock"
-                                ></fa-icon> -->
-                                &nbsp; 8:00 صباحاً الى 2:00 مساءً
+                                <mat-icon>event_available</mat-icon>
+                                {{book.visitingDate |date:'dd-MM-yyyy'}}
+                                <mat-icon>schedule</mat-icon>
+                                 {{book.workingPeriod}}
                               </p>
                             </div>
                           </div>
                         </div>
                         <div class="col-md-3">
-                          <div class="acceptColor rounded">
-                            <p class="text-center p-3">تم الموافقة على الحجز</p>
+                          <div class="waitColor rounded" *ngIf="book.bookingStatusId === 1">
+                            <p class="text-center p-3">{{book.bookingStatus}}</p>
+                          </div>
+                          <div class="acceptColor rounded" *ngIf="book.bookingStatusId === 2">
+                            <p class="text-center p-3">{{book.bookingStatus}}</p>
+                          </div>
+                          <div class="refuseColor rounded" *ngIf="book.bookingStatusId === 3">
+                            <p class="text-center p-3">{{book.bookingStatus}}</p>
+                          </div>
+                          <div class="finishColor rounded" *ngIf="book.bookingStatusId === 4">
+                            <p class="text-center p-3">{{book.bookingStatus}}</p>
+                          </div>
+                          <div class="pending rounded" *ngIf="book.bookingStatusId === 5">
+                            <p class="text-center p-3">{{book.bookingStatus}}</p>
                           </div>
                         </div>
                       </div>

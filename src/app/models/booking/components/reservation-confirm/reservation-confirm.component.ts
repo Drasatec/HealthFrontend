@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { DoctorInfoModel, DoctorWorkPeriodModel } from 'src/app/models/Models/doctor.model';
 import { BookingService } from 'src/app/models/services/booking.service';
@@ -31,6 +32,7 @@ export class ReservationConfirmComponent implements OnInit{
     private _bookingservice:BookingService,
     private snackbar:MatSnackBar,
     private datePipe: DatePipe,
+    private route:Router
 
   ){}
   ngOnInit(): void {
@@ -95,6 +97,8 @@ export class ReservationConfirmComponent implements OnInit{
           duration: 5000,
           panelClass: 'success'
         });
+        this.closeDialog()
+        this.route.navigate(['/booking/booking-pages'])
       },(error)=>{
         this.snackbar.open("حاول مرة اخري  ", "error", {
           duration: 5000,

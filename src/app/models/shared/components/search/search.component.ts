@@ -68,9 +68,9 @@ export class SearchComponent {
     )
   }
   changeHospital(e:any){
-    this.form.patchValue({
-      docId:null
-    })
+    // this.form.patchValue({
+    //   docId:null
+    // })
     this.doctorsList=[]
     let pay={
       medicalSpecialtyId:this.specialId

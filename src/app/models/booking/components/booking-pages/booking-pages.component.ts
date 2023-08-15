@@ -24,7 +24,7 @@ patientId:number=0
 ngOnInit(): void {
   this.patientId = +this.authservice.currentPatientId
   let pay={
-    bookStatusId:5,
+    bookingTime:'future',
         patientId:this.patientId
   }
   this.getBooking(pay)
@@ -35,14 +35,14 @@ ngOnInit(): void {
     this.selected=e
     if(this.selected === 0){
       let pay={
-        bookStatusId:5,
+        bookingTime:'future',
         patientId:this.patientId
       }
     this.getBooking(pay)
 
     }else{
       let pay={
-        bookStatusId:4,
+        bookingTime:"past",
         patientId:this.patientId
 
       }
@@ -54,7 +54,7 @@ ngOnInit(): void {
   getBooking(paylod:any){
     this.bookingservice.getBooking(paylod).subscribe({
       next:next=>{
-        this.bookingList = next
+        this.bookingList = next.data
       }
     }
     )
