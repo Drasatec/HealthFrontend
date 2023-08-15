@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DoctorDetailsComponent } from './components/doctor-filter-components/doctor-cards/doctor-cards.component';
 import { DoctorPageComponent } from './components/doctor-filter-components/doctors-page/doctors-page.component';
 import { AppointmentBookingComponent } from './components/appointment-booking/appointment-booking.component';
+import { SpecialCardDoctorComponent } from './components/special-card-doctor/special-card-doctor.component';
 
 const routes: Routes = [
   { path: '', component: DoctorPageComponent },
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'AppointmentBooking/:DoctorId/:HospitalId/:WorkingPeriodId/:date',
     component: AppointmentBookingComponent ,
+  },
+  {
+    path: 'doctor/:id',
+    component: SpecialCardDoctorComponent ,
   }
 ];
 

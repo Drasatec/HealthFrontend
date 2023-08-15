@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faStar, faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import { DoctorInfoModel } from 'src/app/models/Models/doctor.model';
+import { DoctorService } from 'src/app/models/services/doctor.service';
+import { environment } from 'src/environment/environment.prod';
 // import { IDoctor } from 'src/app/Models/names.model';
 
 @Component({
@@ -13,22 +16,11 @@ export class SpecialCardDoctorComponent {
   faStar = faStar;
   // faLocationDot = faLocationDot;
   faDollarSign = faDollarSign;
+  doctorId:number=0
+  doctor!:DoctorInfoModel
+  imgUrl=`${environment.imgUrl}`;
 
-  doctorId: number = 0;
-  doctor = {
-    id: 0,
-    fullName: '',
-    photo: '',
-    specialty: ''
-  }
-
-  doctorList= [
-    { id: 1, fullName: 'أحمد على', photo: "../../../assets/Images/homeImages/doctor.jpg",  special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] },
-    {id:2 ,photo:"../../../assets/Images/homeImages/doctor.jpg", fullName:' رامى فريد',   special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] },
-    {id:3 ,photo:"../../../assets/Images/homeImages/doctor.jpg", fullName:'حسن محمد', special: [{id: 1, name: "قلب وأوردة ",hospitalId:2}] },];
-
-
-    constructor(private activeParam:ActivatedRoute) {
+    constructor(private activeParam:ActivatedRoute,private doctorservice:DoctorService) {
 
     }
     ngOnInit() {
@@ -44,12 +36,13 @@ export class SpecialCardDoctorComponent {
 
 
     getDoctorById() {
-      let selectedDoctor= this.doctorList.find(  i=>i.id == this.doctorId )
-      console.log(selectedDoctor);
-      // this.doctor = selectedDoctor;
-      console.log(this.doctor);
-
-
+      this.doctorservice.getDoctorById(this.doctorId).subscribe({
+        next:next=>{
+          this.doctor=next
+        }
+      }
+        
+      )
     }
 
 }

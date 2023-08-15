@@ -2,12 +2,12 @@
     <div class="contanier">
         <div class="row my-3">
             <div class="col-md-2 my-3">
-                <img class="mx-5 my-3" [src]="doctor.photo" style="border-radius: 50%; width:70%" alt="Card image cap">
+                <img class="mx-5 my-3" [src]="imgUrl + 'small/' +doctor.photo" style="border-radius: 50%; width:70%" alt="Card image cap">
             </div>
             <div class="col-md-8 mt-5">
                 <div class="card-body">
-                    <h5 class="card-title">{{doctor.fullName}}</h5>
-                    <p class="card-text">استشارى جراحة الفم والفكين</p>
+                    <h5 class="card-title">{{doctor.doctorTranslations[0].fullName}}</h5>
+                    <p class="card-text">{{doctor.doctorTranslations[0].headline}}</p>
 
                     <div class="mt-1 d-flex justify-content-between align-items-center">
                       <div>
@@ -18,19 +18,12 @@
                           <fa-icon class="ratingColor" [icon]="faStar"></fa-icon>
                       </div>
                   </div>
-                  <br>
-                <br>
-                <br>
-                <br>
+
                   <p class="spanColor"> عيادة الرحمة الغربية </p>
                   <!-- <p>  <fa-icon class="spanColor" [icon]="faLocationDot"></fa-icon> طنطا :شارع الجيش </p> -->
-                  <p>   <fa-icon class="spanColor" [icon]="faDollarSign"></fa-icon>  الكشف: <span class="spanColor">   300 فرنك  </span></p>
-
-                  <br>
-                  <br>
-
-                  <h6 class="bold">معلومات عن الطبيب</h6>
-                  <p class="text-secondary">أخصائى أمراض الصدرية والقلب جامعةالملك و استشارى أمراض الصدر والحساسية كبار وأطفال وماجيستير ودكتوراه فى الصدر وعضو الأكادمية و جامعة الملك   </p>
+                  <!-- <p>   <fa-icon class="spanColor" [icon]="faDollarSign"></fa-icon>  الكشف: <span class="spanColor">   300 فرنك  </span></p> -->
+                  <h2 class="bold">معلومات عن الطبيب</h2>
+                  <p class="text-secondary">{{doctor.doctorTranslations[0].about}} </p>
 
                   </div>
             </div>

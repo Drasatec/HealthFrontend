@@ -1,23 +1,23 @@
 <div class="container cardStayle">
-  <div class="row">
+  <div class="row d-flex justify-content-between align-items-center">
     <div class="col-sm-12 col-md-6 col-lg-6">
-      <h2>أطبائنا</h2>
+      <h2 class="fw-bold">أطبائنا</h2>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-6 d-flex justify-content-end">
-      <a type="button" class="btn generalBGColor text-white py-3 px-5">
+      <a type="button" class="btn generalBGColor text-white py-2 px-4">
         عرض الكل
       </a>
     </div>
   </div>
   <div class="row my-5">
     <div class="col-md-6 col-sm-12 col-lg-4" *ngFor="let doc of doctorList ">
-      <div class="card border-0" style="width: 26rem">
-        <a href="#" routerLinkActive="active">
+      <div class="card border-0" >
+        <a routerLinkActive="active" [routerLink]="['doctor',doc.doctorId]">
           <img src="assets/Images/doctorImages/doctorImage.jpg" class="card-img-top"
             style="height: 35vh" alt="..." />
           <div class="card-body">
             <h5 class="generalColor text-center">{{ doc.fullName }}</h5>
-            <p class="text-center">{{ doc.headline }}</p>
+            <p class="text-center ">{{ doc.headline }}</p>
           </div>
         </a>
       </div>

@@ -38,6 +38,7 @@
   --main-bg:#ebeef3;
   --span-color:#0d74b4;
   --main-height:100vh;
+  --bg-color:#E9EDF0;
 }
 
 * {
@@ -49,7 +50,7 @@
 }
 
 body{
-background-color: var( --main-bg);
+background-color: var( --bg-color) !important;
 overflow-x: hidden;
 }
 
@@ -104,6 +105,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 h5{
   font-size: 1.25rem !important;
 }
-
+.mat-icon{
+  height: auto !important;
+  width: auto !important;
+}
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

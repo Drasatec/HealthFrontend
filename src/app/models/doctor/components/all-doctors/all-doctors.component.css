@@ -9,3 +9,8 @@ button:hover{
 a{
   text-decoration: none;
 }
+.card-body{
+  p{
+    color:#121212 !important;
+  }
+}
