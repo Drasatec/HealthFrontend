@@ -4,15 +4,15 @@
       <h2 class="fw-bold">أطبائنا</h2>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-6 d-flex justify-content-end">
-      <a type="button" class="btn generalBGColor text-white py-2 px-4">
+      <a type="button" class="btn generalBGColor text-white py-2 px-4" *ngIf="!all" (click)="seeAll()">
         عرض الكل
       </a>
     </div>
   </div>
   <div class="row my-5">
-    <div class="col-md-6 col-sm-12 col-lg-4" *ngFor="let doc of doctorList ">
+    <div class="col-md-6 col-sm-12 col-lg-4 my-2" *ngFor="let doc of doctorList ">
       <div class="card border-0" >
-        <a routerLinkActive="active" [routerLink]="['doctor',doc.doctorId]">
+        <a routerLinkActive="active" [routerLink]="['/doctor/doctor',doc.doctorId]">
           <img src="assets/Images/doctorImages/doctorImage.jpg" class="card-img-top"
             style="height: 35vh" alt="..." />
           <div class="card-body">

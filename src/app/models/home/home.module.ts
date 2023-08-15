@@ -8,13 +8,15 @@ import { AllSpecialtyComponent } from './components/all-specialty/all-specialty.
 import { DoctorModule } from '../doctor/doctor.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { OrderByPipe } from './components/cover/custom-order.pipe';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     CoverComponent,
-    AllSpecialtyComponent
+    AllSpecialtyComponent,
+    OrderByPipe
   ],
   imports: [
     CommonModule,

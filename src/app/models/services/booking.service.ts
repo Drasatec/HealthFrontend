@@ -13,8 +13,12 @@ export class BookingService {
 
   constructor(private http: HttpClient) {}
 
-  addBooking(body:any): Observable<any> {
-      const url = `${this.baseURL}Booking/add?clinicId=${body.ClinicId}&lang=ar`;
+  addBooking(clinic:number,body:any): Observable<any> {
+      const url = `${this.baseURL}Booking/add?clinicId=${clinic}&lang=ar`;
       return this.http.post(url,body);
     }
+  getBooking(fetch:any):Observable<any>{
+    const url = `${this.baseURL}Booking?lang=ar`;
+      return this.http.get(url,{params:fetch});
+  }
 }

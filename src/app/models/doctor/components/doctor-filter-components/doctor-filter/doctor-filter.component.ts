@@ -1,6 +1,6 @@
 import { LookupService } from '../../../../services/lookup.service';
-import { DatePipe } from '@angular/common';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { DatePipe, formatDate } from '@angular/common';
+import { Component, Input, OnInit, Output, EventEmitter, Inject, LOCALE_ID } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { WorkPeriodModel, GenderModel, DegreeModel } from 'src/app/models/Models/names.model';
@@ -13,13 +13,14 @@ import { WorkPeriodModel, GenderModel, DegreeModel } from 'src/app/models/Models
 })
 export class DoctorFilterComponent implements OnInit{
   constructor(
+    private datePipe: DatePipe,
     private lookupService:LookupService,
     ) {
       this.minDate = new Date();
       this.date=new FormControl(new Date())
     }
     date:any;
-  selectedDate: Date | null =null;
+  selectedDate:any;
   form!:FormGroup
   minDate:Date;
   labelPosition="all"
@@ -61,7 +62,10 @@ export class DoctorFilterComponent implements OnInit{
   }
 
   onDateChange(event: MatDatepickerInputEvent<Date>) {
+    console.log(event)
     this.selectedDate = event.value as Date | null;
+    // this.selectedDate =this.datePipe.transform(event.value,'yyyy-MM-dd')
+    console.log(this.selectedDate)
     this.DateChange.emit(this.selectedDate)
   }
   changeGender(event:any){

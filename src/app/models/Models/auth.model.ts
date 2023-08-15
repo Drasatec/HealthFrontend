@@ -11,4 +11,5 @@ export class AuthenticateResponse {
   token: string | null=null;
   userId:  string | null=null;
   username:  string | null=null;
+  patientId:number |null =null;
 }

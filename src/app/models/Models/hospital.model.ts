@@ -38,3 +38,19 @@ export class FeatureTranslation{
   featureId: number=0 ;
   langCode: string='';
 }
+export class PromotionModel{
+  "id": number=0 ;
+  "photo": string='';
+  "position":number=0 ;
+  "link":string='';
+  "promotionsTranslations": promotionTranslation[]
+}
+export class promotionTranslation{
+  
+    "id": number=0 ;
+    "title": string='';
+    "description":string='';
+    "promotionId": number=0 ;
+    "langCode": string='';
+
+}

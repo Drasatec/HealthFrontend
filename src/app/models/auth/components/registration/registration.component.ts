@@ -40,7 +40,7 @@ export class RegistrationComponent {
  confirmMethod:string="null"
   save(){
     this.form.markAllAsTouched();
-    this.confirmMethod = "sms"
+    this.confirmMethod = "null"
     if(this.form.valid){
       let data = this.form.value
       this.form.patchValue({
@@ -57,11 +57,12 @@ export class RegistrationComponent {
               let data=this.confirmMethod === 'email'? this.form.value.email : this.form.value.phoneNumber
               this.router.navigate(['/auth/confirm-method',this.confirmMethod,data])
             }else {
+              console.log("null")
               this.snackBar.open("تم التسجيل بنجاح ", "success", {
                 duration: 5000,
                 panelClass: 'success'
               });
-              this.router.navigate(['/auth/profile',res.id])
+              this.router.navigate(['/auth/profile',res.userId])
             }
           }else {
             this.snackBar.open("انت مسجل بالفعل", "error", {

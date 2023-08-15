@@ -25,4 +25,8 @@ export class HospitalService {
     const url = `${this.baseURL}ContactForm/add`;
     return this.http.post(url,body);
   }
+  getHospitalPromotion(): Observable<any> {
+    const url = `${this.baseURL}Promotion/all?lang=ar`;
+    return this.http.get(url);
+  }
   }

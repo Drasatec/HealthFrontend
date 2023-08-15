@@ -163,19 +163,7 @@ export class ProfileComponent implements OnInit{
     }
   }
   openLogin(){
-    // const dialogRef = this.dialog.open(LoginComponent,{
-    //   width: "1200px",
-    //   disableClose: true,
-    //   data:{
-    //     id:id,
-    //   }
-    // })
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   console.log(result)
-    //   if(result){
-    //     this.getTableData(this.fetch)
-    //   }
-    // });
+    this.router.navigate(['/auth/login'])
   }
 }
 

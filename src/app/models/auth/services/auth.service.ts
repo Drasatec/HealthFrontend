@@ -12,6 +12,7 @@ export class AuthService {
   baseURL: string = environment.apiUrl;
   private storageKey = '~CurrentUser~';
   private userId =''
+  private patientId=''
   redirectUrl:any
   constructor(private http: HttpClient,private router: Router) {}
 
@@ -43,6 +44,8 @@ export class AuthService {
     console.log(data)
     localStorage.setItem(this.storageKey, JSON.stringify(data.token));
     localStorage.setItem(this.userId, JSON.stringify(data.userId));
+    localStorage.setItem(this.patientId, JSON.stringify(data.patientId));
+
 
     console.log(localStorage.getItem(this.storageKey))
     console.log(JSON.parse(localStorage.getItem(this.storageKey) || 'null'))
@@ -52,6 +55,9 @@ export class AuthService {
   }
   get currentUserId():string  {
     return JSON.parse(localStorage.getItem(this.userId) || 'null');
+  }
+  get currentPatientId():string  {
+    return JSON.parse(localStorage.getItem(this.patientId) || 'null');
   }
   setRedirectUrl(url: any) {
     this.redirectUrl = url;

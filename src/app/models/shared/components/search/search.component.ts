@@ -30,8 +30,8 @@ export class SearchComponent {
     if(this.data){
       this.selectDoctors(+this.data,+this.data)
       this.form.patchValue({
-        hosId:+this.data.hospitalId,
-        specialtyId:+this.data.medicalSpecialtyId,
+        hosId:+this.data.hosId,
+        specialtyId:+this.data.specialtyId,
         docId:+this.data.docId,
       })
     }

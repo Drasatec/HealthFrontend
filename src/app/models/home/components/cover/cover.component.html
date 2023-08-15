@@ -1,11 +1,16 @@
 
   <carousel [(activeSlide)]="activeSlideIndex" >
-    <slide *ngFor="let slide of imgList; let index=index">
-      <img [src]="slide.path" alt="image slide" style="display: block; width: 100%;height:80vh">
+    <slide *ngFor="let slide of promtion| orderBy: 'position'">
+      <ng-container >
+        <img [src]="imgUrl + 'small/'+slide.photo" alt="image slide" style="display: block; width: 100%;height:80vh">
 
       <div class="carousel-caption">
+        <h1>{{slide.promotionsTranslations[0]?.title}}</h1>
+        <p>{{slide.promotionsTranslations[0]?.description}}</p>
         <app-search (FilterChange)="filterChange($event)"></app-search>
       </div>
+      </ng-container>
+      
     </slide>
   </carousel>
   <br/>

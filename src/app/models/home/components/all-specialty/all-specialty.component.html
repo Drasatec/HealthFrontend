@@ -4,18 +4,22 @@
           <h2 class="fw-bold">التخصصات</h2>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-6 d-flex justify-content-end" >
-            <button type="button" class="btn generalBGColor text-white py-2 px-4">عرض الكل</button>
+            <button type="button" class="btn generalBGColor text-white py-2 px-4" *ngIf="!all"
+            (click)="getall()">عرض الكل</button>
         </div>
     </div>
     <div class="row my-5 ">
-      <div class="col-md-4 mb-4 col-lg-3 col-sm-6" *ngFor="let spc of spectialtyThree">
+      <div class="col-md-4 mb-4 col-lg-3 col-sm-6" *ngFor="let spc of spectialty">
 
         <div class="card w-100 p-5 border rounded">
             <div class="card-body text-center">
+              <a 
+              (click)="special(spc.medicalSpecialtyId)">
+
                 <!-- <fa-icon class=" generalColor fs-1"  [icon]="faHeartPulse"></fa-icon> -->
               <mat-icon class=" generalColor fs-1">monitor_heart</mat-icon>
               <p class="card-text  generalColor">{{spc.name}}</p>
-
+            </a>
             </div>
           </div>
 

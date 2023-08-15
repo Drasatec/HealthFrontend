@@ -4,3 +4,7 @@
     width: 10px;
     height: 10px;
 } */
+.carousel-caption{
+    background-color: #00000061;
+    padding:1rem
+}

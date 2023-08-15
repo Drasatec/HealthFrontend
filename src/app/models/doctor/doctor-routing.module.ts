@@ -4,6 +4,7 @@ import { DoctorDetailsComponent } from './components/doctor-filter-components/do
 import { DoctorPageComponent } from './components/doctor-filter-components/doctors-page/doctors-page.component';
 import { AppointmentBookingComponent } from './components/appointment-booking/appointment-booking.component';
 import { SpecialCardDoctorComponent } from './components/special-card-doctor/special-card-doctor.component';
+import { AllDoctorsComponent } from './components/all-doctors/all-doctors.component';
 
 const routes: Routes = [
   { path: '', component: DoctorPageComponent },
@@ -13,7 +14,7 @@ const routes: Routes = [
     component: DoctorDetailsComponent,
   },
   {
-    path: 'doctors/:hospitalId/:medicalSpecialtyId/:docId',
+    path: 'doctors/:hosId/:specialtyId/:docId',
     component: DoctorPageComponent,
     data: { breadcrumb: {alias: 'Doctors'}}
   },
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'doctor/:id',
     component: SpecialCardDoctorComponent ,
+  },
+  {
+    path: 'doctors',
+    component: AllDoctorsComponent ,
   }
 ];
 
