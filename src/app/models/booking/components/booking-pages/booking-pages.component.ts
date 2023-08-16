@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/models/auth/services/auth.service';
 import { BookingService } from 'src/app/models/services/booking.service';
 // import { IPatient } from 'src/app/Models/ipatient';
@@ -13,7 +14,9 @@ export class BookingPagesComponent implements OnInit{
   // faLocationDot = faLocationDot;
   // faCalendarDays = faCalendarDays;
   // faClock = faClock;
-  constructor(private bookingservice:BookingService,private authservice:AuthService){}
+  constructor(private bookingservice:BookingService,private authservice:AuthService,
+    private snackbar:MatSnackBar,
+    ){}
 selected:number=0
   tabList: [] |any = [
     {id:0 , name:"القادمة "},
@@ -58,5 +61,17 @@ ngOnInit(): void {
       }
     }
     )
+  }
+  del(id:number){
+    this.bookingservice.statusBooking(id).subscribe({
+      next:next=>{
+        this.snackbar.open("تم تغيير حالة الحجز بنجاح ", "ُsuccess", {
+          duration: 5000,
+          panelClass: 'success'
+        });
+        this.get(0)
+      },
+      
+    })
   }
 }

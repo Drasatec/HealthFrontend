@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-all-doctors',
   templateUrl: './all-doctors.component.html',
-  styleUrls: ['./all-doctors.component.css']
+  styleUrls: ['./all-doctors.component.scss']
 })
 export class AllDoctorsComponent implements OnInit{
   doctorList :DoctorNamesModel[]=[]

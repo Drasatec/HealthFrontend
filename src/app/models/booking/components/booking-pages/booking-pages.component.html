@@ -61,6 +61,7 @@
                             <p class="text-center p-3">{{book.bookingStatus}}</p>
                           </div>
                         </div>
+                        <button class="btn btn-danger" *ngIf="book.bookingStatusId !== 3" (click)="del(book.id)">الغاء الحجز</button>
                       </div>
                     </div>
                   </div>

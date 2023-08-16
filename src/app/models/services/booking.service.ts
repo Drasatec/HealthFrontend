@@ -21,4 +21,8 @@ export class BookingService {
     const url = `${this.baseURL}Booking?lang=ar`;
       return this.http.get(url,{params:fetch});
   }
+  statusBooking(id:number): Observable<any> {
+    const url = `${this.baseURL}Booking/edit-status?bookingId=${id}&statusId=3`;
+    return this.http.put(url,'');
+  }
 }
