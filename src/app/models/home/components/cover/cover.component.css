@@ -5,6 +5,9 @@
     height: 10px;
 } */
 .carousel-caption{
-    background-color: #00000061;
+    background-color: #00000021;
     padding:1rem
+}
+.carousel-inner{
+    height:280px
 }

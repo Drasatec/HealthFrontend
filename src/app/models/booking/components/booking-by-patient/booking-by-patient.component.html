@@ -23,13 +23,14 @@
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label my-3 generalColor d-block"> نوع الزيارة </label>
-                              <mat-radio-group formControlName="TypeVisitId"  aria-label="Select an option">
+                              <mat-radio-group formControlName="TypeVisitId"  aria-label="Select an option" (change)="getVisit($event)">
                                 <mat-radio-button class="example-margin" *ngFor="let degree of typeVisit" [value]="degree.typeVisitId">
-                                  {{degree.name}}
+                                  {{degree.typeVisit}}
                                 </mat-radio-button>
                               </mat-radio-group>
 
                             </div>
+                            <p>سعر الكشف : {{price}}</p>
                               <label for="exampleInputPassword1" class="form-label my-3  generalColor "> اكتب مشكلتك</label>
                               <div class="form-floating">
                                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="BookingReason"></textarea>

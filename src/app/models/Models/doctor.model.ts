@@ -43,3 +43,14 @@ export class DoctorWorkPeriodModel{
   doctor: string |null =null;
   dayName: string |null =null;
 }
+export class DoctorVisitModel{
+  "id": number |null =null;
+  "doctorName": string |null =null;
+  "priceCategory": string |null =null;
+  "typeVisit": string |null =null;
+  "priceCurrency": string |null =null;
+  "price":  number |null =null;
+  "doctorId":  number |null =null;
+  "priceCategoryId": number |null =null;
+  "typeVisitId":  number |null =null;
+}

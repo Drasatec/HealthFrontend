@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BookingService } from 'src/app/models/services/booking.service';
 // import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 // import { IPatient } from 'src/app/Models/ipatient';
 
@@ -12,23 +13,9 @@ export class MemberDetailsComponent {
 
   // faLocationDot = faLocationDot;
   patientId: number = 0;
-  patient = {
-    id: 0,
-    name: '',
-    groupID: 0
-  };
-  patientList=[
-    { id: 1, name: "محمد على ", groupID: 2 },
-    { id: 2, name: "رامى على ",groupID:1  },
-    { id: 3, name: " محمد رامى  ",groupID:2  },
-    { id: 4, name: "حسن أحمد " ,groupID:2 },
-    { id: 5, name: "محمد على " ,groupID:2 },
-    { id: 6, name: "على  على ",groupID:2  },
-    { id: 7, name:"محسن  على ",groupID:2 },
-    { id: 8, name: "حامد على ",groupID:2  },
-    { id: 9, name: "ليلى على ", groupID: 2 }
-  ];
-  constructor(private activeParam:ActivatedRoute) {
+  patient:any
+  patientList=[];
+  constructor(private activeParam:ActivatedRoute,private bookingservice:BookingService) {
 
   }
   ngOnInit() {
@@ -38,15 +25,16 @@ export class MemberDetailsComponent {
     this.activeParam.params.subscribe((res:any) => {
       console.log(res);
       this.patientId = res.id;
-     this.getPatientById()
+     this.getPatientById(this.patientId)
     })
   }
 
-  getPatientById() {
-    let selectedPatient= this.patientList.find(  i=>i.id == this.patientId )
-    console.log(selectedPatient);
-    // this.patient = selectedPatient;
-    console.log(this.patient);
+  getPatientById(id:any) {
+    this.bookingservice.getPatient(id).subscribe(
+      (res)=>{
+        this.patient=res
+      }
+    )
 
 
   }

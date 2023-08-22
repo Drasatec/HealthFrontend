@@ -28,7 +28,7 @@
     <div class="form-group mb-3">
       <label for="example-search-input" class="text-base-color text-bold mb-2">النوع<span class="text-danger">*</span> </label>
       <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="genders" formControlName="Gender"
-          bindValue="genderNumber" bindLabel="genderName" appDebounceInputChange
+          bindValue="genderId" bindLabel="name" appDebounceInputChange
           [class.is-invalid]="form.controls.Gender.invalid && form.controls.Gender.touched">
       </ng-select>
       <div class="invalid-feedback">

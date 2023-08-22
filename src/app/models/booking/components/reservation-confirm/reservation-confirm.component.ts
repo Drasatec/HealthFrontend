@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { DoctorInfoModel, DoctorWorkPeriodModel } from 'src/app/models/Models/doctor.model';
+import { AuthService } from 'src/app/models/auth/services/auth.service';
 import { BookingService } from 'src/app/models/services/booking.service';
 import { DoctorService } from 'src/app/models/services/doctor.service';
 import { environment } from 'src/environment/environment.prod';
@@ -32,13 +33,17 @@ export class ReservationConfirmComponent implements OnInit{
     private _bookingservice:BookingService,
     private snackbar:MatSnackBar,
     private datePipe: DatePipe,
-    private route:Router
+    private route:Router,
+    private authservice:AuthService
 
   ){}
+  patientId:any
   ngOnInit(): void {
     console.log(this.data)
     this.getDoctorInfo(this.data.DoctorId)
     this.getPeriodInfoDoctor(this.data.DoctorId,this.data.WorkingPeriodId)
+    this.patientId=this.authservice.currentPatientId
+    console.log(this.patientId)
   }
   getDoctorInfo(id:number){
     this._doctorservice.getDoctorById(id).subscribe(
@@ -89,7 +94,10 @@ export class ReservationConfirmComponent implements OnInit{
   sendData:any
   confirm(){
     console.log(this.data)
-
+    this.data={
+      ...this.data,
+      patientId:this.patientId
+    }
     this.sendData=this.formData(this.data)
     this._bookingservice.addBooking(this.data.ClinicId,this.sendData).subscribe(
       (res)=>{

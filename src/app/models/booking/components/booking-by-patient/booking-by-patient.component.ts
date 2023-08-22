@@ -4,7 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationConfirmComponent } from '../reservation-confirm/reservation-confirm.component';
 import { MatDialog } from '@angular/material/dialog';
-import { DoctorInfoModel, DoctorWorkPeriodModel } from 'src/app/models/Models/doctor.model';
+import { DoctorInfoModel, DoctorVisitModel, DoctorWorkPeriodModel } from 'src/app/models/Models/doctor.model';
 import { VisitTypeModel } from 'src/app/models/Models/names.model';
 import { DoctorService } from 'src/app/models/services/doctor.service';
 import { LookupService } from 'src/app/models/services/lookup.service';
@@ -22,7 +22,7 @@ export class BookingByPatientComponent implements OnInit{
   doctor!:DoctorInfoModel;
   imgUrl=`${environment.imgUrl}`;
   workPeriod!:DoctorWorkPeriodModel;
-  typeVisit:VisitTypeModel[]=[]
+  typeVisit:DoctorVisitModel[]=[]
   days=[{id:1,name:"Saturday"},{id:2,name:"Sunday"},{id:3,name:"Monday"},{id:4,name:"Tuesday"},{id:5,name:"Wednesday"},{id:6,name:"Thursday"},{id:7,name:"Friday"}]
 
   constructor(
@@ -50,7 +50,6 @@ export class BookingByPatientComponent implements OnInit{
   })
   userId:string=''
   ngOnInit(): void {
-    this.getVisitType()
     this.route.queryParams.subscribe(
       (params)=>{
         const decodedData = JSON.parse(decodeURIComponent(params['data']));
@@ -69,6 +68,8 @@ export class BookingByPatientComponent implements OnInit{
           VisitingDate:this.params.date,
           WorkingPeriodId:+this.params.WorkingPeriodId
       })
+      this.getVisitType(this.params.DoctorId)
+
       }
 
     )
@@ -113,12 +114,26 @@ export class BookingByPatientComponent implements OnInit{
       }
     )
   }
-  getVisitType(){
-    this._lookupservic.getAllVisitTypesNames().subscribe(
+  getVisitType(id:any){
+    // this._lookupservic.getAllVisitTypesNames().subscribe(
+    //   (res)=>{
+    //     this.typeVisit=res
+    //   }
+    // )
+    let pay={
+      docId:+id
+    }
+    this._doctorservice.getVisitDoctor(pay).subscribe(
       (res)=>{
-        this.typeVisit=res
+        this.typeVisit =res
       }
     )
+  }
+  price:any
+  getVisit(e:any){
+    let data=this.typeVisit.filter(x=> x.typeVisitId === e.value)[0]
+    console.log(data)
+    this.price = data.price
   }
   cancel(){
     this.router.navigate(['/doctors'])
@@ -128,7 +143,10 @@ export class BookingByPatientComponent implements OnInit{
         width: "1200px",
         maxHeight:'80%',
         disableClose: true,
-        data:this.form.value
+        data:{
+          ...this.form.value,
+          price:this.price
+        }
       })
       dialogRef.afterClosed().subscribe((result) => {
         console.log(result)

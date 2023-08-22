@@ -25,4 +25,8 @@ export class BookingService {
     const url = `${this.baseURL}Booking/edit-status?bookingId=${id}&statusId=3`;
     return this.http.put(url,'');
   }
+  getPatient(id:any):Observable<any>{
+    const url = `${this.baseURL}Patient?id=${id}&lang=ar`;
+      return this.http.get(url);
+  }
 }

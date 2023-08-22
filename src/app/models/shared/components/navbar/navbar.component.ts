@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit{
   faBell = faBell;
   hospitals:HospitalNamesModel[]=[]
   loggedIn:boolean=false
+  patientId:any
   ngOnInit(): void {
     this._lookupservice.getAllHospitalsNames().subscribe(
       (res)=>{
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit{
     if(this.authservice.currentUser){
       this.loggedIn =true
     }
+    this.patientId=this.authservice.currentPatientId
   }
   logout(){
     this.authservice.logOut()

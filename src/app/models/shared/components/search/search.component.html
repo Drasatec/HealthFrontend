@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <form class="row" [formGroup]="form">
       <div class="col-md-3 mt-2">
-          <ng-select [items]="hospitalList" appendTo="body" placeholder="مستشفيات"
+          <ng-select [items]="hospitalList" appendTo="body" placeholder="الفروع"
               bindValue="hospitalId" bindLabel="name" [virtualScroll]="true"
               aria-describedby="search-addon" appDebounceInputChange [debounceTime]="1000"
               formControlName="hosId" [multiple]="false" (change)="changeHospital($event)">

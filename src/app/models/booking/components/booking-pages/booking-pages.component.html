@@ -53,6 +53,7 @@
                           </div>
                           <div class="refuseColor rounded" *ngIf="book.bookingStatusId === 3">
                             <p class="text-center p-3">{{book.bookingStatus}}</p>
+                            <p>سبب الالغاء : {{book.statusReason}}</p>
                           </div>
                           <div class="finishColor rounded" *ngIf="book.bookingStatusId === 4">
                             <p class="text-center p-3">{{book.bookingStatus}}</p>
@@ -61,7 +62,8 @@
                             <p class="text-center p-3">{{book.bookingStatus}}</p>
                           </div>
                         </div>
-                        <button class="btn btn-danger" *ngIf="book.bookingStatusId !== 3" (click)="del(book.id)">الغاء الحجز</button>
+                        <button class="btn btn-danger" *ngIf="tab.id === 0 && book.bookingStatusId !== 3" (click)="del(book.id)">الغاء الحجز</button>
+                        
                       </div>
                     </div>
                   </div>
