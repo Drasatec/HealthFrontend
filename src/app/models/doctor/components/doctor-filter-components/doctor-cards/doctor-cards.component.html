@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-8 text-end">
                 <div class="card-body">
-                    <h5 class="card-title">دكتور  {{doctor.doctor.doctorTranslations[0].fullName }} </h5>
+                    <h5 class="card-title">{{"doctor"|translate}}  {{doctor.doctor.doctorTranslations[0].fullName }} </h5>
                     <p class="card-text">{{doctor.doctor.doctorTranslations[0].headline}}</p>
 
                     <div class="mt-1  ">
@@ -20,7 +20,7 @@
                   </div>
                   <br>
                   <p> {{doctor.doctor.doctorTranslations[0].about}} </p>
-                  <p class="spanColor"> الفترة : {{doctor.doctorWorkPeriod.workingPeriod}} </p>
+                  <p class="spanColor"> {{"period"|translate}} : {{doctor.doctorWorkPeriod.workingPeriod}} </p>
                   <!-- <p>  <fa-icon class="spanColor"  [icon]="faLocationDot"></fa-icon> طنطا :شارع الجيش </p>
                   <p>   <fa-icon class="spanColor" [icon]="faDollarSign"></fa-icon>   الكشف :<span class="spanColor">   300 فرنك  </span></p> -->
                   </div>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { HospitalNamesModel, SpecialNamesModel, DoctorNamesModel } from 'src/app/models/Models/names.model';
 import { LookupService } from 'src/app/models/services/lookup.service';
 
@@ -14,16 +15,24 @@ export class SearchComponent {
   hospitalList:HospitalNamesModel[] = [];
   spialtiesList: SpecialNamesModel[] = [];
   doctorsList: DoctorNamesModel[] = [];
+  lang=''
+
   payload={
-    lang:'ar'
+    lang:''
   }
   @Input() data!:any;
   @Output() FilterChange:EventEmitter<any>=new EventEmitter();
   constructor(private _lookupservice:LookupService,
-    private formbuilder:FormBuilder){
+    private formbuilder:FormBuilder,
+    private translateService:TranslateService){
 
   }
   ngOnInit() {
+    this.lang=this.translateService.currentLang
+    this.payload={
+      lang:this.lang
+    }
+    console.log(this.lang)
     this.getHospital(this.payload)
     this.getSpeciality(this.payload)
     this.createForm()

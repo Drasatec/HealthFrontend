@@ -7,5 +7,6 @@ export const environment = {
   production: true,
   apiUrl:'https://www.alrahmacare.somee.com/api/',
   imgUrl:'https://www.alrahmacare.somee.com/images/',
-  showAttach:'https://www.alrahmacare.somee.com/'
+  showAttach:'https://www.alrahmacare.somee.com/',
+  defaultLanguage:'ar'
 };

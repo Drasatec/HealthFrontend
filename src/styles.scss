@@ -42,7 +42,7 @@
 }
 
 * {
-  direction: rtl;
+  // direction: rtl;
   font-family: 'Cairo', sans-serif;
   box-sizing: border-box;
 
@@ -53,7 +53,13 @@ body{
 background-color: var( --bg-color) !important;
 overflow-x: hidden;
 }
+body.ltr {
+  @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+}
+body.rtl{
+  @import "../node_modules/bootstrap/dist/css/bootstrap-reboot.rtl.css";
 
+}
 .ratingColor{
 color:#fbc634 !important;
 }

@@ -1,20 +1,20 @@
 
 <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">مستشفى الرحمة </a>
+    <a class="navbar-brand" href="#">{{"Elrahma-hos"| translate}}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page"  [routerLink]="['/']"
           routerLinkActive="active"
-          >الرئيسية</a>
+          >{{"home"|translate}}</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            الفروع
+            {{"branches" | translate}}
           </a>
           <ul class="dropdown-menu">
             <li *ngFor="let hospital of hospitals">
@@ -24,7 +24,15 @@
         </li>
 
       </ul>
-      <ul class="navbar-nav me-auto justify-content-center align-items-center" *ngIf="loggedIn">
+      
+     
+      <ul class="navbar-nav justify-content-end align-items-center" *ngIf="loggedIn">
+        <li>
+          <ng-select class="d-block pr-3 my-2 lang" *ngIf="!loggedIn" [multiple]="false" [items]="languages" 
+            (change)="switchLanguage($event)" [(ngModel)]="defaultLang"
+            bindValue="code" bindLabel="code" appDebounceInputChange >
+          </ng-select>
+        </li>
         <li class="bell mx-2">
           <a href="#">
             <fa-icon [icon]="faBell"></fa-icon>
@@ -44,28 +52,31 @@
             <li>
               <a class="dropdown-item" href="#"
                 routerLinkActive="active"
-                [routerLink]="['/booking/booking-pages']">حجوزاتى 
+                [routerLink]="['/booking/booking-pages']">{{"my-booking"|translate}} 
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="#"
                 routerLinkActive="active"
-                [routerLink]="['/member/member-details',patientId]">ملفي الشخصي 
+                [routerLink]="['/member/member-details',patientId]"> {{"my-profile"|translate}}
               </a>
             </li>
             <li>
               
-              <a class="dropdown-item"  (click)="logout()">تسجيل الخروج </a>
+              <a class="dropdown-item"  (click)="logout()"> {{"logout"|translate}} </a>
             </li>
           </ul>
         </li>
       </ul>
-
+      <ng-select class="d-block pr-3 my-2 lang" *ngIf="!loggedIn" [multiple]="false" [items]="languages" 
+        (change)="switchLanguage($event)" [(ngModel)]="defaultLang"
+        bindValue="code" bindLabel="code" appDebounceInputChange >
+      </ng-select>
       <button
         class="btn btn-outline-light btn-light py-2 text-primary"
         type="submit" (click)="login()" *ngIf="!loggedIn"
       >
-        تسجيل الدخول
+         {{"login"|translate}}
       </button>
     </div>
 

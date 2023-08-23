@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header d-flex justify-content-between">
     <h3 class="card-title align-items-start flex-column mr-3 mb-5 mt-0">
-      <span class="card-label text-primary"> تاكيد الحجز</span>
+      <span class="card-label text-primary">  {{"confirm"|translate}}</span>
     </h3>
     <button mat-button (click)="closeDialog()" class="btn-close-trans">
       <mat-icon>cancel</mat-icon>
@@ -22,19 +22,19 @@
         <h4 class="card-title ">{{doctor.doctorTranslations[0].fullName}}</h4>
         <p class="card-text fs-5">{{doctor.doctorTranslations[0].headline}}</p>
         <div class="reserveColor p-5 m-4 text-center">
-          <p class="bold fs-5 generalColor">موعدك في العيادة</p>
+          <p class="bold fs-5 generalColor"> {{"booking_info"|translate}} </p>
           <p>
             {{workPeriod.dayName}} <span class="spanColor">{{data.VisitingDate}}</span>
             <span class="fSize">{{workPeriod.workingPeriod}}</span>
           </p>
         </div>
         <p class="spanColor bold fs-5">{{workPeriod.clinic}}</p>
-        <p class="spanColor bold fs-5">سعر الكشف : {{data.price}}</p>
+        <p class="spanColor bold fs-5">{{"price"|translate}}  : {{data.price}}</p>
 
 
         <div class="d-grid gap-2">
           <button class="btn button1 generalBGColor text-white" (click)="confirm()">
-            تأكيد الحجز
+             {{"confirm"|translate}}
           </button>
         </div>
       </div>

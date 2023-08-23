@@ -28,29 +28,29 @@
           <br />
           <div class="row">
             <div class="col-md-6">
-              <p class="bold fs-4">اسم المريض</p>
+              <p class="bold fs-4"> {{"name"|translate}}</p>
               <p class="text-black-50">{{ patient.patientTranslations[0].fullName }}</p>
               <br />
               <br />
 
-              <p class="bold fs-4">رقم المريض</p>
+              <p class="bold fs-4"> {{"patient_number"|translate}}</p>
               <p class="text-black-50">{{ patient.patientTranslations[0].id }}</p>
               <br />
               <br />
-              <p class="bold fs-4">رقم الموبايل</p>
+              <p class="bold fs-4">{{"mobile_no"|translate}}</p>
               <p class="text-black-50">{{patient.phoneNumber}}</p>
               <br />
               <br />
-              <p class="bold fs-4">العنوان</p>
+              <p class="bold fs-4">{{"address"|translate}}</p>
               <p class="text-black-50">{{patient.patientTranslations[0].address}}</p>
               <br />
               <br />
-              <p class="bold fs-4">تاريخ الميلاد</p>
+              <p class="bold fs-4"> {{"birthDate"|translate}}</p>
               <p class="text-black-50">{{patient.birthDate | date:'dd-mm-yyyy'}}</p>
             </div>
             <div class="col-md-6">
-              <!-- <p class="bold fs-4">الحالة الاجتماعية</p>
-              <p class="text-black-50">أعزب</p> -->
+              <p class="bold fs-4"> {{"marital"|translate}}</p>
+              <p class="text-black-50">أعزب</p>
               <br />
               <br />
 
@@ -67,11 +67,11 @@
               <p class="text-black-50">15420111255455</p>
               <br />
               <br /> -->
-              <p class="bold fs-4">الجنسية</p>
+              <p class="bold fs-4">{{"nationality"|translate}}</p>
               <p class="text-black-50">مصرى</p>
               <br />
               <br />
-              <p class="bold fs-4">الديانة</p>
+              <p class="bold fs-4">{{"religion"|translate}}</p>
               <p class="text-black-50">مسلم</p>
             </div>
           </div>

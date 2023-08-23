@@ -28,6 +28,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { SharedComponent } from './components/shared/shared.component';
+import { i18nModule } from '../i18n/i18n.module';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 const Modules=[
   CommonModule,
@@ -88,9 +90,11 @@ const Modules=[
   MatCardModule,
   MatIconModule,
   MatProgressSpinnerModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  TranslateModule
   ],
   exports:[
+    TranslateModule,
     CommonModule,
   FormsModule,
   ReactiveFormsModule,
@@ -120,7 +124,8 @@ const Modules=[
     DebounceInputChangeDirective,
     BreadcrumbComponent,
     MatSnackBarModule,
-    SharedComponent
+    SharedComponent,
+    
   ]
 })
 export class SharedModule { }

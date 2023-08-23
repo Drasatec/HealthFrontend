@@ -76,4 +76,12 @@ export class AuthService {
       return false
     }
   }
+  getConfirmationMethod(): Observable<any> {
+    const url = `${this.baseURL}ConfirmationOption/all`;
+    return this.http.get(url);
+  }
+  getAllLanguages(): Observable<any> {
+    const url = `${this.baseURL}Language/all`;
+    return this.http.get(url);
+  }
 }

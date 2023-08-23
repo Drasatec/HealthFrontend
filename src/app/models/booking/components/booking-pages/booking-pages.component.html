@@ -26,10 +26,10 @@
                           <div class="card-body">
                             
                             <p class="card-text">
-                              <a class="aUnderline generalColor" href=""
+                              <!-- <a class="aUnderline generalColor" href=""
                               [routerLink]="['/agree-hospital']"
-                                >تفاصيل الحجز
-                              </a>
+                                > {{}}
+                              </a> -->
                             </p>
                             <h5 class="card-title">{{book.doctor}}</h5>
                             <p class="card-text">{{book.hospital}}</p>
@@ -62,7 +62,7 @@
                             <p class="text-center p-3">{{book.bookingStatus}}</p>
                           </div>
                         </div>
-                        <button class="btn btn-danger" *ngIf="tab.id === 0 && book.bookingStatusId !== 3" (click)="del(book.id)">الغاء الحجز</button>
+                        <button class="btn btn-danger" *ngIf="tab.id === 0 && book.bookingStatusId !== 3" (click)="del(book.id)"> {{"booking_cancel"|translate}}</button>
                         
                       </div>
                     </div>

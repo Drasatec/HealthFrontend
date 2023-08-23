@@ -18,8 +18,8 @@ export class WorkPeriodModel{
   workingPeriodId:number | null =null;
 }
 export class GenderModel{
-  genderNumber:number |null=null;
-  genderName:string | null =null;
+  name:number |null=null;
+  genderId:string | null =null;
 }
 
 export class DegreeModel{

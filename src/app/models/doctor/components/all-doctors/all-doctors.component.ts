@@ -5,6 +5,7 @@ import { DoctorModule } from '../../doctor.module';
 import { DoctorNamesModel } from 'src/app/models/Models/names.model';
 import { LookupService } from 'src/app/models/services/lookup.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-all-doctors',
@@ -18,10 +19,13 @@ export class AllDoctorsComponent implements OnInit{
   }
   all:boolean=false
   constructor(private _lookupservice:LookupService,private router:Router,
-    private route:ActivatedRoute) {
+    private route:ActivatedRoute,private translateService:TranslateService) {
     
   }
   ngOnInit(): void {
+    this.payload={
+      lang:this.translateService.currentLang
+    }
     this.route.queryParams.subscribe({
       next:next=>{
         this.all = next['data']

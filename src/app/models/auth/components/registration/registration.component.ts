@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit{
   form=new FormGroup({
     fullName: new FormControl('',[Validators.required]),
     email:  new FormControl ('',[Validators.required,Validators.email]),
@@ -24,6 +24,27 @@ export class RegistrationComponent {
   constructor(private authService:AuthService,private snackBar: MatSnackBar,
     private router:Router
     ){}
+
+  ngOnInit(): void {
+    this.getConfirmMethod()
+    
+  }
+  confirmMethodList:{code:string;optionName:string;chosen:boolean}[]=[]
+ confirmMethod:string=''
+
+  getConfirmMethod(){
+    this.authService.getConfirmationMethod().subscribe({
+      next:next=>{
+        this.confirmMethodList=next
+    console.log(this.confirmMethodList)
+    this.confirmMethod=this.confirmMethodList.filter(x=> x.chosen === true)[0].code
+    console.log(this.confirmMethod)
+
+      }
+    }
+    )
+    
+  }
   passwordMatchValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: boolean } | null => {
        const password = control.get('password')?.value;
@@ -37,10 +58,10 @@ export class RegistrationComponent {
        return isMatch ? null : { passwordMismatch: true };
     };
  }
- confirmMethod:string="null"
   save(){
     this.form.markAllAsTouched();
-    this.confirmMethod = "null"
+    // this.confirmMethod = "null"
+    console.log(this.confirmMethod)
     if(this.form.valid){
       let data = this.form.value
       this.form.patchValue({
@@ -49,7 +70,7 @@ export class RegistrationComponent {
       this.authService.register(this.form.value,this.confirmMethod).subscribe(
         (res)=>{
           if(res.success){
-            if(this.confirmMethod !== 'null'){
+            if(this.confirmMethod !== 'non'){
               this.snackBar.open(this.confirmMethod+"تم التسجيل بنجاح , من فضلك تحقق من ", "success", {
                 duration: 5000,
                 panelClass: 'success'

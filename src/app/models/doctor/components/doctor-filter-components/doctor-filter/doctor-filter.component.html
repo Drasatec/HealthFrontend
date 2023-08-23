@@ -1,13 +1,13 @@
 
 <div class="card mainBorder my-3" style="width: 100%;">
   <div class="generalBGColor card-header mainBorder  ">
-      <h4 class="card-title mainBorder  text-white">حدد بحثك</h4>
+      <h4 class="card-title mainBorder  text-white"> {{"search"|translate}}</h4>
   </div>
   <div class="accordion mainBorder" id="accordionExample" >
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          &nbsp; تاريخ الحجز
+          &nbsp;  {{"booking_date"|translate}}
         </button>
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -25,7 +25,7 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingTwo">
         <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
-          المواعيد
+          {{"period"|translate}}
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -39,15 +39,15 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingThree">
         <button class="accordion-button text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
-          النوع
+          {{"sex"|translate}}
         </button>
       </h2>
       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <mat-radio-group (change)="changeGender($event)" [(ngModel)]="labelPosition"  aria-label="Select an option2">
-            <mat-radio-button class="example-margin" value="all">الكل</mat-radio-button>
-            <mat-radio-button class="example-margin" *ngFor="let gender of genderList" [value]="gender.genderNumber">
-              {{gender.genderName}}
+            <mat-radio-button class="example-margin" value="all">{{"all"|translate}}</mat-radio-button>
+            <mat-radio-button class="example-margin" *ngFor="let gender of genderList" [value]="gender.genderId">
+              {{gender.name}}
             </mat-radio-button>
           </mat-radio-group>
 
@@ -57,12 +57,12 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingFour">
         <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
-          الدرجة العلمية
+           {{"degree"|translate}}
         </button>
       </h2>
       <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
         <mat-radio-group (change)="changeDegree($event)" [(ngModel)]="labelPosition2"  aria-label="Select an option">
-          <mat-radio-button class="example-margin" value="all">الكل</mat-radio-button>
+          <mat-radio-button class="example-margin" value="all">{{"all"|translate}}</mat-radio-button>
           <mat-radio-button class="example-margin" *ngFor="let degree of degreeList" [value]="degree.doctorDegreeId">
             {{degree.degreeName}}
           </mat-radio-button>

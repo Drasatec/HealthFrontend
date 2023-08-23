@@ -2,6 +2,7 @@ import { LookupService } from 'src/app/models/services/lookup.service';
 import { SpecialNamesModel } from './../../../Models/names.model';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -17,10 +18,13 @@ export class AllSpecialtyComponent implements OnInit{
     lang:'ar'
   }
   constructor(private _lookupservice:LookupService,private router:Router,
-    private route:ActivatedRoute) {
+    private route:ActivatedRoute,private translateService:TranslateService) {
   }
   all:boolean=false
   ngOnInit(): void {
+    this.payload={
+      lang:this.translateService.currentLang
+    }
     this.route.queryParams.subscribe({
       next:next=>{
         this.all = next['data']

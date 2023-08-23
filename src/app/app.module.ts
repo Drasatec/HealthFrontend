@@ -9,6 +9,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpRequestInterceptor } from './models/auth/guard/http.interceptor';
+import { i18nModule } from './models/i18n/i18n.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { HttpRequestInterceptor } from './models/auth/guard/http.interceptor';
     CarouselModule,
     SharedModule,
     NgbModule,
+    i18nModule,
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }

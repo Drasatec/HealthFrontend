@@ -8,6 +8,7 @@ import { AuthService } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { TranslateService } from '@ngx-translate/core';
 
 interface FormValue {
   [key: string]: any; // Or specify the correct types for each property
@@ -42,6 +43,7 @@ export class ProfileComponent implements OnInit{
     private router:Router,
     private lookupservice:LookupService,
     private route:ActivatedRoute,
+    private translateService:TranslateService
     // public dialog: MatDialog,
 
     ){}
@@ -91,7 +93,7 @@ export class ProfileComponent implements OnInit{
         FullName:data.FullName ?data.FullName:null,
         Religion:data.Religion ? data.Religion :null,
         Address:data.Address ? data.Address :null,
-        LangCode:'ar',
+        LangCode:this.translateService.currentLang,
       },{
         FullName:data.FullNameEn ?data.FullNameEn:null,
         LangCode:'en',

@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row">
                      <div class="col-sm-12 col-md-4">
-                        <p class=" bold fs-5">مستشفى الرحمة</p>
+                        <p class=" bold fs-5"> {{"Elrahma-hos"|translate}}</p>
                          <a
                           class="nav-link"
                           routerLinkActive="active"
@@ -33,15 +33,15 @@
                             </ul>
                     </div>
                     <div class="col-sm-12 col-md-4">
-                        <p class="bold   fs-5">ابحث عن طريق </p>
-                        <p>التخصص </p>
-                        <p>الطبيب</p>
-                        <p>المكان</p>
+                        <p class="bold   fs-5">{{"search"|translate}}</p>
+                        <p>{{"specialty"|translate}} </p>
+                        <p>{{"doctors"|translate}}</p>
+                        <p>{{"places"|translate}}</p>
                     </div>
                     <div class="col-sm-12 col-md-4">
-                         <p class="bold  fs-5">الخدمات </p>
+                         <p class="bold  fs-5">{{"services"|translate}} </p>
                             <p>تحاليل </p>
-                            <p>أشعة </p>
+                            <p>{{"x-rays"|translate}} </p>
                     </div>
                     </div>
                     </div>
@@ -52,7 +52,7 @@
 
 
             <div class="col-xs-6 col-md-6   ">
-                <p>اشترك فى النشرة البريدية ليصلك كل جديد</p>
+                <p>{{"news"|translate}}</p>
 
        <div class="contanier bg-white mainBorder py-2 px-4 boxWidth ">
         <div class="row ">
@@ -62,11 +62,11 @@
             <div class="col-md-6 pt-1">
                 <div class="input-group flex-nowrap">
 
-                    <input type="email" class="form-control placeholderColor" placeholder="اكتب بريدك الالكترونى " aria-label="Username" aria-describedby="addon-wrapping">
+                    <input type="email" class="form-control placeholderColor" [placeholder]="'email'|translate " aria-label="Username" aria-describedby="addon-wrapping">
                   </div>
             </div>
             <div class="col-md-4 pt-1">
-                <button type="button" class="btn bgColor text-white py-2 px-5 ">اشترك </button>
+                <button type="button" class="btn bgColor text-white py-2 px-5 ">{{"join"|translate}} </button>
             </div>
         </div>
 

@@ -2,21 +2,21 @@
   <div class="container-fluid">
     <form class="row" [formGroup]="form">
       <div class="col-md-3 mt-2">
-          <ng-select [items]="hospitalList" appendTo="body" placeholder="الفروع"
+          <ng-select [items]="hospitalList" appendTo="body" [placeholder]="'branches'|translate"
               bindValue="hospitalId" bindLabel="name" [virtualScroll]="true"
               aria-describedby="search-addon" appDebounceInputChange [debounceTime]="1000"
               formControlName="hosId" [multiple]="false" (change)="changeHospital($event)">
           </ng-select>
       </div>
       <div class="col-md-3 mt-2">
-        <ng-select [items]="spialtiesList" appendTo="body" placeholder="التخصصات"
+        <ng-select [items]="spialtiesList" appendTo="body" [placeholder]="'specialty'|translate"
             bindValue="medicalSpecialtyId" bindLabel="name" [virtualScroll]="true"
             aria-describedby="search-addon" appDebounceInputChange [debounceTime]="1000"
             formControlName="specialtyId" [multiple]="false" (change)="changeSpcial($event)">
         </ng-select>
       </div>
       <div class="col-md-3 mt-2">
-        <ng-select [items]="doctorsList" appendTo="body" placeholder="الاطباء"
+        <ng-select [items]="doctorsList" appendTo="body" [placeholder]="'doctors'|translate"
             bindValue="doctorId" bindLabel="fullName" [virtualScroll]="true"
             aria-describedby="search-addon" appDebounceInputChange [debounceTime]="1000"
             formControlName="docId" [multiple]="false">
@@ -24,7 +24,7 @@
       </div>
       <div class="col-md-3 mt-4 ">
         <div class="d-flex justify-content-end " role="search">
-          <button class="btn btn-outline-light btn-light text-primary px-5" type="submit" (click)="submit()">ابحث</button>
+          <button class="btn btn-outline-light btn-light text-primary px-5" type="submit" (click)="submit()">{{"search"|translate}}</button>
         </div>
       </div>
     </form>

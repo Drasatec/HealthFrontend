@@ -5,24 +5,24 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="attinionColor rounded">
-                        <h3 class="text-center p-3 ">حجز موعد</h3>
+                        <h3 class="text-center p-3 ">{{"booking_date"|translate}}</h3>
                     </div>
                     </div>
                     <div class="row mt-4">
                       <div class="col-md-6">
                         <div class="appimentColor rounded">
-                            <h4 class="text-center p-3 ">معلومات الموعد</h4>
+                            <h4 class="text-center p-3 ">{{"booking_info"|translate}}</h4>
                         </div>
                         <div [formGroup]="form">
-                            <label for="exampleInputPassword1" class="form-label my-3 generalColor">الإسم </label>
+                            <label for="exampleInputPassword1" class="form-label my-3 generalColor">{{"name"|translate}} </label>
                             <input type="text" class="form-control" id="exampleInputPassword1" [disabled]="true">
 
                             <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label my-3  generalColor ">الهاتف المحمول</label>
+                              <label for="exampleInputPassword1" class="form-label my-3  generalColor "> {{"mobile_no"|translate}}</label>
                               <input type="number" class="form-control" id="exampleInputPassword1" [disabled]="true">
                             </div>
                             <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label my-3 generalColor d-block"> نوع الزيارة </label>
+                              <label for="exampleInputPassword1" class="form-label my-3 generalColor d-block"> {{"visit_type"|translate}} </label>
                               <mat-radio-group formControlName="TypeVisitId"  aria-label="Select an option" (change)="getVisit($event)">
                                 <mat-radio-button class="example-margin" *ngFor="let degree of typeVisit" [value]="degree.typeVisitId">
                                   {{degree.typeVisit}}
@@ -30,16 +30,16 @@
                               </mat-radio-group>
 
                             </div>
-                            <p>سعر الكشف : {{price}}</p>
-                              <label for="exampleInputPassword1" class="form-label my-3  generalColor "> اكتب مشكلتك</label>
+                            <p> {{"price"|translate}} : {{price}}</p>
+                              <label for="exampleInputPassword1" class="form-label my-3  generalColor "> {{"problem"|translate}}</label>
                               <div class="form-floating">
                                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="BookingReason"></textarea>
-                                <label for="floatingTextarea" class="text-secondary">المشكلة </label>
+                                <!-- <label for="floatingTextarea" class="text-secondary">المشكلة </label> -->
 
                               </div>
                               <div class="d-felx justify-content-center align-items-center">
-                                <button type="submit" class="btn btnShadow btn-primary generalBGColor text-white my-5 mx-5 px-5" (click)="confirmData()">احجز موعد</button>
-                                <button type="submit" class="btn btnShadow btn-outline-primary my-5 generalColor mx-5 px-5 "(click)="cancel()"> الغاء </button>
+                                <button type="submit" class="btn btnShadow btn-primary generalBGColor text-white my-5 mx-5 px-5" (click)="confirmData()">{{"booking"|translate}}</button>
+                                <button type="submit" class="btn btnShadow btn-outline-primary my-5 generalColor mx-5 px-5 "(click)="cancel()"> {{"cancel"|translate}} </button>
                               </div>
                           </div>
                       </div>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="row">
                                     <p class="text-center  appimentColor p-3 my-3">{{workPeriod.dayName}}- {{params.date}} <br/> {{workPeriod.workingPeriod}} </p>
-                                    <p class="text-center  fs-5 mx-5 my-2">الدخول بأسبقية الحجز </p>
+                                    <p class="text-center  fs-5 mx-5 my-2">  {{"reserve"|translate}} </p>
                                 </div>
                         </div>
                       </div>
