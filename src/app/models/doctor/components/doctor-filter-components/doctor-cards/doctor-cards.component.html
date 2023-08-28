@@ -27,7 +27,9 @@
             </div>
             <div class="col-md-2 d-flex align-items-end  ">
 
-                <a [routerLink]="['/doctor/AppointmentBooking',doctor.doctor.id,doctor.doctorWorkPeriod.hospitalId,doctor.doctorWorkPeriod.workingPeriodId,selectedDate|date:'YYYY-MM-dd']" class="btn generalBGColor text-white  px-5 mb-4 ">حجز</a>
+                <a [routerLink]="['/doctor/AppointmentBooking',doctor.doctor.id,doctor.doctorWorkPeriod.hospitalId,doctor.doctorWorkPeriod.workingPeriodId,selectedDate|date:'YYYY-MM-dd']" class="btn generalBGColor text-white  px-5 mb-4 ">
+                    {{"book"|translate}}
+                </a>
 
 
             </div>

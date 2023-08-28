@@ -36,17 +36,17 @@
               <p class="bold fs-4"> {{"patient_number"|translate}}</p>
               <p class="text-black-50">{{ patient.patientTranslations[0].id }}</p>
               <br />
-              <br />
+              <!-- <br />
               <p class="bold fs-4">{{"mobile_no"|translate}}</p>
               <p class="text-black-50">{{patient.phoneNumber}}</p>
-              <br />
+              <br /> -->
               <br />
               <p class="bold fs-4">{{"address"|translate}}</p>
               <p class="text-black-50">{{patient.patientTranslations[0].address}}</p>
               <br />
               <br />
               <p class="bold fs-4"> {{"birthDate"|translate}}</p>
-              <p class="text-black-50">{{patient.birthDate | date:'dd-mm-yyyy'}}</p>
+              <p class="text-black-50">{{patient.birthDate | date:'dd-MM-yyyy'}}</p>
             </div>
             <div class="col-md-6">
               <p class="bold fs-4"> {{"marital"|translate}}</p>
@@ -54,7 +54,7 @@
               <br />
               <br />
 
-              <p class="bold fs-4">فصيلة الدم</p>
+              <p class="bold fs-4">{{"blood_type"|translate}}</p>
               <p class="text-black-50">{{patient.bloodType}}</p>
 
               <br />

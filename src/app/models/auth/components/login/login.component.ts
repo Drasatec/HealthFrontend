@@ -33,14 +33,19 @@ export class LoginComponent {
             console.log(this.authService.isAuthenticated())
             const redirectUrl = this.authService.getRedirectUrl();
             console.log(redirectUrl)
-            if (redirectUrl) {
-              // Navigate to the stored redirect URL
-              this.router.navigate(['/booking/booking-by-patient'], { queryParams: { data: redirectUrl } });
-
-            } else {
-              // Navigate to the default page after login
-              this.router.navigate(['/']);
+            if(res.isCompletData){
+              if (redirectUrl) {
+                // Navigate to the stored redirect URL
+                this.router.navigate(['/booking/booking-by-patient'], { queryParams: { data: redirectUrl } });
+  
+              } else {
+                // Navigate to the default page after login
+                this.router.navigate(['/']);
+              }
+            }else{
+              this.router.navigate(['/auth/profile',res.userId])
             }
+            
           }else {
             this.snackBar.open("الايميل او الباسورد خاطئة", "error", {
               duration: 5000,

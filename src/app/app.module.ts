@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpRequestInterceptor } from './models/auth/guard/http.interceptor';
 import { i18nModule } from './models/i18n/i18n.module';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { i18nModule } from './models/i18n/i18n.module';
 
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

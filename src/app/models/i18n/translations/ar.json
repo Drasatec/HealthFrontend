@@ -39,6 +39,14 @@
   "address":"عنوان",
   "marital":"الحالة الاجتماعية",
   "nationality":"الجنسية",
-  "religion":"ألديانة"
-
+  "religion":"ألديانة",
+  "name_en":"الاسم بالانجليزية",
+  "blood_type":"فصيلة الدم",
+  "save":"حفظ",
+  "password":"كلمة السر",
+  "register":"تسجيل حساب",
+  "forget_password":"نسيت كلمةالمرور",
+  "confirm_password":"تأكيد كلمة المرور",
+  "enter_data":"ادخال بيانات",
+  "book":"حجز"
 }

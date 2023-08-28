@@ -96,4 +96,12 @@ getAllHospitalsNames(fetchCriteria?: any): Observable<any> {
     const url = `${this.baseURL}BookingStatus/names?lang=${this.lang}`;
     return this.http.get(url,{ params: fetchCriteria });
   }
+  getAllMarital(fetchCriteria?: any): Observable<any> {
+    const url = `${this.baseURL}MaritalStatus/names?lang=${this.lang}`;
+    return this.http.get(url,{ params: fetchCriteria });
+  }
+  getAllReligion(fetchCriteria?: any): Observable<any> {
+    const url = `${this.baseURL}Religion/names?lang=${this.lang}`;
+    return this.http.get(url,{ params: fetchCriteria });
+  }
 }

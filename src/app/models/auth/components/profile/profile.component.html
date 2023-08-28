@@ -1,15 +1,15 @@
 <div [formGroup]="form" class="row bg-white p-5">
-  <h3 class="fs-2 fw-bold"> ادخال البيانات</h3>
+  <h3 class="fs-2 fw-bold"> {{'enter_data' | translate}} </h3>
   <div class="col-lg-6 col-12">
     <div class="form-group my-2">
-      <label for="example-search-input" class="text-base-color text-bold mb-2">الاسم </label>
+      <label for="example-search-input" class="text-base-color text-bold mb-2">{{'name'|translate}} </label>
       <input [class.is-invalid]="form.controls.FullName.invalid && form.controls.FullName.touched"
         class="form-control" type="text" formControlName="FullName" />
     </div>
   </div>
   <div class="col-lg-6 col-12">
     <div class="form-group my-2">
-      <label for="example-search-input" class="text-base-color text-bold mb-2">الاسم باللغة الانجليزية<span class="text-danger">*</span> </label>
+      <label for="example-search-input" class="text-base-color text-bold mb-2">{{"name_en"|translate}}<span class="text-danger">*</span> </label>
       <input [class.is-invalid]="form.controls.FullNameEn.invalid && form.controls.FullNameEn.touched"
         class="form-control" type="text" formControlName="FullNameEn"/>
       <div class="invalid-feedback">
@@ -19,14 +19,14 @@
   </div>
   <div class="col-lg-6 col-12">
     <div class="form-group my-2">
-      <label for="example-search-input" class="text-base-color text-bold  mb-2">العنوان </label>
+      <label for="example-search-input" class="text-base-color text-bold  mb-2">{{"address"|translate}} </label>
       <input [class.is-invalid]="form.controls.Address.invalid && form.controls.Address.touched"
         class="form-control" type="text" formControlName="Address"  />
     </div>
   </div>
   <div class="col-lg-6 col-12">
     <div class="form-group mb-3">
-      <label for="example-search-input" class="text-base-color text-bold mb-2">النوع<span class="text-danger">*</span> </label>
+      <label for="example-search-input" class="text-base-color text-bold mb-2">{{"sex"|translate}}<span class="text-danger">*</span> </label>
       <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="genders" formControlName="Gender"
           bindValue="genderId" bindLabel="name" appDebounceInputChange
           [class.is-invalid]="form.controls.Gender.invalid && form.controls.Gender.touched">
@@ -38,7 +38,7 @@
   </div>
   <div class="col-lg-6 col-12">
     <div class="form-group mb-3">
-      <label  for="example-search-input" class="text-base-color text-bold d-block mb-2">تاريخ الميلاد<span class="text-danger">*</span> </label>
+      <label  for="example-search-input" class="text-base-color text-bold d-block mb-2">{{"birthDate"|translate}}<span class="text-danger">*</span> </label>
       <input formControlName="BirthDate" class="form-control border-right-0"
           placeholder="dd-mm-yyyy" name="dp" ngbDatepicker #d="ngbDatepicker" autocomplete="off"
           (click)="d.toggle()" >
@@ -53,10 +53,10 @@
   </div>
   <div class="col-lg-6 col-12">
     <div class="form-group mb-3">
-      <label for="example-search-input" class="text-base-color text-bold mb-2">الحالة
-        الاجتماعية<span class="text-danger">*</span> </label>
+      <label for="example-search-input" class="text-base-color text-bold mb-2">{{"marital"|translate}}
+        <span class="text-danger">*</span> </label>
       <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="MaritalStatus" formControlName="MaritalStatus"
-          bindValue="id" bindLabel="name" appDebounceInputChange [class.is-invalid]="form.controls.MaritalStatus.invalid && form.controls.MaritalStatus.touched">
+          bindValue="maritalId" bindLabel="name" appDebounceInputChange [class.is-invalid]="form.controls.MaritalStatus.invalid && form.controls.MaritalStatus.touched">
       </ng-select>
       <div class="invalid-feedback">
         <span *ngIf="form.controls.MaritalStatus.errors?.['required']">من فضلك ادخل الحالة الاجتماعية</span>
@@ -65,7 +65,7 @@
   </div>
   <div class="col-lg-6 col-12">
     <div class="form-group mb-3">
-      <label for="example-search-input" class="text-base-color text-bold mb-2"> الجنسية<span class="text-danger">*</span> </label>
+      <label for="example-search-input" class="text-base-color text-bold mb-2"> {{"nationality"|translate}}<span class="text-danger">*</span> </label>
       <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="nationality" formControlName="NationalityId"
           bindValue="nationalityId" bindLabel="name" appDebounceInputChange [class.is-invalid]="form.controls.NationalityId.invalid && form.controls.NationalityId.touched">
       </ng-select>
@@ -76,22 +76,22 @@
   </div>
   <div class="col-lg-6 col-12">
     <div class="form-group mb-3">
-      <label for="example-search-input" class="text-base-color text-bold  mb-2"> الديانة</label>
+      <label for="example-search-input" class="text-base-color text-bold  mb-2"> {{"religion"|translate}}</label>
       <ng-select class="d-block pr-3 my-2" [multiple]="false" [items]="religions" formControlName="Religion"
-          bindValue="id" bindLabel="name" appDebounceInputChange >
+          bindValue="religionId" bindLabel="name" appDebounceInputChange >
       </ng-select>
     </div>
   </div>
   <div class="col-lg-6 col-12">
     <div class="form-group my-2">
-      <label for="example-search-input" class="text-base-color text-bold  mb-2">فصيلة الدم </label>
+      <label for="example-search-input" class="text-base-color text-bold  mb-2"> {{"blood_type"|translate}} </label>
       <input [class.is-invalid]="form.controls.BloodType.invalid && form.controls.BloodType.touched"
         class="form-control" type="text" formControlName="BloodType"  />
     </div>
   </div>
 
   <div class="d-grid gap-2">
-    <button class="btn btn-primary" (click)="save()" [disabled]="form.invalid">حفظ</button>
+    <button class="btn btn-primary" (click)="save()" [disabled]="form.invalid">{{"save"|translate}}</button>
   </div>
 </div>
 

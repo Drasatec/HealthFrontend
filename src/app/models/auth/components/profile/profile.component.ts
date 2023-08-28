@@ -19,8 +19,8 @@ interface FormValue {
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit{
-  religions=[{name:'مسلم',id:1},{name:'مسيحي',id:2},{name:'اخري',id:3}]
-  MaritalStatus=[{name:'متزوج',id:1},{name:'اعذب',id:2},{name:'ارمل',id:3},{name:'اخري',id:4}]
+  religions=[]
+  MaritalStatus=[]
   userId:string=''
   form=new FormGroup({
     FullName:new FormControl(''),
@@ -60,12 +60,28 @@ export class ProfileComponent implements OnInit{
     })
     this.getGender()
     this.getNationality()
+    this.getMarital()
+    this.getReligion()
   }
   genders:GenderModel[]=[]
     getGender(){
     this.lookupservice.getAllGender().subscribe(
       (res:GenderModel[])=>{
         this.genders=res
+      }
+    )
+  }
+  getMarital(){
+    this.lookupservice.getAllMarital().subscribe(
+      (res:[])=>{
+        this.MaritalStatus=res
+      }
+    )
+  }
+  getReligion(){
+    this.lookupservice.getAllReligion().subscribe(
+      (res:[])=>{
+        this.religions=res
       }
     )
   }
@@ -89,11 +105,10 @@ export class ProfileComponent implements OnInit{
         data.BirthDate.month-1,
         data.BirthDate.day,
       ]).format(this.DT_FORMAT): null,
-      patientTranslations:[{
+      PatientTranslations:[{
         FullName:data.FullName ?data.FullName:null,
-        Religion:data.Religion ? data.Religion :null,
         Address:data.Address ? data.Address :null,
-        LangCode:this.translateService.currentLang,
+        LangCode:'ar',
       },{
         FullName:data.FullNameEn ?data.FullNameEn:null,
         LangCode:'en',
@@ -111,11 +126,11 @@ export class ProfileComponent implements OnInit{
     Object.keys(formVal).forEach((key) => {
       if (formVal[key]) {
         bodyObj[key] = formVal[key]
-        if (key == "patientTranslations") {
-          for (let i = 0; i < formVal['patientTranslations'].length; i++) {
-            body.append('patientTranslations['+(i)+'][FullName]', formVal.patientTranslations[i].FullName ? formVal.patientTranslations[i].FullName :'');
-            body.append('patientTranslations['+(i)+'][Address]', formVal.patientTranslations[i].Address ? formVal.patientTranslations[i].FullName : '');
-            body.append('patientTranslations['+(i)+'][LangCode]', formVal.patientTranslations[i].LangCode);
+        if (key == "PatientTranslations") {
+          for (let i = 0; i < formVal['PatientTranslations'].length; i++) {
+            body.append('PatientTranslations['+(i)+'][FullName]', formVal.PatientTranslations[i].FullName ? formVal.PatientTranslations[i].FullName :'');
+            body.append('PatientTranslations['+(i)+'][Address]', formVal.PatientTranslations[i].Address ? formVal.PatientTranslations[i].Address : '');
+            body.append('PatientTranslations['+(i)+'][LangCode]', formVal.PatientTranslations[i].LangCode);
           }
         }
         else {

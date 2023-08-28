@@ -14,13 +14,13 @@
                             <h4 class="text-center p-3 ">{{"booking_info"|translate}}</h4>
                         </div>
                         <div [formGroup]="form">
-                            <label for="exampleInputPassword1" class="form-label my-3 generalColor">{{"name"|translate}} </label>
+                            <!-- <label for="exampleInputPassword1" class="form-label my-3 generalColor">{{"name"|translate}} </label>
                             <input type="text" class="form-control" id="exampleInputPassword1" [disabled]="true">
 
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label my-3  generalColor "> {{"mobile_no"|translate}}</label>
                               <input type="number" class="form-control" id="exampleInputPassword1" [disabled]="true">
-                            </div>
+                            </div> -->
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label my-3 generalColor d-block"> {{"visit_type"|translate}} </label>
                               <mat-radio-group formControlName="TypeVisitId"  aria-label="Select an option" (change)="getVisit($event)">

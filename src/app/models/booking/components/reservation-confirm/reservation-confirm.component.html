@@ -25,14 +25,16 @@
           <p class="bold fs-5 generalColor"> {{"booking_info"|translate}} </p>
           <p>
             {{workPeriod.dayName}} <span class="spanColor">{{data.VisitingDate}}</span>
-            <span class="fSize">{{workPeriod.workingPeriod}}</span>
           </p>
-        </div>
+          <p class="fSize">{{workPeriod.workingPeriod}}</p>
+          
         <p class="spanColor bold fs-5">{{workPeriod.clinic}}</p>
         <p class="spanColor bold fs-5">{{"price"|translate}}  : {{data.price}}</p>
 
+        </div>
 
-        <div class="d-grid gap-2">
+
+        <div class="d-grid gap-1">
           <button class="btn button1 generalBGColor text-white" (click)="confirm()">
              {{"confirm"|translate}}
           </button>

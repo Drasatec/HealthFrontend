@@ -26,7 +26,7 @@
   "doctor_info":"Doctor Information",
   "booking_info":"Booking Info.",
   "name":"Name",
-  "mobile_no":"Modile Number",
+  "mobile_no":"Mobile Number",
   "visit_type":"Visit Types",
   "problem":"Your Problem",
   "booking":"Book",
@@ -39,5 +39,13 @@
     "address":"Address",
     "marital":"Marital Status",
   "nationality":"Nationality",
-  "religion":"Religion"
+  "religion":"Religion",
+  "name_en":"Name In English",
+  "blood_type":"Blood Type",
+  "save":"Save",
+  "password":"Password",
+  "register":"Register",
+  "forget_password":"Forget Password",
+  "confirm_password":"Confirm Password",
+  "enter_data":"Enter Data"
 }
