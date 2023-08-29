@@ -1,6 +1,7 @@
 nav{
   background: var(--main-color);
-  color:#fff
+  color:#fff;
+  height: 69px;
 
 }
 

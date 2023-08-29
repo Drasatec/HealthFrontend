@@ -2,7 +2,7 @@
   <carousel [(activeSlide)]="activeSlideIndex" >
     <slide *ngFor="let slide of promtion| orderBy: 'position'">
       <ng-container >
-        <img [src]="imgUrl + 'small/'+slide.photo" alt="image slide" style="display: block; width: 100%;height:80vh">
+        <img [src]="imgUrl + 'medium/'+slide.photo" alt="image slide" style="display: block; width: 100%;height:80vh">
 
       <div class="carousel-caption">
         <h1>{{slide.promotionsTranslations[0]?.title}}</h1>

@@ -9,7 +9,8 @@
     border:none;
 }
 ::ng-deep .ng-select .ng-select-container .ng-value-container .ng-placeholder {
-    color:#fff
+    color:#fff;
+    font-size: 1.3rem;
 
 }
 ::ng-deep .ng-select.ng-select-opened .ng-select-container {

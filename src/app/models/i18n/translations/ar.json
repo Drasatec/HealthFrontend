@@ -48,5 +48,13 @@
   "forget_password":"نسيت كلمةالمرور",
   "confirm_password":"تأكيد كلمة المرور",
   "enter_data":"ادخال بيانات",
-  "book":"حجز"
+  "book":"حجز",
+  "copyright":"جميع الحقوق محفوظة ل",
+  "contact_us":"ادخل البيانات للتواصل معنا",
+  "send_message":"ارسل رسالة",
+  "subject":"عنوان الرسالة",
+  "message":"الرسالة",
+  "send":"ارسال",
+  "contact":"تواصل معنا",
+  "features":"مميزاتنا"
 }

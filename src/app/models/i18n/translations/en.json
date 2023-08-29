@@ -47,5 +47,13 @@
   "register":"Register",
   "forget_password":"Forget Password",
   "confirm_password":"Confirm Password",
-  "enter_data":"Enter Data"
+  "enter_data":"Enter Data",
+  "copyright":"All Reserved to ",
+  "contact_us":"Enter Data to Contact Us",
+  "send_message":"Send Message",
+  "subject":"Subject",
+  "message":"Message",
+  "send":"Send",
+  "contact":"Contact Us",
+  "features":"Our Features"
 }

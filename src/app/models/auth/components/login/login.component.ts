@@ -19,12 +19,16 @@ export class LoginComponent {
   constructor(private authService:AuthService,private snackBar: MatSnackBar,
     private router:Router
     ){}
+    loading=false
   save(){
     this.form.markAllAsTouched();
     if(this.form.valid){
-      this.authService.login(this.form.value).subscribe(
-        (res)=>{
+      this.loading=true
+      this.authService.login(this.form.value).subscribe({
+        next:res=>{
+          console.log("res",res)
           if(res.success){
+            this.loading=false
             this.snackBar.open("تم الدخول بنجاح ", "success", {
               duration: 5000,
               panelClass: 'success'
@@ -47,19 +51,23 @@ export class LoginComponent {
             }
             
           }else {
+          console.log("res",res)
+
+            this.loading=false
             this.snackBar.open("الايميل او الباسورد خاطئة", "error", {
               duration: 5000,
               panelClass: 'error'
             });
           }
 
-        },(error)=>{
+        },error:err=>{
+          this.loading=false
           this.snackBar.open("الايميل او الباسورد خاطيء", "error", {
             duration: 5000,
             panelClass: 'error'
           });
         }
-      )
+    })
     }
   }
 }
